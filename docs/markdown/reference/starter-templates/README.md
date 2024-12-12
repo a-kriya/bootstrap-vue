@@ -34,9 +34,6 @@ tags to load the required JavaScript and CSS in your page.
       href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
     />
 
-    <!-- Load polyfills to support older browsers -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
-
     <!-- Required scripts -->
     <script src="https://unpkg.com/vue@[[ vueVersion ]]/dist/vue.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
@@ -68,13 +65,13 @@ tags to load the required JavaScript and CSS in your page.
       window.app = new Vue({
         el: '#app',
         data: {
-          name: ''
+          name: '',
         },
         computed: {
           showAlert() {
             return this.name.length > 4 ? true : false
-          }
-        }
+          },
+        },
       })
     </script>
   </body>
@@ -134,8 +131,8 @@ export default {
     BCardFooter,
     BCardHeader,
     BCardImg,
-    BTable
-  }
+    BTable,
+  },
   // ...
 }
 ```

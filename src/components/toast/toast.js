@@ -8,13 +8,13 @@ import {
   EVENT_NAME_HIDE,
   EVENT_NAME_SHOW,
   EVENT_NAME_SHOWN,
-  EVENT_OPTIONS_NO_CAPTURE
+  EVENT_OPTIONS_NO_CAPTURE,
 } from '../../constants/events'
 import {
   PROP_TYPE_ARRAY_OBJECT_STRING,
   PROP_TYPE_BOOLEAN,
   PROP_TYPE_NUMBER_STRING,
-  PROP_TYPE_STRING
+  PROP_TYPE_STRING,
 } from '../../constants/props'
 import { SLOT_NAME_DEFAULT, SLOT_NAME_TOAST_TITLE } from '../../constants/slots'
 import { BvEvent } from '../../utils/bv-event.class'
@@ -43,11 +43,11 @@ const {
   mixin: modelMixin,
   props: modelProps,
   prop: MODEL_PROP_NAME,
-  event: MODEL_EVENT_NAME
+  event: MODEL_EVENT_NAME,
 } = makeModelMixin('visible', {
   type: PROP_TYPE_BOOLEAN,
   defaultValue: false,
-  event: EVENT_NAME_CHANGE
+  event: EVENT_NAME_CHANGE,
 })
 
 const MIN_DURATION = 1000
@@ -78,7 +78,7 @@ export const props = makePropsConfigurable(
     title: makeProp(PROP_TYPE_STRING),
     toastClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     toaster: makeProp(PROP_TYPE_STRING, 'b-toaster-top-right'),
-    variant: makeProp(PROP_TYPE_STRING)
+    variant: makeProp(PROP_TYPE_STRING),
   }),
   NAME_TOAST
 )
@@ -94,7 +94,7 @@ export const BToast = /*#__PURE__*/ extend({
     modelMixin,
     listenOnRootMixin,
     normalizeSlotMixin,
-    scopedStyleMixin
+    scopedStyleMixin,
   ],
   inheritAttrs: false,
   props,
@@ -107,7 +107,7 @@ export const BToast = /*#__PURE__*/ extend({
       isHiding: false,
       order: 0,
       dismissStarted: 0,
-      resumeDismiss: 0
+      resumeDismiss: 0,
     }
   },
   computed: {
@@ -118,7 +118,7 @@ export const BToast = /*#__PURE__*/ extend({
         'b-toast-solid': this.solid,
         'b-toast-append': appendToast,
         'b-toast-prepend': !appendToast,
-        [`b-toast-${variant}`]: variant
+        [`b-toast-${variant}`]: variant,
       }
     },
     slotScope() {
@@ -137,16 +137,16 @@ export const BToast = /*#__PURE__*/ extend({
         beforeEnter: this.onBeforeEnter,
         afterEnter: this.onAfterEnter,
         beforeLeave: this.onBeforeLeave,
-        afterLeave: this.onAfterLeave
+        afterLeave: this.onAfterLeave,
       }
     },
     computedAttrs() {
       return {
         ...this.bvAttrs,
         id: this.safeId(),
-        tabindex: '0'
+        tabindex: '0',
       }
-    }
+    },
   },
   watch: {
     [MODEL_PROP_NAME](newValue) {
@@ -169,7 +169,7 @@ export const BToast = /*#__PURE__*/ extend({
       if (newValue && this.localShow) {
         this.ensureToaster()
       }
-    }
+    },
   },
   created() {
     // Create private non-reactive props
@@ -247,7 +247,7 @@ export const BToast = /*#__PURE__*/ extend({
         relatedTarget: null,
         ...options,
         vueTarget: this,
-        componentId: this.safeId()
+        componentId: this.safeId(),
       })
     },
     emitEvent(bvEvent) {
@@ -266,7 +266,7 @@ export const BToast = /*#__PURE__*/ extend({
         document.body.appendChild(div)
 
         const toaster = createNewChildComponent(this.bvEventRoot, BToaster, {
-          propsData: { name: computedToaster }
+          propsData: { name: computedToaster },
         })
 
         toaster.$mount(div)
@@ -358,8 +358,8 @@ export const BToast = /*#__PURE__*/ extend({
             on: {
               click: () => {
                 this.hide()
-              }
-            }
+              },
+            },
           })
         )
       }
@@ -370,7 +370,7 @@ export const BToast = /*#__PURE__*/ extend({
           this.headerTag,
           {
             staticClass: 'toast-header',
-            class: this.headerClass
+            class: this.headerClass,
           },
           $headerContent
         )
@@ -382,7 +382,7 @@ export const BToast = /*#__PURE__*/ extend({
           staticClass: 'toast-body',
           class: this.bodyClass,
           props: link ? pluckProps(linkProps, this) : {},
-          on: link ? { click: this.onLinkClick } : {}
+          on: link ? { click: this.onLinkClick } : {},
         },
         this.normalizeSlot(SLOT_NAME_DEFAULT, slotScope)
       )
@@ -394,11 +394,11 @@ export const BToast = /*#__PURE__*/ extend({
           class: this.toastClass,
           attrs: this.computedAttrs,
           key: `toast-${this[COMPONENT_UID_KEY]}`,
-          ref: 'toast'
+          ref: 'toast',
         },
         [$header, $body]
       )
-    }
+    },
   },
   render(h) {
     if (!this.doRender || !this.isMounted) {
@@ -420,20 +420,20 @@ export const BToast = /*#__PURE__*/ extend({
           id: this.safeId('_toast_outer'),
           role: isHiding ? null : isStatus ? 'status' : 'alert',
           'aria-live': isHiding ? null : isStatus ? 'polite' : 'assertive',
-          'aria-atomic': isHiding ? null : 'true'
+          'aria-atomic': isHiding ? null : 'true',
         },
         key: name,
-        ref: 'b-toast'
+        ref: 'b-toast',
       },
       [
         h(
           BVTransition,
           {
             props: { noFade: this.noFade },
-            on: this.transitionHandlers
+            on: this.transitionHandlers,
           },
           [this.localShow ? this.makeToast(h) : h()]
-        )
+        ),
       ]
     )
 
@@ -450,5 +450,5 @@ export const BToast = /*#__PURE__*/ extend({
       },
       [$toast]
     )
-  }
+  },
 })

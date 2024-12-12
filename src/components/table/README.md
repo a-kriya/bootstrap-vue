@@ -22,10 +22,10 @@
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -43,7 +43,7 @@ format:
 const items = [
   { age: 32, first_name: 'Cyndi' },
   { age: 27, first_name: 'Havij' },
-  { age: 42, first_name: 'Robert' }
+  { age: 42, first_name: 'Robert' },
 ]
 ```
 
@@ -96,18 +96,18 @@ modifier properties (make sure your field keys do not conflict with these names)
             age: 89,
             first_name: 'Geneva',
             last_name: 'Wilson',
-            _rowVariant: 'danger'
+            _rowVariant: 'danger',
           },
           {
             age: 40,
             first_name: 'Thor',
             last_name: 'MacDonald',
-            _cellVariants: { age: 'info', first_name: 'warning' }
+            _cellVariants: { age: 'info', first_name: 'warning' },
           },
-          { age: 29, first_name: 'Dick', last_name: 'Dunlap' }
-        ]
+          { age: 29, first_name: 'Dick', last_name: 'Dunlap' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -169,10 +169,10 @@ Fields can be a simple array, for defining the order of the columns, and which c
           { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -201,28 +201,28 @@ formatting, etc.). Only columns (keys) that appear in the fields array will be s
         fields: [
           {
             key: 'last_name',
-            sortable: true
+            sortable: true,
           },
           {
             key: 'first_name',
-            sortable: false
+            sortable: false,
           },
           {
             key: 'age',
             label: 'Person age',
             sortable: true,
             // Variant applies to the whole column, including the header and footer
-            variant: 'danger'
-          }
+            variant: 'danger',
+          },
         ],
         items: [
           { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -279,7 +279,7 @@ const fields = [
   { key: 'first_name', label: 'First' },
   { key: 'last_name', label: 'Last' },
   'age',
-  'sex'
+  'sex',
 ]
 ```
 
@@ -358,24 +358,40 @@ headers, sticky columns and the table sorting feature, all require BootstrapVue'
 <template>
   <div>
     <b-form-group label="Table Options" label-cols-lg="2" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox v-model="striped" :aria-describedby="ariaDescribedby" inline>Striped</b-form-checkbox>
-      <b-form-checkbox v-model="bordered" :aria-describedby="ariaDescribedby" inline>Bordered</b-form-checkbox>
-      <b-form-checkbox v-model="borderless" :aria-describedby="ariaDescribedby" inline>Borderless</b-form-checkbox>
-      <b-form-checkbox v-model="outlined" :aria-describedby="ariaDescribedby" inline>Outlined</b-form-checkbox>
-      <b-form-checkbox v-model="small" :aria-describedby="ariaDescribedby" inline>Small</b-form-checkbox>
-      <b-form-checkbox v-model="hover" :aria-describedby="ariaDescribedby" inline>Hover</b-form-checkbox>
-      <b-form-checkbox v-model="dark" :aria-describedby="ariaDescribedby" inline>Dark</b-form-checkbox>
-      <b-form-checkbox v-model="fixed" :aria-describedby="ariaDescribedby" inline>Fixed</b-form-checkbox>
-      <b-form-checkbox v-model="footClone" :aria-describedby="ariaDescribedby" inline>Foot Clone</b-form-checkbox>
-      <b-form-checkbox v-model="noCollapse" :aria-describedby="ariaDescribedby" inline>No border collapse</b-form-checkbox>
+      <b-form-checkbox v-model="striped" :aria-describedby="ariaDescribedby" inline
+        >Striped</b-form-checkbox
+      >
+      <b-form-checkbox v-model="bordered" :aria-describedby="ariaDescribedby" inline
+        >Bordered</b-form-checkbox
+      >
+      <b-form-checkbox v-model="borderless" :aria-describedby="ariaDescribedby" inline
+        >Borderless</b-form-checkbox
+      >
+      <b-form-checkbox v-model="outlined" :aria-describedby="ariaDescribedby" inline
+        >Outlined</b-form-checkbox
+      >
+      <b-form-checkbox v-model="small" :aria-describedby="ariaDescribedby" inline
+        >Small</b-form-checkbox
+      >
+      <b-form-checkbox v-model="hover" :aria-describedby="ariaDescribedby" inline
+        >Hover</b-form-checkbox
+      >
+      <b-form-checkbox v-model="dark" :aria-describedby="ariaDescribedby" inline
+        >Dark</b-form-checkbox
+      >
+      <b-form-checkbox v-model="fixed" :aria-describedby="ariaDescribedby" inline
+        >Fixed</b-form-checkbox
+      >
+      <b-form-checkbox v-model="footClone" :aria-describedby="ariaDescribedby" inline
+        >Foot Clone</b-form-checkbox
+      >
+      <b-form-checkbox v-model="noCollapse" :aria-describedby="ariaDescribedby" inline
+        >No border collapse</b-form-checkbox
+      >
     </b-form-group>
 
     <b-form-group label="Head Variant" label-cols-lg="2" v-slot="{ ariaDescribedby }">
-      <b-form-radio-group
-        v-model="headVariant"
-        :aria-describedby="ariaDescribedby"
-        class="mt-lg-2"
-      >
+      <b-form-radio-group v-model="headVariant" :aria-describedby="ariaDescribedby" class="mt-lg-2">
         <b-form-radio :value="null" inline>None</b-form-radio>
         <b-form-radio value="light" inline>Light</b-form-radio>
         <b-form-radio value="dark" inline>Dark</b-form-radio>
@@ -383,11 +399,7 @@ headers, sticky columns and the table sorting feature, all require BootstrapVue'
     </b-form-group>
 
     <b-form-group label="Table Variant" label-for="table-style-variant" label-cols-lg="2">
-      <b-form-select
-        id="table-style-variant"
-        v-model="tableVariant"
-        :options="tableVariants"
-      >
+      <b-form-select id="table-style-variant" v-model="tableVariant" :options="tableVariants">
         <template #first>
           <option value="">-- None --</option>
         </template>
@@ -421,7 +433,7 @@ headers, sticky columns and the table sorting feature, all require BootstrapVue'
         items: [
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' }
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
         ],
         tableVariants: [
           'primary',
@@ -431,7 +443,7 @@ headers, sticky columns and the table sorting feature, all require BootstrapVue'
           'warning',
           'success',
           'light',
-          'dark'
+          'dark',
         ],
         striped: false,
         bordered: false,
@@ -444,9 +456,9 @@ headers, sticky columns and the table sorting feature, all require BootstrapVue'
         footClone: false,
         headVariant: null,
         tableVariant: '',
-        noCollapse: false
+        noCollapse: false,
       }
-    }
+    },
   }
 </script>
 
@@ -489,16 +501,16 @@ will be as follows:
         items: [
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald', status: 'awesome' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' }
-        ]
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+        ],
       }
     },
     methods: {
       rowClass(item, type) {
         if (!item || type !== 'row') return
         if (item.status === 'awesome') return 'table-success'
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -538,7 +550,7 @@ values: `sm`, `md`, `lg`, or `xl`.
             heading9: 'table cell',
             heading10: 'table cell',
             heading11: 'table cell',
-            heading12: 'table cell'
+            heading12: 'table cell',
           },
           {
             heading1: 'table cell',
@@ -552,7 +564,7 @@ values: `sm`, `md`, `lg`, or `xl`.
             heading9: 'table cell',
             heading10: 'table cell',
             heading11: 'table cell',
-            heading12: 'table cell'
+            heading12: 'table cell',
           },
           {
             heading1: 'table cell',
@@ -566,11 +578,11 @@ values: `sm`, `md`, `lg`, or `xl`.
             heading9: 'table cell',
             heading10: 'table cell',
             heading11: 'table cell',
-            heading12: 'table cell'
-          }
-        ]
+            heading12: 'table cell',
+          },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -628,10 +640,10 @@ The `stacked` prop takes precedence over the [`sticky-header`](#sticky-headers) 
         items: [
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' }
-        ]
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -677,10 +689,10 @@ bottom of the table:
         items: [
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' }
-        ]
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -706,10 +718,10 @@ You can have the caption placed at the top of the table by setting the `caption-
         items: [
           { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' }
-        ]
+          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -746,13 +758,13 @@ explicit widths, or minimum widths, via a style or a class for each column's res
 element. For example:
 
 ```html
-<b-table fixed responsive :items="items" :fields="fields" ... >
+<b-table fixed responsive :items="items" :fields="fields" ...>
   <template #table-colgroup="scope">
     <col
       v-for="field in scope.fields"
       :key="field.key"
       :style="{ width: field.key === 'foo' ? '120px' : '180px' }"
-    >
+    />
   </template>
   <!-- additional table slots here if needed -->
 </b-table>
@@ -807,15 +819,15 @@ the table's busy state is `true`. The slot will be placed in a `<tr>` element wi
           { first_name: 'Dickerson', last_name: 'MacDonald', age: 40 },
           { first_name: 'Larsen', last_name: 'Shaw', age: 21 },
           { first_name: 'Geneva', last_name: 'Wilson', age: 89 },
-          { first_name: 'Jami', last_name: 'Carney', age: 38 }
-        ]
+          { first_name: 'Jami', last_name: 'Carney', age: 38 },
+        ],
       }
     },
     methods: {
       toggleBusy() {
         this.isBusy = !this.isBusy
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -855,9 +867,7 @@ explicit scoped slot provided.
   <div>
     <b-table small :fields="fields" :items="items" responsive="sm">
       <!-- A virtual column -->
-      <template #cell(index)="data">
-        {{ data.index + 1 }}
-      </template>
+      <template #cell(index)="data"> {{ data.index + 1 }} </template>
 
       <!-- A custom formatted column -->
       <template #cell(name)="data">
@@ -891,16 +901,16 @@ explicit scoped slot provided.
           // A regular column
           'sex',
           // A virtual column made up from two fields
-          { key: 'nameage', label: 'First name and age' }
+          { key: 'nameage', label: 'First name and age' },
         ],
         items: [
           { name: { first: 'John', last: 'Doe' }, sex: 'Male', age: 42 },
           { name: { first: 'Jane', last: 'Doe' }, sex: 'Female', age: 36 },
           { name: { first: 'Rubin', last: 'Kincade' }, sex: 'Male', age: 73 },
-          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'Female', age: 62 }
-        ]
+          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'Female', age: 62 },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -957,11 +967,11 @@ scoped field slot.
         items: [
           {
             text: 'This is <i>escaped</i> content',
-            html: 'This is <i>raw <strong>HTML</strong></i> <span style="color:red">content</span>'
-          }
-        ]
+            html: 'This is <i>raw <strong>HTML</strong></i> <span style="color:red">content</span>',
+          },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1012,16 +1022,16 @@ formatted value as a string (HTML strings are not supported)
             // calling formatter 'fullName' in this app
             key: 'name',
             label: 'Full Name',
-            formatter: 'fullName'
+            formatter: 'fullName',
           },
           // A regular column
           'age',
           {
             // A regular column with custom formatter
             key: 'sex',
-            formatter: value => {
+            formatter: (value) => {
               return value.charAt(0).toUpperCase()
-            }
+            },
           },
           {
             // A virtual column with custom formatter
@@ -1029,22 +1039,22 @@ formatted value as a string (HTML strings are not supported)
             label: 'Calculated Birth Year',
             formatter: (value, key, item) => {
               return new Date().getFullYear() - item.age
-            }
-          }
+            },
+          },
         ],
         items: [
           { name: { first: 'John', last: 'Doe' }, sex: 'Male', age: 42 },
           { name: { first: 'Jane', last: 'Doe' }, sex: 'Female', age: 36 },
           { name: { first: 'Rubin', last: 'Kincade' }, sex: 'male', age: 73 },
-          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'female', age: 62 }
-        ]
+          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'female', age: 62 },
+        ],
       }
     },
     methods: {
       fullName(value) {
         return `${value.first} ${value.last}`
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -1053,8 +1063,8 @@ formatted value as a string (HTML strings are not supported)
 
 ## Header and Footer custom rendering via scoped slots
 
-It is also possible to provide custom rendering for the table's `thead` and `tfoot` elements. Note by
-default the table footer is not rendered unless `foot-clone` is set to `true`.
+It is also possible to provide custom rendering for the table's `thead` and `tfoot` elements. Note
+by default the table footer is not rendered unless `foot-clone` is set to `true`.
 
 Scoped slots for the header and footer cells uses a special naming convention of
 `'head(<fieldkey>)'` and `'foot(<fieldkey>)'` respectively. if a `'foot(...)'` slot for a field is
@@ -1069,9 +1079,7 @@ footer cells that do not have an explicit scoped slot provided.
   <div>
     <b-table :fields="fields" :items="items" foot-clone>
       <!-- A custom formatted data column cell -->
-      <template #cell(name)="data">
-        {{ data.value.first }} {{ data.value.last }}
-      </template>
+      <template #cell(name)="data"> {{ data.value.first }} {{ data.value.last }} </template>
 
       <!-- A custom formatted header cell for field 'name' -->
       <template #head(name)="data">
@@ -1101,16 +1109,16 @@ footer cells that do not have an explicit scoped slot provided.
           // A regular column
           'age',
           // A regular column
-          'sex'
+          'sex',
         ],
         items: [
           { name: { first: 'John', last: 'Doe' }, sex: 'Male', age: 42 },
           { name: { first: 'Jane', last: 'Doe' }, sex: 'Female', age: 36 },
           { name: { first: 'Rubin', last: 'Kincade' }, sex: 'Male', age: 73 },
-          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'Female', age: 62 }
-        ]
+          { name: { first: 'Shirley', last: 'Partridge' }, sex: 'Female', age: 62 },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1150,11 +1158,7 @@ rather than native browser table child elements.
 ```html
 <template>
   <div>
-    <b-table
-      :items="items"
-      :fields="fields"
-      responsive="sm"
-    >
+    <b-table :items="items" :fields="fields" responsive="sm">
       <template #thead-top="data">
         <b-tr>
           <b-th colspan="2"><span class="sr-only">Name and ID</span></b-th>
@@ -1172,11 +1176,51 @@ rather than native browser table child elements.
     data() {
       return {
         items: [
-          { name: 'Stephen Hawking', id: 1, type1: false, type2a: true, type2b: false, type2c: false, type3: false },
-          { name: 'Johnny Appleseed', id: 2, type1: false, type2a: true, type2b: true, type2c: false, type3: false },
-          { name: 'George Washington', id: 3, type1: false, type2a: false, type2b: false, type2c: false, type3: true },
-          { name: 'Albert Einstein', id: 4, type1: true, type2a: false, type2b: false, type2c: true, type3: false },
-          { name: 'Isaac Newton', id: 5, type1: true, type2a: true, type2b: false, type2c: true, type3: false },
+          {
+            name: 'Stephen Hawking',
+            id: 1,
+            type1: false,
+            type2a: true,
+            type2b: false,
+            type2c: false,
+            type3: false,
+          },
+          {
+            name: 'Johnny Appleseed',
+            id: 2,
+            type1: false,
+            type2a: true,
+            type2b: true,
+            type2c: false,
+            type3: false,
+          },
+          {
+            name: 'George Washington',
+            id: 3,
+            type1: false,
+            type2a: false,
+            type2b: false,
+            type2c: false,
+            type3: true,
+          },
+          {
+            name: 'Albert Einstein',
+            id: 4,
+            type1: true,
+            type2a: false,
+            type2b: false,
+            type2c: true,
+            type3: false,
+          },
+          {
+            name: 'Isaac Newton',
+            id: 5,
+            type1: true,
+            type2a: true,
+            type2b: false,
+            type2c: true,
+            type3: false,
+          },
         ],
         fields: [
           'name',
@@ -1185,10 +1229,10 @@ rather than native browser table child elements.
           { key: 'type2a', label: 'Type 2A' },
           { key: 'type2b', label: 'Type 2B' },
           { key: 'type2c', label: 'Type 2C' },
-          { key: 'type3', label: 'Type 3' }
-        ]
+          { key: 'type3', label: 'Type 3' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1294,10 +1338,10 @@ available horizontal space.
           { heading1: 'table cell', heading2: 'table cell', heading3: 'table cell' },
           { heading1: 'table cell', heading2: 'table cell', heading3: 'table cell' },
           { heading1: 'table cell', heading2: 'table cell', heading3: 'table cell' },
-          { heading1: 'table cell', heading2: 'table cell', heading3: 'table cell' }
-        ]
+          { heading1: 'table cell', heading2: 'table cell', heading3: 'table cell' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1346,9 +1390,7 @@ set.
         <div class="text-nowrap">Row ID</div>
       </template>
       <template #head()="scope">
-        <div class="text-nowrap">
-          Heading {{ scope.label }}
-        </div>
+        <div class="text-nowrap">Heading {{ scope.label }}</div>
       </template>
     </b-table>
   </div>
@@ -1373,7 +1415,7 @@ set.
           'i',
           'j',
           'k',
-          'l'
+          'l',
         ],
         items: [
           { id: 1, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 },
@@ -1385,10 +1427,10 @@ set.
           { id: 7, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 },
           { id: 8, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 },
           { id: 9, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 },
-          { id: 10, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 }
-        ]
+          { id: 10, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5, g: 6, h: 7, i: 8, j: 9, k: 10, l: 11 },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1497,12 +1539,12 @@ initially showing.
             age: 89,
             first_name: 'Geneva',
             last_name: 'Wilson',
-            _showDetails: true
+            _showDetails: true,
           },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1585,11 +1627,7 @@ selected, such as a virtual column as shown in the example below.
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Selection mode:"
-      label-for="table-select-mode-select"
-      label-cols-md="4"
-    >
+    <b-form-group label="Selection mode:" label-for="table-select-mode-select" label-cols-md="4">
       <b-form-select
         id="table-select-mode-select"
         v-model="selectMode"
@@ -1626,7 +1664,7 @@ selected, such as a virtual column as shown in the example below.
       <b-button size="sm" @click="unselectThirdRow">Unselect 3rd row</b-button>
     </p>
     <p>
-      Selected Rows:<br>
+      Selected Rows:<br />
       {{ selected }}
     </p>
   </div>
@@ -1642,10 +1680,10 @@ selected, such as a virtual column as shown in the example below.
           { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
         ],
         selectMode: 'multi',
-        selected: []
+        selected: [],
       }
     },
     methods: {
@@ -1665,8 +1703,8 @@ selected, such as a virtual column as shown in the example below.
       unselectThirdRow() {
         // Rows are indexed from 0, so the third row is index 2
         this.$refs.selectableTable.unselectRow(2)
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -1727,21 +1765,21 @@ table#table-transition-example .flip-list-move {
       return {
         transProps: {
           // Transition name
-          name: 'flip-list'
+          name: 'flip-list',
         },
         items: [
           { a: 2, b: 'Two', c: 'Moose' },
           { a: 1, b: 'Three', c: 'Dog' },
           { a: 3, b: 'Four', c: 'Cat' },
-          { a: 4, b: 'One', c: 'Mouse' }
+          { a: 4, b: 'One', c: 'Mouse' },
         ],
         fields: [
           { key: 'a', sortable: true },
           { key: 'b', sortable: true },
-          { key: 'c', sortable: true }
-        ]
+          { key: 'c', sortable: true },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1820,16 +1858,16 @@ clicks in the footer, set the `no-footer-sorting` prop to true.
           { key: 'last_name', sortable: true },
           { key: 'first_name', sortable: true },
           { key: 'age', sortable: true },
-          { key: 'isActive', sortable: false }
+          { key: 'isActive', sortable: false },
         ],
         items: [
           { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1870,16 +1908,16 @@ left aligned by setting the prop `sort-icon-left` on `<b-table>`.
           { key: 'last_name', sortable: true },
           { key: 'first_name', sortable: true },
           { key: 'age', sortable: true },
-          { key: 'isActive', sortable: false }
+          { key: 'isActive', sortable: false },
         ],
         items: [
           { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
           { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
           { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
+          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' },
+        ],
       }
-    }
+    },
   }
 </script>
 
@@ -1969,7 +2007,7 @@ sorts _before_ `z`) or Swedish set `sort-compare-locale="sv"` (in Swedish, `ä` 
 **Example 2:** To compare numbers that are strings numerically, and to ignore case and accents:
 
 ```html
-<b-table :sort-compare-options="{ numeric: true, sensitivity: 'base' }" ...>
+<b-table :sort-compare-options="{ numeric: true, sensitivity: 'base' }" ...></b-table>
 ```
 
 **Notes:**
@@ -2053,7 +2091,7 @@ function toString(value) {
   } else if (value instanceof Object) {
     return Object.keys(value)
       .sort()
-      .map(key => toString(value[key]))
+      .map((key) => toString(value[key]))
       .join(' ')
   } else {
     return String(value)
@@ -2256,7 +2294,7 @@ function myProvider(ctx, callback) {
   const params = '?page=' + ctx.currentPage + '&size=' + ctx.perPage
 
   this.fetchData('/some/url' + params)
-    .then(data => {
+    .then((data) => {
       // Pluck the array of items off our axios response
       const items = data.items
       // Provide the array of items to the callback
@@ -2280,7 +2318,7 @@ function myProvider(ctx) {
   const promise = axios.get('/some/url?page=' + ctx.currentPage + '&size=' + ctx.perPage)
 
   // Must return a promise that resolves to an array of items
-  return promise.then(data => {
+  return promise.then((data) => {
     // Pluck the array of items off our axios response
     const items = data.items
     // Must return an array of items or an empty array if an error occurred
@@ -2324,13 +2362,7 @@ function should handle errors from data sources and return an empty array to `<b
 ```html
 <template>
   <div>
-    <b-table
-      id="my-table"
-      :busy.sync="isBusy"
-      :items="myProvider"
-      :fields="fields"
-      ...
-    ></b-table>
+    <b-table id="my-table" :busy.sync="isBusy" :items="myProvider" :fields="fields" ...></b-table>
   </div>
 </template>
 
@@ -2434,7 +2466,7 @@ Or by calling the `refresh()` method on the table reference
 
 ```html
 <div>
-  <b-table ref="table" ... ></b-table>
+  <b-table ref="table" ...></b-table>
 </div>
 ```
 
@@ -2453,7 +2485,7 @@ have changed.
 
 ```html
 <div>
-  <b-table @sort-changed="sortingChanged" ... ></b-table>
+  <b-table @sort-changed="sortingChanged" ...></b-table>
 </div>
 ```
 
@@ -2468,8 +2500,8 @@ export default {
     sortingChanged(ctx) {
       // ctx.sortBy   ==> Field key for sorting by (or null for no sorting)
       // ctx.sortDesc ==> true if sorting descending, false otherwise
-    }
-  }
+    },
+  },
 }
 ```
 
@@ -2478,7 +2510,7 @@ You can also obtain the current sortBy and sortDesc values by using the `:sort-b
 
 ```html
 <div>
-  <b-table :sort-by.sync="mySortBy" :sort-desc.sync="mySortDesc" ... ></b-table>
+  <b-table :sort-by.sync="mySortBy" :sort-desc.sync="mySortDesc" ...></b-table>
 </div>
 ```
 
@@ -2534,10 +2566,22 @@ sorting, pagination, filtering, foot-clone, items, fields, etc.).
 ```html
 <div>
   <b-table-simple hover small caption-top responsive>
-    <caption>Items sold in August, grouped by Country and City:</caption>
-    <colgroup><col><col></colgroup>
-    <colgroup><col><col><col></colgroup>
-    <colgroup><col><col></colgroup>
+    <caption>
+      Items sold in August, grouped by Country and City:
+    </caption>
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
+    <colgroup>
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
     <b-thead head-variant="dark">
       <b-tr>
         <b-th colspan="2">Region</b-th>
@@ -2600,9 +2644,7 @@ sorting, pagination, filtering, foot-clone, items, fields, etc.).
     </b-tbody>
     <b-tfoot>
       <b-tr>
-        <b-td colspan="7" variant="secondary" class="text-right">
-          Total Rows: <b>5</b>
-        </b-td>
+        <b-td colspan="7" variant="secondary" class="text-right"> Total Rows: <b>5</b> </b-td>
       </b-tr>
     </b-tfoot>
   </b-table-simple>
@@ -2631,10 +2673,22 @@ stacked mode (specifically for generating the cell headings):
 ```html
 <div>
   <b-table-simple hover small caption-top stacked>
-    <caption>Items sold in August, grouped by Country and City:</caption>
-    <colgroup><col><col></colgroup>
-    <colgroup><col><col><col></colgroup>
-    <colgroup><col><col></colgroup>
+    <caption>
+      Items sold in August, grouped by Country and City:
+    </caption>
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
+    <colgroup>
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
     <b-thead head-variant="dark">
       <b-tr>
         <b-th colspan="2">Region</b-th>
@@ -2697,9 +2751,7 @@ stacked mode (specifically for generating the cell headings):
     </b-tbody>
     <b-tfoot>
       <b-tr>
-        <b-td colspan="7" variant="secondary" class="text-right">
-          Total Rows: <b>5</b>
-        </b-td>
+        <b-td colspan="7" variant="secondary" class="text-right"> Total Rows: <b>5</b> </b-td>
       </b-tr>
     </b-tfoot>
   </b-table-simple>
@@ -3043,9 +3095,7 @@ your app handles the various inconsistencies with events.
       small
       @filtered="onFiltered"
     >
-      <template #cell(name)="row">
-        {{ row.value.first }} {{ row.value.last }}
-      </template>
+      <template #cell(name)="row"> {{ row.value.first }} {{ row.value.last }} </template>
 
       <template #cell(actions)="row">
         <b-button size="sm" @click="info(row.item, row.index, $event.target)" class="mr-1">
@@ -3083,7 +3133,7 @@ your app handles the various inconsistencies with events.
             isActive: false,
             age: 9,
             name: { first: 'Mini', last: 'Navarro' },
-            _rowVariant: 'success'
+            _rowVariant: 'success',
           },
           { isActive: false, age: 89, name: { first: 'Geneva', last: 'Wilson' } },
           { isActive: true, age: 38, name: { first: 'Jami', last: 'Carney' } },
@@ -3093,12 +3143,12 @@ your app handles the various inconsistencies with events.
             isActive: true,
             age: 87,
             name: { first: 'Larsen', last: 'Shaw' },
-            _cellVariants: { age: 'danger', isActive: 'warning' }
+            _cellVariants: { age: 'danger', isActive: 'warning' },
           },
           { isActive: false, age: 26, name: { first: 'Mitzi', last: 'Navarro' } },
           { isActive: false, age: 22, name: { first: 'Genevieve', last: 'Wilson' } },
           { isActive: true, age: 38, name: { first: 'John', last: 'Carney' } },
-          { isActive: false, age: 29, name: { first: 'Dick', last: 'Dunlap' } }
+          { isActive: false, age: 29, name: { first: 'Dick', last: 'Dunlap' } },
         ],
         fields: [
           { key: 'name', label: 'Person full name', sortable: true, sortDirection: 'desc' },
@@ -3111,14 +3161,14 @@ your app handles the various inconsistencies with events.
             },
             sortable: true,
             sortByFormatted: true,
-            filterByFormatted: true
+            filterByFormatted: true,
           },
-          { key: 'actions', label: 'Actions' }
+          { key: 'actions', label: 'Actions' },
         ],
         totalRows: 1,
         currentPage: 1,
         perPage: 5,
-        pageOptions: [5, 10, 15, { value: 100, text: "Show a lot" }],
+        pageOptions: [5, 10, 15, { value: 100, text: 'Show a lot' }],
         sortBy: '',
         sortDesc: false,
         sortDirection: 'asc',
@@ -3127,19 +3177,19 @@ your app handles the various inconsistencies with events.
         infoModal: {
           id: 'info-modal',
           title: '',
-          content: ''
-        }
+          content: '',
+        },
       }
     },
     computed: {
       sortOptions() {
         // Create an options list from our fields
         return this.fields
-          .filter(f => f.sortable)
-          .map(f => {
+          .filter((f) => f.sortable)
+          .map((f) => {
             return { text: f.label, value: f.key }
           })
-      }
+      },
     },
     mounted() {
       // Set the initial number of items
@@ -3159,8 +3209,8 @@ your app handles the various inconsistencies with events.
         // Trigger pagination to update the number of buttons/pages due to filtering
         this.totalRows = filteredItems.length
         this.currentPage = 1
-      }
-    }
+      },
+    },
   }
 </script>
 

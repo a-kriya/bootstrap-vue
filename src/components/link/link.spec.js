@@ -20,8 +20,8 @@ describe('b-link', () => {
   it('renders content from default slot', async () => {
     const wrapper = mount(BLink, {
       slots: {
-        default: 'foobar'
-      }
+        default: 'foobar',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -38,8 +38,8 @@ describe('b-link', () => {
   it('sets attribute href to user supplied value', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        href: '/foobar'
-      }
+        href: '/foobar',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -56,8 +56,8 @@ describe('b-link', () => {
   it('sets attribute href when user supplied href is hash target', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        href: '#foobar'
-      }
+        href: '#foobar',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -74,8 +74,8 @@ describe('b-link', () => {
   it('should set href to string `to` prop', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        to: '/foobar'
-      }
+        to: '/foobar',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -92,8 +92,8 @@ describe('b-link', () => {
   it('should set href to path from `to` prop', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        to: { path: '/foobar' }
-      }
+        to: { path: '/foobar' },
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -111,8 +111,8 @@ describe('b-link', () => {
     const wrapper = mount(BLink, {
       propsData: {
         href: '/foobar',
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -129,8 +129,8 @@ describe('b-link', () => {
       propsData: {
         href: '/foobar',
         target: '_blank',
-        rel: 'alternate'
-      }
+        rel: 'alternate',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -145,8 +145,8 @@ describe('b-link', () => {
   it('should add "active" class when prop active=true', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        active: true
-      }
+        active: true,
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -159,8 +159,8 @@ describe('b-link', () => {
   it('should add aria-disabled="true" when disabled', async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        disabled: true
-      }
+        disabled: true,
+      },
     })
     expect(wrapper.attributes('aria-disabled')).toBeDefined()
     expect(wrapper.attributes('aria-disabled')).toEqual('true')
@@ -171,8 +171,8 @@ describe('b-link', () => {
   it("should add '.disabled' class when prop disabled=true", async () => {
     const wrapper = mount(BLink, {
       propsData: {
-        disabled: true
-      }
+        disabled: true,
+      },
     })
     expect(wrapper.classes()).toContain('disabled')
 
@@ -183,8 +183,8 @@ describe('b-link', () => {
     const wrapper = mount(BLink, {
       attachTo: document.body,
       propsData: {
-        href: '#foobar'
-      }
+        href: '#foobar',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('A')
@@ -207,8 +207,8 @@ describe('b-link', () => {
           click: (e) => {
             event = e
             called++
-          }
-        }
+          },
+        },
       })
       expect(wrapper.element.tagName).toBe('A')
       expect(called).toBe(0)
@@ -225,8 +225,8 @@ describe('b-link', () => {
       const spy2 = jest.fn()
       const wrapper = mount(BLink, {
         listeners: {
-          click: [spy1, spy2]
-        }
+          click: [spy1, spy2],
+        },
       })
       expect(wrapper.element.tagName).toBe('A')
       expect(spy1).not.toHaveBeenCalled()
@@ -243,14 +243,14 @@ describe('b-link', () => {
       let event = null
       const wrapper = mount(BLink, {
         propsData: {
-          disabled: true
+          disabled: true,
         },
         listeners: {
           click: (e) => {
             event = e
             called++
-          }
-        }
+          },
+        },
       })
       expect(wrapper.element.tagName).toBe('A')
       expect(called).toBe(0)
@@ -265,8 +265,8 @@ describe('b-link', () => {
     it('should NOT invoke click handler bound via "addEventListener" when disabled and clicked', async () => {
       const wrapper = mount(BLink, {
         propsData: {
-          disabled: true
-        }
+          disabled: true,
+        },
       })
       const spy = jest.fn()
       expect(wrapper.element.tagName).toBe('A')
@@ -282,7 +282,7 @@ describe('b-link', () => {
       const App = {
         render(h) {
           return h('div', [h(BLink, { props: { href: '/foo' } }, 'link')])
-        }
+        },
       }
 
       const wrapper = mount(App)
@@ -300,7 +300,7 @@ describe('b-link', () => {
       const App = {
         render(h) {
           return h('div', [h(BLink, { props: { href: '/foo', disabled: true } }, 'link')])
-        }
+        },
       }
 
       const wrapper = mount(App)
@@ -318,7 +318,7 @@ describe('b-link', () => {
       const App = {
         render(h) {
           return h('div', [h(BLink, { props: { href: '/foo' } }, 'link')])
-        }
+        },
       }
 
       const wrapper = mount(App)
@@ -336,7 +336,7 @@ describe('b-link', () => {
       const App = {
         render(h) {
           return h('div', [h(BLink, { props: { href: '/foo', disabled: true } }, 'link')])
-        }
+        },
       }
 
       const wrapper = mount(App)
@@ -357,8 +357,8 @@ describe('b-link', () => {
         routes: [
           { path: '/', component: { name: 'R', template: '<div class="r">ROOT</div>' } },
           { path: '/a', component: { name: 'A', template: '<div class="a">A</div>' } },
-          { path: '/b', component: { name: 'B', template: '<div class="a">B</div>' } }
-        ]
+          { path: '/b', component: { name: 'B', template: '<div class="a">B</div>' } },
+        ],
       })
 
       // Fake Gridsome `<g-link>` component
@@ -367,14 +367,14 @@ describe('b-link', () => {
         props: {
           to: {
             type: [String, Object],
-            default: ''
-          }
+            default: '',
+          },
         },
         render(h) {
           // We just us a simple A tag to render the
           // fake `<g-link>` and assume `to` is a string
           return h('a', { attrs: { href: this.to } }, [this.$slots.default])
-        }
+        },
       }
 
       const App = {
@@ -389,14 +389,14 @@ describe('b-link', () => {
             h('b-link', { props: { to: { path: '/b' } } }, ['to-path-b']),
             // g-link
             h('b-link', { props: { routerComponentName: 'g-link', to: '/a' } }, ['g-link-a']),
-            h('router-view')
+            h('router-view'),
           ])
-        }
+        },
       }
 
       const wrapper = mount(App, {
         global: { components: { GLink }, plugins: [router] },
-        attachTo: document.body
+        attachTo: document.body,
       })
 
       expect(wrapper.vm).toBeDefined()

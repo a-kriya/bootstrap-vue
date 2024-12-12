@@ -4,7 +4,6 @@ import { transform, disableScriptTags } from '@babel/standalone'
 
 // Babel broke the standalone version via PR https://github.com/babel/babel/pull/10420
 // Which assumes the browser supports String.prototype.trimLeft/Right
-// IE 11 does not support either, and polyfill.io does not polyfill them
 // So we do it here (as this file is only loaded if we need transpilation):
 if (typeof window !== 'undefined') {
   const Proto = window.String.prototype
@@ -15,7 +14,7 @@ if (typeof window !== 'undefined') {
       const rx = /^\s+/
       obj[prop] =
         obj.trimLeft ||
-        function() {
+        function () {
           return this.replace(rx, '')
         }
     }
@@ -34,7 +33,7 @@ if (typeof window !== 'undefined') {
       const rx = /\s+$/
       obj[prop] =
         obj.trimRight ||
-        function() {
+        function () {
           return this.replace(rx, '')
         }
     }
@@ -60,8 +59,8 @@ const transformOptions = {
   plugins: [
     // Not used as we need to import the helpers into the transpiled code
     // 'transform-runtime',
-    'proposal-object-rest-spread'
-  ]
+    'proposal-object-rest-spread',
+  ],
 }
 
 // Our transpilation compiler method

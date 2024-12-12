@@ -90,11 +90,11 @@ export default {
   components: {
     BIcon,
     BIconArrowUp,
-    BIconArrowDown
+    BIconArrowDown,
   },
   props: {
     // ...
-  }
+  },
   // ...
 }
 ```
@@ -130,8 +130,16 @@ icons library:
 
 ```html
 <head>
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@{{ bootstrapVersion }}/dist/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//unpkg.com/bootstrap@{{ bootstrapVersion }}/dist/css/bootstrap.min.css"
+  />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+  />
   <!-- Load Vue followed by BootstrapVue, and BootstrapVueIcons -->
   <script src="//unpkg.com/vue@{{ vueVersion }}/dist/vue.min.js"></script>
   <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -143,8 +151,16 @@ If using just the icons:
 
 ```html
 <head>
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@{{ bootstrapVersion }}/dist/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.css" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//unpkg.com/bootstrap@{{ bootstrapVersion }}/dist/css/bootstrap.min.css"
+  />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.css"
+  />
   <!-- Load Vue followed by BootstrapVueIcons -->
   <script src="//unpkg.com/vue@{{ vueVersion }}/dist/vue.min.js"></script>
   <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
@@ -514,7 +530,7 @@ class to the icon component, or create a new animation class in the form of
   `prefers-reduced-motion` media query. See the
   [reduced motion section of our accessibility documentation](/docs/reference/accessibility#reduced-motion)
   for additional details.
-- The `cylon` animation gets its name from the "eye" of the Cylons from the *original*
+- The `cylon` animation gets its name from the "eye" of the Cylons from the _original_
   [1978 Battlestar Galactica TV series](https://www.youtube.com/watch?v=5a5bEIf0UaU).
 
 ## Stacking icons
@@ -547,9 +563,30 @@ individual icons (`<b-icon>` or `<b-icon-{icon-name}>`) to create complex icons:
     <b-iconstack font-scale="5" variant="white">
       <b-icon stacked icon="square-fill" variant="dark"></b-icon>
       <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="3" shift-h="-3"></b-icon>
-      <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="3" shift-h="3" rotate="90"></b-icon>
-      <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="-3" shift-h="3" rotate="180"></b-icon>
-      <b-icon stacked icon="arrow-up-short" scale="0.5" shift-v="-3" shift-h="-3" rotate="270"></b-icon>
+      <b-icon
+        stacked
+        icon="arrow-up-short"
+        scale="0.5"
+        shift-v="3"
+        shift-h="3"
+        rotate="90"
+      ></b-icon>
+      <b-icon
+        stacked
+        icon="arrow-up-short"
+        scale="0.5"
+        shift-v="-3"
+        shift-h="3"
+        rotate="180"
+      ></b-icon>
+      <b-icon
+        stacked
+        icon="arrow-up-short"
+        scale="0.5"
+        shift-v="-3"
+        shift-h="-3"
+        rotate="270"
+      ></b-icon>
     </b-iconstack>
 
     <b-iconstack font-scale="5">
@@ -605,19 +642,8 @@ Individual icons within the icon stack can also be animated (except on IE 11):
 <template>
   <div>
     <b-iconstack font-scale="5" animation="cylon">
-      <b-icon
-        stacked
-        icon="camera"
-        animation="throb"
-        variant="info"
-        scale="0.75"
-      ></b-icon>
-      <b-icon
-        stacked
-        icon="slash-circle"
-        animation="spin-reverse"
-        variant="danger"
-      ></b-icon>
+      <b-icon stacked icon="camera" animation="throb" variant="info" scale="0.75"></b-icon>
+      <b-icon stacked icon="slash-circle" animation="spin-reverse" variant="danger"></b-icon>
     </b-iconstack>
   </div>
 </template>
@@ -651,15 +677,15 @@ font scaled by 125%).
     <b-button size="sm" class="mb-2">
       <b-icon icon="gear-fill" aria-hidden="true"></b-icon> Settings
     </b-button>
-    <br>
+    <br />
     <b-button variant="primary" class="mb-2">
       Pay now <b-icon icon="credit-card" aria-hidden="true"></b-icon>
     </b-button>
-    <br>
+    <br />
     <b-button variant="outline-info" class="mb-2">
       <b-icon icon="power" aria-hidden="true"></b-icon> Logout
     </b-button>
-    <br>
+    <br />
     <b-button size="lg" variant="primary" class="mb-2">
       <b-icon icon="question-circle-fill" aria-label="Help"></b-icon>
     </b-button>
@@ -677,15 +703,9 @@ font scaled by 125%).
 <template>
   <div>
     <b-button-group>
-      <b-button variant="outline-primary">
-        <b-icon icon="tools"></b-icon> Settings
-      </b-button>
-      <b-button variant="outline-primary">
-        <b-icon icon="person-fill"></b-icon> Account
-      </b-button>
-      <b-button variant="outline-primary">
-        <b-icon icon="inbox-fill"></b-icon> Messages
-      </b-button>
+      <b-button variant="outline-primary"> <b-icon icon="tools"></b-icon> Settings </b-button>
+      <b-button variant="outline-primary"> <b-icon icon="person-fill"></b-icon> Account </b-button>
+      <b-button variant="outline-primary"> <b-icon icon="inbox-fill"></b-icon> Messages </b-button>
     </b-button-group>
   </div>
 </template>
@@ -819,22 +839,22 @@ font scaled by 125%).
         <b-icon icon="gear-fill" aria-hidden="true"></b-icon> Settings
       </template>
       <b-dropdown-item-button>
-         <b-icon icon="lock-fill" aria-hidden="true"></b-icon>
-         Locked <span class="sr-only">(Click to unlock)</span>
+        <b-icon icon="lock-fill" aria-hidden="true"></b-icon>
+        Locked <span class="sr-only">(Click to unlock)</span>
       </b-dropdown-item-button>
       <b-dropdown-divider></b-dropdown-divider>
       <b-dropdown-group header="Choose options" class="small">
         <b-dropdown-item-button>
-           <b-icon icon="blank" aria-hidden="true"></b-icon>
-           Option A <span class="sr-only">(Not selected)</span>
+          <b-icon icon="blank" aria-hidden="true"></b-icon>
+          Option A <span class="sr-only">(Not selected)</span>
         </b-dropdown-item-button>
         <b-dropdown-item-button>
-           <b-icon icon="check" aria-hidden="true"></b-icon>
-           Option B <span class="sr-only">(Selected)</span>
+          <b-icon icon="check" aria-hidden="true"></b-icon>
+          Option B <span class="sr-only">(Selected)</span>
         </b-dropdown-item-button>
-         <b-dropdown-item-button>
-           <b-icon icon="blank" aria-hidden="true"></b-icon>
-           Option C <span class="sr-only">(Not selected)</span>
+        <b-dropdown-item-button>
+          <b-icon icon="blank" aria-hidden="true"></b-icon>
+          Option C <span class="sr-only">(Not selected)</span>
         </b-dropdown-item-button>
       </b-dropdown-group>
       <b-dropdown-divider></b-dropdown-divider>

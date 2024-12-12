@@ -35,9 +35,9 @@ const IS_PROD_DOCS =
 const getRoutesByDir = (root, dir, excludes = []) =>
   fs
     .readdirSync(`${[root, dir].filter(Boolean).join('/')}`)
-    .filter(c => excludes.indexOf(c) === -1)
-    .filter(c => !RX_EXCLUDE_EXTENSIONS.test(c))
-    .map(page => `/docs/${dir}/${page}`)
+    .filter((c) => excludes.indexOf(c) === -1)
+    .filter((c) => !RX_EXCLUDE_EXTENSIONS.test(c))
+    .map((page) => `/docs/${dir}/${page}`)
 
 // --- Custom renderer ---
 
@@ -48,7 +48,7 @@ const renderer = new marked.Renderer()
 renderer.code = (code, language) => {
   const attrs = {
     class: `hljs ${language} p-2`,
-    translate: 'no'
+    translate: 'no',
   }
 
   const [, filename] = RX_CODE_FILENAME.exec(code) || []
@@ -70,7 +70,7 @@ renderer.code = (code, language) => {
 
 // Instruct Google Translate not to translate `<code>` content
 // and don't let browsers wrap the contents across lines
-renderer.codespan = code => {
+renderer.codespan = (code) => {
   return `<code class="text-nowrap" translate="no">${code}</code>`
 }
 
@@ -101,8 +101,8 @@ renderer.link = (href, title, text) => {
 // Custom heading implementation for markdown renderer
 // @link: https://github.com/nuxt/docs/blob/967fc39b4dc0712d2d5089014eddc7e7a2e65422/api.js#L27
 // @link: https://github.com/markedjs/marked/blob/1f5b9a19f532e2e1e3e63ae5efd81af75acf572f/lib/marked.js#L962
-renderer.heading = function(text, level, raw, slugger) {
-  const getTextMarkup = text => `<span class="bd-content-title">${text}</span>`
+renderer.heading = function (text, level, raw, slugger) {
+  const getTextMarkup = (text) => `<span class="bd-content-title">${text}</span>`
 
   if (!this.options.headerIds) {
     return `<h${level}>${getTextMarkup(text)}</h${level}>\n`
@@ -127,13 +127,13 @@ renderer.heading = function(text, level, raw, slugger) {
 }
 
 // Convert lead-in blockquote paragraphs to true Bootstrap docs leads
-renderer.blockquote = function(text) {
+renderer.blockquote = function (text) {
   return text.replace('<p>', '<p class="bd-lead">')
 }
 
 // Bootstrap v4 table support for markdown renderer
 const originalTable = renderer.table
-renderer.table = function() {
+renderer.table = function () {
   let table = originalTable.apply(this, arguments)
   table = table
     .replace('<table>', '<table class="b-table table table-bordered table-striped bv-docs-table">')
@@ -172,7 +172,7 @@ module.exports = {
     // - The Github Organization (ie. bootstrap-vue)
     VERCEL_GITHUB_ORG: process.env.VERCEL_GITHUB_ORG,
     // - The repo is the organization (i.e. bootstrap-vue)
-    VERCEL_GITHUB_REPO: process.env.VERCEL_GITHUB_REPO
+    VERCEL_GITHUB_REPO: process.env.VERCEL_GITHUB_REPO,
   },
 
   build: {
@@ -181,9 +181,9 @@ module.exports = {
     postcss: {
       preset: {
         autoprefixer: {
-          cascade: false
-        }
-      }
+          cascade: false,
+        },
+      },
     },
     extend(config, { isDev, loaders }) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
@@ -212,15 +212,15 @@ module.exports = {
               // table of contents rely on the IDs
               headerIds: true,
               // Handle GitHub flavoured markdown
-              gfm: true
-            }
-          }
-        ]
+              gfm: true,
+            },
+          },
+        ],
       })
 
       loaders.scss.sassOptions = {
         precision: 6,
-        outputStyle: 'expanded'
+        outputStyle: 'expanded',
       }
 
       loaders.vue.transformAssetUrls = {
@@ -236,29 +236,29 @@ module.exports = {
         'b-card-img': 'src',
         'b-card-img-lazy': ['src', 'blank-src'],
         'b-carousel-slide': 'img-src',
-        'b-embed': 'src'
+        'b-embed': 'src',
       }
     },
 
     // Transpile dependencies for legacy browser support (i.e. IE 11)
-    transpile: [({ isLegacy }) => isLegacy && 'highlight.js']
+    transpile: [({ isLegacy }) => isLegacy && 'highlight.js'],
   },
 
   loading: {
     color: '#ccc',
-    height: '3px'
+    height: '3px',
   },
 
   pwa: {
     icon: {
       // iconFileName: 'icon.png',
-      iconSrc: '~/static/icon.png'
+      iconSrc: '~/static/icon.png',
     },
     manifest: {
       name: 'BootstrapVue',
       short_name: 'BootstrapVue',
       description: 'Quickly integrate Bootstrap v4 components with Vue.js',
-      theme_color: '#563d7c'
+      theme_color: '#563d7c',
     },
     meta: {
       // `ogHost` is required for `og:image` to be populated
@@ -266,8 +266,8 @@ module.exports = {
       ogImage: true,
       twitterCard: 'summary',
       twitterSite: TWITTER_HANDLE,
-      twitterCreator: TWITTER_HANDLE
-    }
+      twitterCreator: TWITTER_HANDLE,
+    },
   },
 
   generate: {
@@ -276,8 +276,8 @@ module.exports = {
       // Dynamic slug routes
       ...getRoutesByDir('src', 'components'),
       ...getRoutesByDir('src', 'directives', ['modal']),
-      ...getRoutesByDir('docs/markdown', 'reference')
-    ]
+      ...getRoutesByDir('docs/markdown', 'reference'),
+    ],
   },
 
   plugins: ['~/plugins/bootstrap-vue.js', '~/plugins/play.js', '~/plugins/docs.js'],
@@ -288,12 +288,12 @@ module.exports = {
   googleAnalytics: {
     id: GA_TRACKING_ID,
     autoTracking: {
-      exception: true
-    }
+      exception: true,
+    },
   },
 
   content: {
-    apiPrefix: 'api'
+    apiPrefix: 'api',
   },
 
   // We enable crawling in production docs only
@@ -313,18 +313,12 @@ module.exports = {
       // Exclude any redirect pages from sitemaps
       exclude: ['/docs/misc', '/docs/misc/**', '/docs/layout'],
       // Default properties to apply to each URL entry
-      defaults: { changefreq: 'weekly', lastmod: new Date().toISOString() }
+      defaults: { changefreq: 'weekly', lastmod: new Date().toISOString() },
     }
   },
 
   head: {
     meta: [{ 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }],
-    script: [
-      {
-        src: '//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver',
-        crossorigin: 'anonymous'
-      }
-    ]
   },
 
   css: [
@@ -333,6 +327,6 @@ module.exports = {
     'bootstrap/dist/css/bootstrap.css',
     '../scripts/index.scss', // BootstrapVue SCSS
     '@assets/css/docs.min.css',
-    '@assets/scss/styles.scss'
-  ]
+    '@assets/scss/styles.scss',
+  ],
 }
