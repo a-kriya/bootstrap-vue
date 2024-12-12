@@ -67,7 +67,10 @@
       <anchored-heading :id="`comp-ref-${componentName}-aliases`" level="4" class="mb-3">
         Component aliases
       </anchored-heading>
-      <p><code class="notranslate" translate="no">{{ tag }}</code> can also be used via the following aliases:</p>
+      <p>
+        <code class="notranslate" translate="no">{{ tag }}</code> can also be used via the following
+        aliases:
+      </p>
       <ul>
         <li v-for="alias in aliases" :key="alias">
           <code class="notranslate" translate="no">&lt;{{ kebabCase(alias) }}&gt;</code>
@@ -75,8 +78,8 @@
       </ul>
       <div class="alert alert-info">
         <p class="mb-0 small">
-          Note: component aliases are only available when importing all of BootstrapVue or using
-          the component group plugin.
+          Note: component aliases are only available when importing all of BootstrapVue or using the
+          component group plugin.
         </p>
       </div>
     </article>
@@ -87,7 +90,8 @@
       </anchored-heading>
 
       <p>
-        All property default values are <b-link href="/docs/reference/settings">globally configurable</b-link>.
+        All property default values are
+        <b-link href="/docs/reference/settings">globally configurable</b-link>.
       </p>
 
       <b-table
@@ -101,7 +105,8 @@
         striped
       >
         <template #cell(prop)="{ value, item }">
-          <code class="text-nowrap notranslate" translate="no">{{ value }}</code><br>
+          <code class="text-nowrap notranslate" translate="no">{{ value }}</code
+          ><br />
           <b-badge v-if="item.required" variant="info">Required</b-badge>
           <b-badge v-if="item.version" variant="secondary">v{{ item.version }}+</b-badge>
           <b-badge v-if="item.isVModel" variant="primary">v-model</b-badge>
@@ -128,21 +133,32 @@
         <p class="mb-0 small">
           <code class="notranslate" translate="no">{{ tag }}</code> supports generating
           <code class="notranslate" translate="no">&lt;router-link&gt;</code> or
-          <code class="notranslate" translate="no">&lt;nuxt-link&gt;</code> component (if using Nuxt.js).
-          For more details on the router link (or nuxt link) specific props, see the
+          <code class="notranslate" translate="no">&lt;nuxt-link&gt;</code> component (if using
+          Nuxt.js). For more details on the router link (or nuxt link) specific props, see the
           <b-link to="/docs/reference/router-links" class="alert-link">Router support</b-link>
           reference section.
         </p>
       </div>
       <div v-if="hasHtmlProps" class="alert alert-warning">
         <p class="mb-0 small">
-          <strong>Caution:</strong> Props that support HTML strings
-          (<code class="notranslate" translate="no">*-html</code>) can be vulnerable to
-          <b-link href="https://en.wikipedia.org/wiki/Cross-site_scripting" class="alert-link" target="_blank">
+          <strong>Caution:</strong> Props that support HTML strings (<code
+            class="notranslate"
+            translate="no"
+            >*-html</code
+          >) can be vulnerable to
+          <b-link
+            href="https://en.wikipedia.org/wiki/Cross-site_scripting"
+            class="alert-link"
+            target="_blank"
+          >
             Cross Site Scripting (XSS) attacks
           </b-link>
           when passed raw user supplied values. You must properly
-          <b-link href="https://en.wikipedia.org/wiki/HTML_sanitization" class="alert-link" target="_blank">
+          <b-link
+            href="https://en.wikipedia.org/wiki/HTML_sanitization"
+            class="alert-link"
+            target="_blank"
+          >
             sanitize
           </b-link>
           the user input first!
@@ -221,7 +237,9 @@
             </template>
             <template #cell(prop)="{ value, item: cellItem }">
               <code class="text-nowrap notranslate" translate="no">{{ value }}</code>
-              <b-badge v-if="cellItem.version" variant="secondary">v{{ cellItem.version }}+</b-badge>
+              <b-badge v-if="cellItem.version" variant="secondary"
+                >v{{ cellItem.version }}+</b-badge
+              >
             </template>
             <template #cell(type)="{ value }">
               <code class="text-nowrap notranslate" translate="no">{{ value || 'Any' }}</code>

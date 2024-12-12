@@ -47,7 +47,7 @@
 <div>
   <b-media>
     <template #aside>
-      <img src="..." alt="Media Aside">
+      <img src="..." alt="Media Aside" />
     </template>
 
     <h2>Media Body</h2>
@@ -151,7 +151,7 @@ spacing utilities wherever needed to fine tune.
 
     <b-media tag="li" class="my-4">
       <template #aside>
-       <b-img blank blank-color="#cba" width="64" alt="placeholder"></b-img>
+        <b-img blank blank-color="#cba" width="64" alt="placeholder"></b-img>
       </template>
 
       <h5 class="mt-0 mb-1">List-based media object</h5>

@@ -10,9 +10,7 @@
     Hover Me
   </b-button>
 
-  <b-button id="popover-target-1">
-    Hover Me
-  </b-button>
+  <b-button id="popover-target-1"> Hover Me </b-button>
   <b-popover target="popover-target-1" triggers="hover" placement="top">
     <template #title>Popover Title</template>
     I am popover <b>component</b> content!
@@ -192,21 +190,12 @@ use an element that renders the `<a>` tag, not the `<button>` tag, and you also 
 The following will generate an `<a>` that looks like a button:
 
 ```html
-<b-button
-  href="#"
-  tabindex="0"
-  v-b-popover.focus="'Popover content'"
-  title="Popover title"
->
+<b-button href="#" tabindex="0" v-b-popover.focus="'Popover content'" title="Popover title">
   Link button with popover directive
 </b-button>
 
-<b-button id="link-button" href="#" tabindex="0">
-  Link button with popover component
-</b-button>
-<b-popover target="link-button" title="Popover title" triggers="focus">
-  Popover content
-</b-popover>
+<b-button id="link-button" href="#" tabindex="0"> Link button with popover component </b-button>
+<b-popover target="link-button" title="Popover title" triggers="focus"> Popover content </b-popover>
 ```
 
 ### Dismiss on next click (self-dismissing)
@@ -228,12 +217,7 @@ The special `blur` trigger **must** be used in combination with the `click` trig
   <b-container fluid>
     <h5 class="my-3">Placement</h5>
     <b-row>
-      <b-col
-        v-for="placement in placements"
-        :key="placement"
-        md="4"
-        class="py-4 text-center"
-      >
+      <b-col v-for="placement in placements" :key="placement" md="4" class="py-4 text-center">
         <b-button :id="`popover-1-${placement}`" variant="primary">{{ placement }}</b-button>
         <b-popover
           :target="`popover-1-${placement}`"
@@ -622,15 +606,21 @@ Just need quick popovers without too much markup? Use the
       </b-col>
 
       <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.right="'Popover!'" title="Title" variant="primary">Right</b-button>
+        <b-button v-b-popover.hover.right="'Popover!'" title="Title" variant="primary"
+          >Right</b-button
+        >
       </b-col>
 
       <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.left="'Popover!'" title="Title" variant="primary">Left</b-button>
+        <b-button v-b-popover.hover.left="'Popover!'" title="Title" variant="primary"
+          >Left</b-button
+        >
       </b-col>
 
       <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.bottom="'Popover!'" title="Title" variant="primary">Bottom</b-button>
+        <b-button v-b-popover.hover.bottom="'Popover!'" title="Title" variant="primary"
+          >Bottom</b-button
+        >
       </b-col>
     </b-row>
   </b-container>
@@ -672,7 +662,7 @@ to deal with on mobile devices (such as smart-phones).
     <!-- Output from the popover interaction -->
     <b-card title="Returned values:" v-if="input1Return && input2Return">
       <p class="card-text" style="max-width: 20rem;">
-        Name: <strong>{{ input1Return }}</strong><br>
+        Name: <strong>{{ input1Return }}</strong><br />
         Color: <strong>{{ input2Return }}</strong>
       </p>
     </b-card>
@@ -736,8 +726,8 @@ to deal with on mobile devices (such as smart-phones).
         </b-form-group>
 
         <b-alert show class="small">
-          <strong>Current Values:</strong><br>
-          Name: <strong>{{ input1 }}</strong><br>
+          <strong>Current Values:</strong><br />
+          Name: <strong>{{ input1 }}</strong><br />
           Color: <strong>{{ input2 }}</strong>
         </b-alert>
 

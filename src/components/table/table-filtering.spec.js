@@ -3,7 +3,11 @@ import { waitNT } from '../../../tests/utils'
 import { stringifyRecordValues } from './helpers/stringify-record-values'
 import { BTable } from './table'
 
-const testItems = [{ a: 3, b: 'b', c: 'x' }, { a: 1, b: 'c', c: 'y' }, { a: 2, b: 'a', c: 'z' }]
+const testItems = [
+  { a: 3, b: 'b', c: 'x' },
+  { a: 1, b: 'c', c: 'y' },
+  { a: 2, b: 'a', c: 'z' }
+]
 const testFields = ['a', 'b', 'c']
 
 describe('table > filtering', () => {
@@ -25,10 +29,7 @@ describe('table > filtering', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     const columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')

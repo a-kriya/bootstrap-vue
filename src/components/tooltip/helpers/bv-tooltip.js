@@ -581,8 +581,8 @@ export const BVTooltip = /*#__PURE__*/ extend({
       return container === false
         ? closest(CONTAINER_SELECTOR, target) || body
         : /*istanbul ignore next */ isString(container)
-          ? /*istanbul ignore next */ getById(container.replace(/^#/, '')) || body
-          : /*istanbul ignore next */ body
+        ? /*istanbul ignore next */ getById(container.replace(/^#/, '')) || body
+        : /*istanbul ignore next */ body
     },
     getBoundary() {
       return this.boundary ? this.boundary.$el || this.boundary : 'scrollParent'
@@ -618,11 +618,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
       // Add aria-describedby on trigger element, without removing any other IDs
       const target = this.getTarget()
       let desc = getAttr(target, 'aria-describedby') || ''
-      desc = desc
-        .split(/\s+/)
-        .concat(this.computedId)
-        .join(' ')
-        .trim()
+      desc = desc.split(/\s+/).concat(this.computedId).join(' ').trim()
       // Update/add aria-described by
       setAttr(target, 'aria-describedby', desc)
     },
@@ -858,14 +854,14 @@ export const BVTooltip = /*#__PURE__*/ extend({
     },
     doHide(id) {
       // Programmatically hide tooltip or popover
-      if (!id || (this.getTargetId() === id || this.computedId === id)) {
+      if (!id || this.getTargetId() === id || this.computedId === id) {
         // Close all tooltips or popovers, or this specific tip (with ID)
         this.forceHide()
       }
     },
     doShow(id) {
       // Programmatically show tooltip or popover
-      if (!id || (this.getTargetId() === id || this.computedId === id)) {
+      if (!id || this.getTargetId() === id || this.computedId === id) {
         // Open all tooltips or popovers, or this specific tip (with ID)
         this.show()
       }
@@ -873,7 +869,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
     /*istanbul ignore next: ignore for now */
     doDisable(id) /*istanbul ignore next: ignore for now */ {
       // Programmatically disable tooltip or popover
-      if (!id || (this.getTargetId() === id || this.computedId === id)) {
+      if (!id || this.getTargetId() === id || this.computedId === id) {
         // Disable all tooltips or popovers (no ID), or this specific tip (with ID)
         this.disable()
       }
@@ -881,7 +877,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
     /*istanbul ignore next: ignore for now */
     doEnable(id) /*istanbul ignore next: ignore for now */ {
       // Programmatically enable tooltip or popover
-      if (!id || (this.getTargetId() === id || this.computedId === id)) {
+      if (!id || this.getTargetId() === id || this.computedId === id) {
         // Enable all tooltips or popovers (no ID), or this specific tip (with ID)
         this.enable()
       }

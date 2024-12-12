@@ -202,14 +202,12 @@ not validated.
         separator=" "
       ></b-form-tags>
 
-      <template #invalid-feedback>
-        You must provide at least 3 tags and no more than 8
-      </template>
+      <template #invalid-feedback> You must provide at least 3 tags and no more than 8 </template>
 
       <template #description>
         <div id="tags-validation-help">
-         Tags must be 3 to 5 characters in length and all lower
-         case. Enter tags separated by spaces or press enter.
+          Tags must be 3 to 5 characters in length and all lower case. Enter tags separated by
+          spaces or press enter.
         </div>
       </template>
     </b-form-group>
@@ -227,7 +225,7 @@ not validated.
     computed: {
       state() {
         // Overall component validation state
-        return this.dirty ? (this.tags.length > 2 && this.tags.length < 9) : null
+        return this.dirty ? this.tags.length > 2 && this.tags.length < 9 : null
       }
     },
     watch: {
@@ -283,9 +281,9 @@ to either an empty string (`''`) or `null`.
     <p class="mt-2">Tags: {{ tags }}</p>
     <p>Event values:</p>
     <ul>
-        <li>validTags: {{ validTags }}</li>
-        <li>invalidTags: {{ invalidTags }}</li>
-        <li>duplicateTags: {{ duplicateTags }}</li>
+      <li>validTags: {{ validTags }}</li>
+      <li>invalidTags: {{ invalidTags }}</li>
+      <li>duplicateTags: {{ duplicateTags }}</li>
     </ul>
   </div>
 </template>
@@ -332,7 +330,12 @@ Removing tags is unaffected by the `limit` prop.
 <template>
   <div>
     <label for="tags-limit">Enter tags</label>
-    <b-form-tags input-id="tags-limit" v-model="value" :limit="limit" remove-on-delete></b-form-tags>
+    <b-form-tags
+      input-id="tags-limit"
+      v-model="value"
+      :limit="limit"
+      remove-on-delete
+    ></b-form-tags>
     <p class="mt-2">Value: {{ value }}</p>
   </div>
 </template>
@@ -444,7 +447,8 @@ support.
             v-bind="inputAttrs"
             v-on="inputHandlers"
             placeholder="New tag - Press enter to add"
-            class="form-control">
+            class="form-control"
+          />
           <b-input-group-append>
             <b-button @click="addTag()" variant="primary">Add</b-button>
           </b-input-group-append>
@@ -473,7 +477,8 @@ support.
               variant="link"
               size="sm"
               :aria-controls="`my-custom-tags-tag_${tag.replace(/\s/g, '_')}_`"
-            >remove</b-button>
+              >remove</b-button
+            >
           </b-card>
         </ul>
       </template>
@@ -529,7 +534,8 @@ but feel free to render tags using standard HTML or components.
             :title="tag"
             :variant="tagVariant"
             class="mr-1"
-          >{{ tag }}</b-form-tag>
+            >{{ tag }}</b-form-tag
+          >
         </div>
       </template>
     </b-form-tags>
@@ -568,12 +574,9 @@ of tags:
         <template v-slot="{ tags, inputAttrs, inputHandlers, disabled, removeTag }">
           <ul v-if="tags.length > 0" class="list-inline d-inline-block mb-2">
             <li v-for="tag in tags" :key="tag" class="list-inline-item">
-              <b-form-tag
-                @remove="removeTag(tag)"
-                :title="tag"
-                :disabled="disabled"
-                variant="info"
-              >{{ tag }}</b-form-tag>
+              <b-form-tag @remove="removeTag(tag)" :title="tag" :disabled="disabled" variant="info"
+                >{{ tag }}</b-form-tag
+              >
             </li>
           </ul>
           <b-form-select
@@ -672,7 +675,7 @@ default slot's scope.
         </b-form-invalid-feedback>
         <ul v-if="tags.length > 0" class="mb-0">
           <li v-for="tag in tags" :key="tag" :title="`Tag: ${tag}`" class="mt-2">
-            <span  class="d-flex align-items-center">
+            <span class="d-flex align-items-center">
               <span class="mr-2">{{ tag }}</span>
               <b-button
                 :disabled="disabled"
@@ -685,9 +688,7 @@ default slot's scope.
             </span>
           </li>
         </ul>
-        <b-form-text v-else>
-          There are no tags specified. Add a new tag above.
-        </b-form-text>
+        <b-form-text v-else> There are no tags specified. Add a new tag above. </b-form-text>
       </template>
     </b-form-tags>
   </div>
@@ -733,19 +734,14 @@ pre-defined set of tags:
         <template v-slot="{ tags, disabled, addTag, removeTag }">
           <ul v-if="tags.length > 0" class="list-inline d-inline-block mb-2">
             <li v-for="tag in tags" :key="tag" class="list-inline-item">
-              <b-form-tag
-                @remove="removeTag(tag)"
-                :title="tag"
-                :disabled="disabled"
-                variant="info"
-              >{{ tag }}</b-form-tag>
+              <b-form-tag @remove="removeTag(tag)" :title="tag" :disabled="disabled" variant="info"
+                >{{ tag }}</b-form-tag
+              >
             </li>
           </ul>
 
           <b-dropdown size="sm" variant="outline-secondary" block menu-class="w-100">
-            <template #button-content>
-              <b-icon icon="tag-fill"></b-icon> Choose tags
-            </template>
+            <template #button-content> <b-icon icon="tag-fill"></b-icon> Choose tags </template>
             <b-dropdown-form @submit.stop.prevent="() => {}">
               <b-form-group
                 label="Search tags"
@@ -762,7 +758,7 @@ pre-defined set of tags:
                   type="search"
                   size="sm"
                   autocomplete="off"
-                 ></b-form-input>
+                ></b-form-input>
               </b-form-group>
             </b-dropdown-form>
             <b-dropdown-divider></b-dropdown-divider>
@@ -803,7 +799,7 @@ pre-defined set of tags:
         const options = this.options.filter(opt => this.value.indexOf(opt) === -1)
         if (criteria) {
           // Show only options that match criteria
-          return options.filter(opt => opt.toLowerCase().indexOf(criteria) > -1);
+          return options.filter(opt => opt.toLowerCase().indexOf(criteria) > -1)
         }
         // Show all options available
         return options
@@ -835,7 +831,7 @@ You can easily create a custom wrapper component with your preferred rendering s
 <template>
   <b-form-tags :value="value" @input="$emit('input', $event)">
     <template v-slot="{ tags, addTag, removeTag, inputAttrs, inputHandlers }">
-     <!-- Place your custom rendering here -->
+      <!-- Place your custom rendering here -->
     </template>
   </b-form-tags>
 </template>

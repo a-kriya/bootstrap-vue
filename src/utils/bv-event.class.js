@@ -6,9 +6,7 @@ export class BvEvent {
     if (!type) {
       /* istanbul ignore next */
       throw new TypeError(
-        `Failed to construct '${this.constructor.name}'. 1 argument required, ${
-          arguments.length
-        } given.`
+        `Failed to construct '${this.constructor.name}'. 1 argument required, ${arguments.length} given.`
       )
     }
 

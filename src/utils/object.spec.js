@@ -24,7 +24,10 @@ describe('utils/object', () => {
         title: 'Hello World',
         type: 'Planet',
         deeper: {
-          map: new Map([['a', 'AAA'], ['b', 'BBB']]),
+          map: new Map([
+            ['a', 'AAA'],
+            ['b', 'BBB']
+          ]),
           mapId: 15473
         }
       }
@@ -34,7 +37,10 @@ describe('utils/object', () => {
         type: 'Star',
         deeper: {
           mapId: 9999,
-          alt_map: new Map([['x', 'XXXX'], ['y', 'YYYY']])
+          alt_map: new Map([
+            ['x', 'XXXX'],
+            ['y', 'YYYY']
+          ])
         }
       }
     }

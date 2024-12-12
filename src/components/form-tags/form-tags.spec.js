@@ -585,10 +585,7 @@ describe('form-tags', () => {
 
     const $tags = wrapper.findAll('.badge')
     expect($tags.length).toBe(2)
-    await $tags
-      .at(1)
-      .find('button')
-      .trigger('click')
+    await $tags.at(1).find('button').trigger('click')
     expect(wrapper.vm.tags).toEqual(['one'])
     expect(wrapper.vm.removedTags).toContain('two')
 
@@ -630,10 +627,7 @@ describe('form-tags', () => {
 
     const $tags = wrapper.findAll('.badge')
     expect($tags.length).toBe(2)
-    await $tags
-      .at(1)
-      .find('button')
-      .trigger('click')
+    await $tags.at(1).find('button').trigger('click')
     expect(wrapper.vm.tags).toEqual(['one'])
     expect(wrapper.vm.removedTags).toContain('two')
 
@@ -688,10 +682,7 @@ describe('form-tags', () => {
 
     const $tags = formTags.findAll('.badge')
     expect($tags.length).toBe(2)
-    await $tags
-      .at(1)
-      .find('button')
-      .trigger('click')
+    await $tags.at(1).find('button').trigger('click')
     expect(formTags.vm.tags).toEqual(['one'])
     expect(formTags.vm.removedTags).toContain('two')
 

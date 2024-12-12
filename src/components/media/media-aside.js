@@ -27,8 +27,8 @@ export const BMediaAside = /*#__PURE__*/ extend({
       verticalAlign === 'top'
         ? 'start'
         : verticalAlign === 'bottom'
-          ? 'end'
-          : /* istanbul ignore next */ verticalAlign
+        ? 'end'
+        : /* istanbul ignore next */ verticalAlign
 
     return h(
       props.tag,

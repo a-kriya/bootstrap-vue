@@ -4,9 +4,9 @@
       <header class="bd-content pb-4">
         <h1>Custom themes and dashboards</h1>
         <p class="lead">
-          With the themes and dashboards built by our partners, you can build eye-catching
-          apps and pages &mdash; all using BootstrapVue! The following items have been curated by
-          the BootstrapVue team.
+          With the themes and dashboards built by our partners, you can build eye-catching apps and
+          pages &mdash; all using BootstrapVue! The following items have been curated by the
+          BootstrapVue team.
         </p>
       </header>
 
@@ -26,13 +26,7 @@
       >
         <b-card no-body bg-variant="light">
           <b-row no-gutters>
-            <b-col
-              md="6"
-              lg="4"
-              xl="4"
-              class="bg-dark"
-              aria-hidden="true"
-            >
+            <b-col md="6" lg="4" xl="4" class="bg-dark" aria-hidden="true">
               <b-aspect aspect="4:3" class="h-100 align-items-center">
                 <b-card-img-lazy
                   :src="theme.img"
@@ -48,15 +42,20 @@
               <h2 :id="`theme-label-${idx}`" class="h5 mb-3">{{ theme.title }}</h2>
               <b-card-text class="flex-grow-1">{{ theme.description }}</b-card-text>
               <b-card-text class="text-muted small">
-                <span class="d-block d-lg-inline-block mb-2 mb-lg-0"><strong>Category:</strong> {{ theme.category }}</span>
-                <span class="d-block d-lg-inline-block ml-lg-3"><i><strong>Provided by:</strong> {{ theme.provider }}</i></span>
+                <span class="d-block d-lg-inline-block mb-2 mb-lg-0"
+                  ><strong>Category:</strong> {{ theme.category }}</span
+                >
+                <span class="d-block d-lg-inline-block ml-lg-3"
+                  ><i><strong>Provided by:</strong> {{ theme.provider }}</i></span
+                >
               </b-card-text>
               <b-card-text class="d-flex align-items-center">
                 <b-button :href="theme.href" target="_blank" variant="bd-primary">
                   Get {{ theme.type || 'theme' }}
                 </b-button>
                 <span v-if="theme.price" class="text-muted position-relative ml-3">
-                  <strong>Price:</strong> {{ theme.price }}<b-link href="#theme-notes" title="See notes">*</b-link>
+                  <strong>Price:</strong> {{ theme.price
+                  }}<b-link href="#theme-notes" title="See notes">*</b-link>
                 </span>
               </b-card-text>
             </b-col>
@@ -72,8 +71,8 @@
             vendor/provider website for current pricing.
           </li>
           <li>
-            Theme licenses are typically per-site (unless onterwised noted). Refer to the theme
-            site documentation for licensing information.
+            Theme licenses are typically per-site (unless onterwised noted). Refer to the theme site
+            documentation for licensing information.
           </li>
           <li>
             BootstrapVue does not guarantee that all custom components provided by a theme are
@@ -83,8 +82,8 @@
             BootstrapVue receives a commission on themes purchased via the above affiliate links.
           </li>
           <li>
-            Refer to the <b-link to="/docs/reference/theming">Theming section</b-link> for
-            details on incorporating custom theme SCSS files.
+            Refer to the <b-link to="/docs/reference/theming">Theming section</b-link> for details
+            on incorporating custom theme SCSS files.
           </li>
         </ul>
       </aside>

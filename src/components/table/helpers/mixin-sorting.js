@@ -107,8 +107,8 @@ export const sortingMixin = extend({
         const formatter = isFunction(sortByFormatted)
           ? /* istanbul ignore next */ sortByFormatted
           : sortByFormatted
-            ? this.getFieldFormatter(sortBy)
-            : undefined
+          ? this.getFieldFormatter(sortBy)
+          : undefined
 
         // `stableSort` returns a new array, and leaves the original array intact
         return stableSort(items, (a, b) => {
@@ -254,8 +254,8 @@ export const sortingMixin = extend({
             ? 'descending'
             : 'ascending'
           : sortable
-            ? 'none'
-            : null
+          ? 'none'
+          : null
       // Return the attribute
       return {
         'aria-sort': ariaSort

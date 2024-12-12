@@ -2,7 +2,10 @@ import { mount } from '@vue/test-utils'
 import { BTableLite } from './table-lite'
 import { wrapWithMethods } from '../../../tests/utils'
 
-const items1 = [{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }]
+const items1 = [
+  { a: 1, b: 2, c: 3 },
+  { a: 4, b: 5, c: 6 }
+]
 const fields1 = ['a', 'b', 'c']
 
 describe('table-lite', () => {
@@ -298,44 +301,14 @@ describe('table-lite', () => {
     const $trs = wrapper.findAll('tbody > tr').wrappers
 
     // Labels will have run through startCase
-    expect(
-      $trs[0]
-        .findAll('td')
-        .at(0)
-        .attributes('data-label')
-    ).toBe('A')
-    expect(
-      $trs[1]
-        .findAll('td')
-        .at(0)
-        .attributes('data-label')
-    ).toBe('A')
+    expect($trs[0].findAll('td').at(0).attributes('data-label')).toBe('A')
+    expect($trs[1].findAll('td').at(0).attributes('data-label')).toBe('A')
 
-    expect(
-      $trs[0]
-        .findAll('td')
-        .at(1)
-        .attributes('data-label')
-    ).toBe('B')
-    expect(
-      $trs[1]
-        .findAll('td')
-        .at(1)
-        .attributes('data-label')
-    ).toBe('B')
+    expect($trs[0].findAll('td').at(1).attributes('data-label')).toBe('B')
+    expect($trs[1].findAll('td').at(1).attributes('data-label')).toBe('B')
 
-    expect(
-      $trs[0]
-        .findAll('td')
-        .at(2)
-        .attributes('data-label')
-    ).toBe('C')
-    expect(
-      $trs[1]
-        .findAll('td')
-        .at(2)
-        .attributes('data-label')
-    ).toBe('C')
+    expect($trs[0].findAll('td').at(2).attributes('data-label')).toBe('C')
+    expect($trs[1].findAll('td').at(2).attributes('data-label')).toBe('C')
 
     wrapper.destroy()
   })
@@ -389,7 +362,10 @@ describe('table-lite', () => {
   })
 
   it('changing items array works', async () => {
-    const items1 = [{ a: 1, b: 2 }, { a: 3, b: 4 }]
+    const items1 = [
+      { a: 1, b: 2 },
+      { a: 3, b: 4 }
+    ]
     const items2 = [{ a: 3, b: 4 }]
     const wrapper = mount(BTableLite, {
       propsData: {
@@ -411,7 +387,10 @@ describe('table-lite', () => {
   it('tbody-tr-class works', async () => {
     const wrapper = mount(BTableLite, {
       propsData: {
-        items: [{ a: 1, b: 2 }, { a: 3, b: 4 }],
+        items: [
+          { a: 1, b: 2 },
+          { a: 3, b: 4 }
+        ],
         fields: ['a', 'b'],
         tbodyTrClass: 'foobar'
       }
@@ -506,32 +485,12 @@ describe('table-lite', () => {
     expect(wrapper.findAll('tbody > tr > *').length).toBe(2)
 
     expect(wrapper.findAll('tbody > tr > *').at(0).element.tagName).toBe('TH')
-    expect(
-      wrapper
-        .findAll('tbody > tr > *')
-        .at(0)
-        .attributes('role')
-    ).toBe('rowheader')
-    expect(
-      wrapper
-        .findAll('tbody > tr > *')
-        .at(0)
-        .attributes('scope')
-    ).toBe('row')
+    expect(wrapper.findAll('tbody > tr > *').at(0).attributes('role')).toBe('rowheader')
+    expect(wrapper.findAll('tbody > tr > *').at(0).attributes('scope')).toBe('row')
 
     expect(wrapper.findAll('tbody > tr > *').at(1).element.tagName).toBe('TD')
-    expect(
-      wrapper
-        .findAll('tbody > tr > *')
-        .at(1)
-        .attributes('role')
-    ).toBe('cell')
-    expect(
-      wrapper
-        .findAll('tbody > tr > *')
-        .at(1)
-        .attributes('scope')
-    ).toBeUndefined()
+    expect(wrapper.findAll('tbody > tr > *').at(1).attributes('role')).toBe('cell')
+    expect(wrapper.findAll('tbody > tr > *').at(1).attributes('scope')).toBeUndefined()
 
     wrapper.destroy()
   })

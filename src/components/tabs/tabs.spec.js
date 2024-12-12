@@ -425,10 +425,7 @@ describe('tabs', () => {
 
     // Try to set 2nd BTab to be active via click
     expect(tab2.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(1)
-      .trigger('click')
+    await wrapper.findAll('.nav-link').at(1).trigger('click')
     expect($tabs.vm.currentTab).toBe(1)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(true)
@@ -437,10 +434,7 @@ describe('tabs', () => {
 
     // Try to set 3rd BTab to be active via click
     expect(tab3.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('.nav-link').at(2).trigger('click')
     expect($tabs.vm.currentTab).toBe(2)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(false)
@@ -449,10 +443,7 @@ describe('tabs', () => {
 
     // Try to set 1st BTab to be active via click (space === click in keynav mode)
     expect(tab1.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(0)
-      .trigger('keydown.space')
+    await wrapper.findAll('.nav-link').at(0).trigger('keydown.space')
     expect($tabs.vm.currentTab).toBe(0)
     expect(tab1.vm.localActive).toBe(true)
     expect(tab2.vm.localActive).toBe(false)
@@ -497,10 +488,7 @@ describe('tabs', () => {
 
     // Try to set 2nd BTab to be active via space keypress
     expect(tab2.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(1)
-      .trigger('keydown.space')
+    await wrapper.findAll('.nav-link').at(1).trigger('keydown.space')
     expect($tabs.vm.currentTab).toBe(1)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(true)
@@ -509,10 +497,7 @@ describe('tabs', () => {
 
     // Try to set 3rd BTab to be active via space keypress
     expect(tab3.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(2)
-      .trigger('keydown.space')
+    await wrapper.findAll('.nav-link').at(2).trigger('keydown.space')
     expect($tabs.vm.currentTab).toBe(2)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(false)
@@ -521,10 +506,7 @@ describe('tabs', () => {
 
     // Try to set 1st BTab to be active via space keypress
     expect(tab1.emitted('click')).toBeUndefined()
-    await wrapper
-      .findAll('.nav-link')
-      .at(0)
-      .trigger('keydown.space')
+    await wrapper.findAll('.nav-link').at(0).trigger('keydown.space')
     expect($tabs.vm.currentTab).toBe(0)
     expect(tab1.vm.localActive).toBe(true)
     expect(tab2.vm.localActive).toBe(false)
@@ -568,40 +550,28 @@ describe('tabs', () => {
     expect(tab3.vm.localActive).toBe(false)
 
     // RIGHT moves to next tab
-    await wrapper
-      .findAllComponents(BLink)
-      .at(0)
-      .trigger('keydown.right')
+    await wrapper.findAllComponents(BLink).at(0).trigger('keydown.right')
     expect($tabs.vm.currentTab).toBe(1)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(true)
     expect(tab3.vm.localActive).toBe(false)
 
     // END key moves to last tab
-    await wrapper
-      .findAllComponents(BLink)
-      .at(1)
-      .trigger('keydown.end')
+    await wrapper.findAllComponents(BLink).at(1).trigger('keydown.end')
     expect($tabs.vm.currentTab).toBe(2)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(false)
     expect(tab3.vm.localActive).toBe(true)
 
     // LEFT moves to previous tab
-    await wrapper
-      .findAllComponents(BLink)
-      .at(2)
-      .trigger('keydown.left')
+    await wrapper.findAllComponents(BLink).at(2).trigger('keydown.left')
     expect($tabs.vm.currentTab).toBe(1)
     expect(tab1.vm.localActive).toBe(false)
     expect(tab2.vm.localActive).toBe(true)
     expect(tab3.vm.localActive).toBe(false)
 
     // HOME moves to first tab
-    await wrapper
-      .findAllComponents(BLink)
-      .at(1)
-      .trigger('keydown.home')
+    await wrapper.findAllComponents(BLink).at(1).trigger('keydown.home')
     expect($tabs.vm.currentTab).toBe(0)
     expect(tab1.vm.localActive).toBe(true)
     expect(tab2.vm.localActive).toBe(false)
@@ -796,7 +766,10 @@ describe('tabs', () => {
         }
       },
       render(h) {
-        return h(BTabs, this.tabs.map(tab => h(BTab, tab)))
+        return h(
+          BTabs,
+          this.tabs.map(tab => h(BTab, tab))
+        )
       }
     }
 

@@ -44,8 +44,8 @@ export const getRaw = (obj, path, defaultValue = undefined) => {
   return steps.every(step => isObject(obj) && step in obj && !isUndefinedOrNull((obj = obj[step])))
     ? obj
     : isNull(obj)
-      ? null
-      : defaultValue
+    ? null
+    : defaultValue
 }
 
 /**

@@ -70,8 +70,8 @@ export const tableRendererMixin = extend({
         isResponsive === true
           ? 'table-responsive'
           : isResponsive
-            ? `table-responsive-${this.responsive}`
-            : ''
+          ? `table-responsive-${this.responsive}`
+          : ''
       ].filter(identity)
     },
     wrapperStyles() {
@@ -152,14 +152,8 @@ export const tableRendererMixin = extend({
     }
   },
   render(h) {
-    const {
-      wrapperClasses,
-      renderCaption,
-      renderColgroup,
-      renderThead,
-      renderTbody,
-      renderTfoot
-    } = safeVueInstance(this)
+    const { wrapperClasses, renderCaption, renderColgroup, renderThead, renderTbody, renderTfoot } =
+      safeVueInstance(this)
 
     const $content = []
     if (this.isTableSimple) {

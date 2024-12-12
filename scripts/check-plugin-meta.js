@@ -37,12 +37,14 @@ const checkPluginMeta = async plugin => {
 
   const pluginName = getPluginName(plugin)
   const files = await readDir(pluginDir)
-  const componentModules = files.filter(f => isComponentModule(f)).map(file => {
-    if (verbose && !UNPREFIXED_PLUGINS.includes(pluginName) && !file.startsWith(pluginName)) {
-      console.warn(`Found unexpected unprefixed module ${file} for plugin ${plugin}`)
-    }
-    return file.replace(/\.js/, '')
-  })
+  const componentModules = files
+    .filter(f => isComponentModule(f))
+    .map(file => {
+      if (verbose && !UNPREFIXED_PLUGINS.includes(pluginName) && !file.startsWith(pluginName)) {
+        console.warn(`Found unexpected unprefixed module ${file} for plugin ${plugin}`)
+      }
+      return file.replace(/\.js/, '')
+    })
 
   const { private: isPrivate, meta } = await import(`${pluginDir}/package.json`)
   if (isPrivate || !meta) {

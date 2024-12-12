@@ -477,8 +477,8 @@ export const BCalendar = extend({
             isString(dateInfo) || isArray(dateInfo)
               ? /* istanbul ignore next */ { class: dateInfo }
               : isPlainObject(dateInfo)
-                ? { class: '', ...dateInfo }
-                : /* istanbul ignore next */ { class: '' }
+              ? { class: '', ...dateInfo }
+              : /* istanbul ignore next */ { class: '' }
           matrix[week].push({
             ymd: dayYMD,
             // Cell content

@@ -214,7 +214,7 @@ export const BFormTextarea = /*#__PURE__*/ extend({
           name: 'b-visible',
           value: this.visibleCallback,
           // If textarea is within 640px of viewport, consider it visible
-          modifiers: { '640': true }
+          modifiers: { 640: true }
         }
       ],
       attrs: this.computedAttrs,

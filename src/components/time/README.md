@@ -62,10 +62,7 @@ Setting the `disabled` prop will remove all interactivity of the `<b-time>` comp
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Select time interactive state"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Select time interactive state" v-slot="{ ariaDescribedby }">
       <b-form-radio-group
         v-model="state"
         :aria-describedby="ariaDescribedby"
@@ -77,11 +74,7 @@ Setting the `disabled` prop will remove all interactivity of the `<b-time>` comp
       </b-form-radio-group>
     </b-form-group>
 
-    <b-time
-      id="ex-disabled-readonly"
-      :disabled="disabled"
-      :readonly="readonly"
-    ></b-time>
+    <b-time id="ex-disabled-readonly" :disabled="disabled" :readonly="readonly"></b-time>
   </div>
 </template>
 
@@ -164,20 +157,10 @@ can be used to add buttons such as Now or Reset, etc.
 <template>
   <b-time v-model="value" show-seconds locale="en">
     <div class="d-flex" dir="ltr">
-      <b-button
-        size="sm"
-        variant="outline-danger"
-        v-if="value"
-        @click="clearTime"
-      >
+      <b-button size="sm" variant="outline-danger" v-if="value" @click="clearTime">
         Clear time
       </b-button>
-      <b-button
-        size="sm"
-        variant="outline-primary"
-        class="ml-auto"
-        @click="setNow"
-      >
+      <b-button size="sm" variant="outline-primary" class="ml-auto" @click="setNow">
         Set Now
       </b-button>
     </div>
@@ -287,7 +270,7 @@ supports `Intl` and the locales you will be using. Refer to the
       <p>Value: <b>'{{ value }}'</b></p>
       <p class="mb-0">Context:</p>
       <pre class="small">{{ context }}</pre>
-   </b-col>
+    </b-col>
   </b-row>
 </template>
 

@@ -15,7 +15,14 @@
     <title>BootstrapVue Logo</title>
     <defs>
       <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-      <filter id="logo-shadow" filterUnits="objectBoundingBox" x="-50%" y="-50%" width="200%" height="200%">
+      <filter
+        id="logo-shadow"
+        filterUnits="objectBoundingBox"
+        x="-50%"
+        y="-50%"
+        width="200%"
+        height="200%"
+      >
         <feOffset in="SourceAlpha" dx="-10" dy="25" result="ALPHA1" />
         <feMorphology in="ALPHA1" operator="dilate" radius="15" result="ALPHA" />
         <feGaussianBlur in="ALPHA" stdDeviation="20" result="DROP" />

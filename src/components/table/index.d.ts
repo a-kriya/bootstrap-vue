@@ -134,13 +134,13 @@ export type BvTableHeadFootVariant = 'light' | 'dark'
 
 export type BvTableSortDirection = 'asc' | 'desc' | 'last'
 
-export type BvTableFormatterCallback = ((value: any, key: string, item: any) => any)
+export type BvTableFormatterCallback = (value: any, key: string, item: any) => any
 
-export type BvTableTbodyTrAttrCallback = ((item: any, type: string) => object)
+export type BvTableTbodyTrAttrCallback = (item: any, type: string) => object
 
-export type BvTableTbodyTrClassCallback = ((item: any, type: string) => any)
+export type BvTableTbodyTrClassCallback = (item: any, type: string) => any
 
-export type BvTableFilterCallback = ((item: any, filter: any) => boolean)
+export type BvTableFilterCallback = (item: any, filter: any) => boolean
 
 export type BvTableLocaleCompareOptionLocaleMatcher = 'lookup' | 'best fit'
 
@@ -192,7 +192,7 @@ export interface BvTableLocaleCompareOptions {
   usage?: BvTableLocaleCompareOptionUsage
 }
 
-export type BvTableSortCompareCallback = ((
+export type BvTableSortCompareCallback = (
   a: any,
   b: any,
   field: string,
@@ -200,7 +200,7 @@ export type BvTableSortCompareCallback = ((
   formatter?: BvTableFormatterCallback | undefined | null,
   localeOptions?: BvTableLocaleCompareOptions,
   locale?: string | Array<string> | undefined | null
-) => number | boolean | null | undefined)
+) => number | boolean | null | undefined
 
 export interface BvTableCtxObject {
   currentPage: number

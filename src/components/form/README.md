@@ -42,12 +42,7 @@ supported components, form layout, and more.
       </b-form-group>
 
       <b-form-group id="input-group-3" label="Food:" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="form.food"
-          :options="foods"
-          required
-        ></b-form-select>
+        <b-form-select id="input-3" v-model="form.food" :options="foods" required></b-form-select>
       </b-form-group>
 
       <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
@@ -226,12 +221,16 @@ will announce this help text when the user focuses or enters the control.
 <div>
   <b-form @submit.stop.prevent>
     <label for="text-password">Password</label>
-    <b-form-input type="password" id="text-password" aria-describedby="password-help-block"></b-form-input>
+    <b-form-input
+      type="password"
+      id="text-password"
+      aria-describedby="password-help-block"
+    ></b-form-input>
     <b-form-text id="password-help-block">
-      Your password must be 8-20 characters long, contain letters and numbers, and must not
-      contain spaces, special characters, or emoji.
+      Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+      spaces, special characters, or emoji.
     </b-form-text>
-   </b-form>
+  </b-form>
 </div>
 
 <!-- b-form-help-text.vue -->
@@ -263,16 +262,14 @@ or the `force-show` prop to display the feedback.
 ```html
 <template>
   <div>
-    <b-form  @submit.stop.prevent>
+    <b-form @submit.stop.prevent>
       <label for="feedback-user">User ID</label>
       <b-form-input v-model="userId" :state="validation" id="feedback-user"></b-form-input>
       <b-form-invalid-feedback :state="validation">
         Your user ID must be 5-12 characters long.
       </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="validation">
-        Looks Good.
-      </b-form-valid-feedback>
-     </b-form>
+      <b-form-valid-feedback :state="validation"> Looks Good. </b-form-valid-feedback>
+    </b-form>
   </div>
 </template>
 
@@ -314,13 +311,13 @@ any `<option>` elements generated from the `options` prop.
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: ['Apple', 'Banana', 'Grape', 'Kiwi', 'Orange']
+  export default {
+    data() {
+      return {
+        options: ['Apple', 'Banana', 'Grape', 'Kiwi', 'Orange']
+      }
     }
   }
-}
 </script>
 
 <!-- b-form-datalist-example.vue -->

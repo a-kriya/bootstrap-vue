@@ -13,14 +13,16 @@ centered beside any adjoining plain text. They also can be used as children of o
 ```html
 <template>
   <div>
-    <p>Using stand-alone:<p/>
+    <p>Using stand-alone:</p>
+    <p />
     <div class="mb-4">
       <b-avatar></b-avatar>
       <b-avatar variant="primary" text="BV"></b-avatar>
       <b-avatar variant="info" src="https://placekitten.com/300/300"></b-avatar>
       <b-avatar variant="success" icon="people-fill"></b-avatar>
     </div>
-    <p>Using in components (list group) example:<p/>
+    <p>Using in components (list group) example:</p>
+    <p />
     <b-list-group style="max-width: 300px;">
       <b-list-group-item class="d-flex align-items-center">
         <b-avatar class="mr-3"></b-avatar>
@@ -147,8 +149,8 @@ appearance, or if using custom icons or SVGs e.g.:
 ```html
 <template>
   <div class="mb-2">
-    <b-avatar size="4em">Hello<br>World</b-avatar>
-    <b-avatar size="4em">你好<br>世界</b-avatar>
+    <b-avatar size="4em">Hello<br />World</b-avatar>
+    <b-avatar size="4em">你好<br />世界</b-avatar>
   </div>
 </template>
 
@@ -282,7 +284,13 @@ the `click` event whenever clicked.
 <template>
   <b-list-group>
     <b-list-group-item>
-      <b-avatar button @click="onClick" variant="primary" text="FF" class="align-baseline"></b-avatar>
+      <b-avatar
+        button
+        @click="onClick"
+        variant="primary"
+        text="FF"
+        class="align-baseline"
+      ></b-avatar>
       Button Text Avatar
     </b-list-group-item>
     <b-list-group-item>

@@ -3,7 +3,11 @@ import { isVue3 } from '../../vue'
 import { waitNT } from '../../../tests/utils'
 import { BTable } from './table'
 
-const testItems = [{ a: 1, b: 2, c: 3 }, { a: 5, b: 5, c: 6 }, { a: 7, b: 8, c: 9 }]
+const testItems = [
+  { a: 1, b: 2, c: 3 },
+  { a: 5, b: 5, c: 6 },
+  { a: 7, b: 8, c: 9 }
+]
 const testFields = ['a', 'b', 'c']
 
 describe('table > tbody row events', () => {
@@ -518,10 +522,7 @@ describe('table > tbody row events', () => {
     expect(document.activeElement).toBe($rows.at(0).element)
 
     // Should only move focus if TR was target
-    await $rows
-      .at(0)
-      .find('td')
-      .trigger('keydown.down')
+    await $rows.at(0).find('td').trigger('keydown.down')
     expect(document.activeElement).toBe($rows.at(0).element)
 
     wrapper.destroy()

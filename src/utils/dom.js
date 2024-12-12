@@ -32,7 +32,7 @@ export const matchesEl =
 /* istanbul ignore next */
 export const closestEl =
   ELEMENT_PROTO.closest ||
-  function(sel) {
+  function (sel) {
     let el = this
     do {
       // Use our "patched" matches function
@@ -235,54 +235,56 @@ export const getSel = () => {
 
 // Return an element's offset with respect to document element
 // https://j11y.io/jquery/#v=git&fn=jQuery.fn.offset
-export const offset = el => /* istanbul ignore next: getBoundingClientRect(), getClientRects() doesn't work in JSDOM */ {
-  const _offset = { top: 0, left: 0 }
-  if (!isElement(el) || el.getClientRects().length === 0) {
+export const offset =
+  el => /* istanbul ignore next: getBoundingClientRect(), getClientRects() doesn't work in JSDOM */ {
+    const _offset = { top: 0, left: 0 }
+    if (!isElement(el) || el.getClientRects().length === 0) {
+      return _offset
+    }
+    const bcr = getBCR(el)
+    if (bcr) {
+      const win = el.ownerDocument.defaultView
+      _offset.top = bcr.top + win.pageYOffset
+      _offset.left = bcr.left + win.pageXOffset
+    }
     return _offset
   }
-  const bcr = getBCR(el)
-  if (bcr) {
-    const win = el.ownerDocument.defaultView
-    _offset.top = bcr.top + win.pageYOffset
-    _offset.left = bcr.left + win.pageXOffset
-  }
-  return _offset
-}
 
 // Return an element's offset with respect to to its offsetParent
 // https://j11y.io/jquery/#v=git&fn=jQuery.fn.position
-export const position = el => /* istanbul ignore next: getBoundingClientRect() doesn't work in JSDOM */ {
-  let _offset = { top: 0, left: 0 }
-  if (!isElement(el)) {
-    return _offset
-  }
-  let parentOffset = { top: 0, left: 0 }
-  const elStyles = getCS(el)
-  if (elStyles.position === 'fixed') {
-    _offset = getBCR(el) || _offset
-  } else {
-    _offset = offset(el)
-    const doc = el.ownerDocument
-    let offsetParent = el.offsetParent || doc.documentElement
-    while (
-      offsetParent &&
-      (offsetParent === doc.body || offsetParent === doc.documentElement) &&
-      getCS(offsetParent).position === 'static'
-    ) {
-      offsetParent = offsetParent.parentNode
+export const position =
+  el => /* istanbul ignore next: getBoundingClientRect() doesn't work in JSDOM */ {
+    let _offset = { top: 0, left: 0 }
+    if (!isElement(el)) {
+      return _offset
     }
-    if (offsetParent && offsetParent !== el && offsetParent.nodeType === Node.ELEMENT_NODE) {
-      parentOffset = offset(offsetParent)
-      const offsetParentStyles = getCS(offsetParent)
-      parentOffset.top += toFloat(offsetParentStyles.borderTopWidth, 0)
-      parentOffset.left += toFloat(offsetParentStyles.borderLeftWidth, 0)
+    let parentOffset = { top: 0, left: 0 }
+    const elStyles = getCS(el)
+    if (elStyles.position === 'fixed') {
+      _offset = getBCR(el) || _offset
+    } else {
+      _offset = offset(el)
+      const doc = el.ownerDocument
+      let offsetParent = el.offsetParent || doc.documentElement
+      while (
+        offsetParent &&
+        (offsetParent === doc.body || offsetParent === doc.documentElement) &&
+        getCS(offsetParent).position === 'static'
+      ) {
+        offsetParent = offsetParent.parentNode
+      }
+      if (offsetParent && offsetParent !== el && offsetParent.nodeType === Node.ELEMENT_NODE) {
+        parentOffset = offset(offsetParent)
+        const offsetParentStyles = getCS(offsetParent)
+        parentOffset.top += toFloat(offsetParentStyles.borderTopWidth, 0)
+        parentOffset.left += toFloat(offsetParentStyles.borderLeftWidth, 0)
+      }
+    }
+    return {
+      top: _offset.top - parentOffset.top - toFloat(elStyles.marginTop, 0),
+      left: _offset.left - parentOffset.left - toFloat(elStyles.marginLeft, 0)
     }
   }
-  return {
-    top: _offset.top - parentOffset.top - toFloat(elStyles.marginTop, 0),
-    left: _offset.left - parentOffset.left - toFloat(elStyles.marginLeft, 0)
-  }
-}
 
 // Find all tabable elements in the given element
 // Assumes users have not used `tabindex` > `0` on elements

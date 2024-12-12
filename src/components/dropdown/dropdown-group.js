@@ -63,10 +63,7 @@ export const BDropdownGroup = /*#__PURE__*/ extend({
             id,
             role: 'group',
             'aria-describedby':
-              [headerId, props.ariaDescribedBy]
-                .filter(identity)
-                .join(' ')
-                .trim() || null
+              [headerId, props.ariaDescribedBy].filter(identity).join(' ').trim() || null
           }
         },
         normalizeSlot(SLOT_NAME_DEFAULT, slotScope, $scopedSlots, $slots)

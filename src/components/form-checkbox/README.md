@@ -238,10 +238,7 @@ or if using individual checkboxes not inside a `<b-form-checkbox-group>`, set th
       ></b-form-checkbox-group>
     </b-form-group>
 
-    <b-form-group
-      label="Form-checkbox-group stacked checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Form-checkbox-group stacked checkboxes" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
         v-model="selected"
         :options="options"
@@ -251,10 +248,7 @@ or if using individual checkboxes not inside a `<b-form-checkbox-group>`, set th
       ></b-form-checkbox-group>
     </b-form-group>
 
-    <b-form-group
-      label="Individual stacked checkboxes (default)"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Individual stacked checkboxes (default)" v-slot="{ ariaDescribedby }">
       <b-form-checkbox
         v-for="option in options"
         v-model="selected"
@@ -267,10 +261,7 @@ or if using individual checkboxes not inside a `<b-form-checkbox-group>`, set th
       </b-form-checkbox>
     </b-form-group>
 
-    <b-form-group
-      label="Individual inline checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Individual inline checkboxes" v-slot="{ ariaDescribedby }">
       <b-form-checkbox
         v-for="option in options"
         v-model="selected"
@@ -417,10 +408,7 @@ variants). The default `button-variant` is `secondary`.
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Button-group style checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Button-group style checkboxes" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
         v-model="selected"
         :options="options"
@@ -520,10 +508,7 @@ Render groups of checkboxes with the look of a switches by setting the prop `swi
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Inline switch style checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Inline switch style checkboxes" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
         v-model="selected"
         :options="options"
@@ -532,10 +517,7 @@ Render groups of checkboxes with the look of a switches by setting the prop `swi
       ></b-form-checkbox-group>
     </b-form-group>
 
-    <b-form-group
-      label="Stacked (vertical) switch style checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Stacked (vertical) switch style checkboxes" v-slot="{ ariaDescribedby }">
       <b-form-checkbox-group
         v-model="selected"
         :options="options"
@@ -745,7 +727,7 @@ modifier.
     </b-form-checkbox>
 
     <div class="mt-3">
-      Checked: <strong>{{ checked }}</strong><br>
+      Checked: <strong>{{ checked }}</strong><br />
       Indeterminate: <strong>{{ indeterminate }}</strong>
     </div>
 
@@ -779,7 +761,7 @@ modifier.
   <div>
     <b-form-group>
       <template #label>
-        <b>Choose your flavours:</b><br>
+        <b>Choose your flavours:</b><br />
         <b-form-checkbox
           v-model="allSelected"
           :indeterminate="indeterminate"
@@ -806,8 +788,8 @@ modifier.
     </b-form-group>
 
     <div>
-      Selected: <strong>{{ selected }}</strong><br>
-      All Selected: <strong>{{ allSelected }}</strong><br>
+      Selected: <strong>{{ selected }}</strong><br />
+      All Selected: <strong>{{ allSelected }}</strong><br />
       Indeterminate: <strong>{{ indeterminate }}</strong>
     </div>
   </div>

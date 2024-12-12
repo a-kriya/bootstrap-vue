@@ -71,10 +71,7 @@ describe('table/helpers/default-sort-compare', () => {
   it('sorts using provided formatter correctly', async () => {
     const formatter = value => {
       // Reverse the string
-      return value
-        .split('')
-        .reverse()
-        .join('')
+      return value.split('').reverse().join('')
     }
 
     expect(defaultSortCompare({ a: 'ab' }, { a: 'b' }, { sortBy: 'a' })).toBe(-1)

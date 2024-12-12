@@ -2,7 +2,9 @@
   <b-container fluid tag="main" class="pb-5">
     <!-- Introduction -->
     <div class="bd-content mb-4">
-      <h1><span class="bd-content-title">{{ title }}</span></h1>
+      <h1>
+        <span class="bd-content-title">{{ title }}</span>
+      </h1>
       <b-row align-v="center">
         <b-col>
           <p class="bd-lead">
@@ -21,13 +23,7 @@
     <b-row v-if="loading">
       <b-col class="mb-2 mb-md-0">
         <!-- Loading indicator -->
-        <b-alert
-          variant="info"
-          class="text-center"
-          show
-        >
-          Loading JavaScript compiler...
-        </b-alert>
+        <b-alert variant="info" class="text-center" show> Loading JavaScript compiler... </b-alert>
       </b-col>
     </b-row>
 
@@ -35,13 +31,7 @@
     <b-container v-if="ready && needsTranspiler">
       <b-row>
         <b-col>
-          <b-alert
-            variant="info"
-            class="mb-3"
-            show
-            fade
-            dismissible
-          >
+          <b-alert variant="info" class="mb-3" show fade dismissible>
             Your browser does not support modern ES6 JavaScript syntax. However, the code in the
             JavaScipt editor will be transpiled to work with your browser, except for any ES6 code
             that is in the Template editor (i.e. destructuring, arrow functions, etc.)
@@ -54,21 +44,13 @@
     <b-row>
       <b-col class="mb-2 mb-md-0">
         <!-- Reset action -->
-        <b-btn
-          size="sm"
-          variant="danger"
-          :disabled="isDefault || isBusy"
-          @click="reset"
-        >
+        <b-btn size="sm" variant="danger" :disabled="isDefault || isBusy" @click="reset">
           Reset to default
         </b-btn>
       </b-col>
 
       <!-- Export actions -->
-      <b-col
-        md="auto"
-        class="mt-2 mt-md-0"
-      >
+      <b-col md="auto" class="mt-2 mt-md-0">
         <b class="d-block d-sm-inline-block mr-sm-2 mb-1 mb-sm-0">Export to</b>
 
         <!-- Export to CodePen -->
@@ -79,7 +61,7 @@
           action="https://codepen.io/pen/define"
           target="_blank"
         >
-          <input type="hidden" name="data" :value="codepenData">
+          <input type="hidden" name="data" :value="codepenData" />
           <b-btn size="sm" type="submit" :disabled="!isOk || isBusy">CodePen</b-btn>
         </b-form>
 
@@ -91,7 +73,7 @@
           action="https://codesandbox.io/api/v1/sandboxes/define"
           target="_blank"
         >
-          <input type="hidden" name="parameters" :value="codesandboxData">
+          <input type="hidden" name="parameters" :value="codesandboxData" />
           <b-btn size="sm" type="submit" :disabled="!isOk || isBusy">CodeSandbox</b-btn>
         </b-form>
 
@@ -103,32 +85,27 @@
           action="https://jsfiddle.net/api/post/library/pure/"
           target="_blank"
         >
-          <input type="hidden" name="html" :value="exportData.extendedHtml">
-          <input type="hidden" name="js" :value="exportData.extendedJs">
-          <input type="hidden" name="resources" :value="[...exportData.externalCss, exportData.externalJs].join(',')">
-          <input type="hidden" name="css" :value="exportData.css">
-          <input type="hidden" name="js_wrap" value="l">
+          <input type="hidden" name="html" :value="exportData.extendedHtml" />
+          <input type="hidden" name="js" :value="exportData.extendedJs" />
+          <input
+            type="hidden"
+            name="resources"
+            :value="[...exportData.externalCss, exportData.externalJs].join(',')"
+          />
+          <input type="hidden" name="css" :value="exportData.css" />
+          <input type="hidden" name="js_wrap" value="l" />
           <b-btn size="sm" type="submit" :disabled="!isOk || isBusy">JSFiddle</b-btn>
         </b-form>
       </b-col>
     </b-row>
 
     <!-- Editors / Result / Console -->
-    <transition-group
-      tag="div"
-      class="row"
-      name="flip"
-    >
+    <transition-group tag="div" class="row" name="flip">
       <!-- Left/Top column -->
       <b-col key="A" :cols="full ? 12 : null">
         <transition-group tag="div" class="row" name="flip">
           <!-- Template column -->
-          <b-col
-            key="A1"
-            :md="vertical && !full ? 6 : 12"
-            sm="12"
-            class="mt-3"
-          >
+          <b-col key="A1" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
             <!-- Template -->
             <b-card no-body header-tag="header">
               <template #header>
@@ -152,12 +129,7 @@
           </b-col>
 
           <!-- JavaScript column -->
-          <b-col
-            key="A2"
-            :md="vertical && !full ? 6 : 12"
-            sm="12"
-            class="mt-3"
-          >
+          <b-col key="A2" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
             <!-- JavaScript -->
             <b-card no-body header-tag="header">
               <template #header>
@@ -208,7 +180,11 @@
                 </div>
               </template>
 
-              <b-card-body ref="result" class="play-result-body notranslate" translate="no"></b-card-body>
+              <b-card-body
+                ref="result"
+                class="play-result-body notranslate"
+                translate="no"
+              ></b-card-body>
             </b-card>
           </b-col>
 
@@ -245,13 +221,14 @@
                   :key="`console-${msg[2]}`"
                   class="py-2 d-flex"
                 >
-                  <b-badge :variant="msg[0]" class="mr-1" style="font-size:90%;">
+                  <b-badge :variant="msg[0]" class="mr-1" style="font-size: 90%">
                     {{ msg[0] === 'danger' ? 'error' : msg[0] === 'warning' ? 'warn' : 'log' }}
                   </b-badge>
                   <span
                     :class="[`text-${msg[0]}`, 'text-monospace', 'small', 'd-block']"
-                    style="white-space: pre-wrap;"
-                  >{{ msg[1] }}</span>
+                    style="white-space: pre-wrap"
+                    >{{ msg[1] }}</span
+                  >
                 </b-list-group-item>
               </transition-group>
             </b-card>
@@ -717,7 +694,7 @@ export default {
             this.errorHandler(`TypeError: ${methodName} is not a function`, 'methods')
           } else {
             // Replace it with a wrapped method
-            options.methods[methodName] = function() {
+            options.methods[methodName] = function () {
               try {
                 return fn.apply(this, arguments)
               } catch (err) {

@@ -414,24 +414,26 @@ const processIconGroup = groupSlug => {
   }))
 
   // Process each regular component
-  iconsMeta.filter(it => !it['auto-gen'] || !it.component.startsWith('BIcon')).forEach(meta => {
-    processComponentMeta(meta, groupRef, groupMeta.description, docUrl, component => {
-      // Add list of icons to BIcon icon prop
-      if (component.name === 'BIcon') {
-        const iconProp = component.props.find(it => it.name === 'icon')
-        iconProp['attribute-value'] = {
-          kind: 'plain',
-          type: 'enum'
-        }
-        iconProp.values = {
-          name: 'Bootstrap icon',
-          pattern: {
-            items: '/html/vue-bootstrap-icons-kebabized'
+  iconsMeta
+    .filter(it => !it['auto-gen'] || !it.component.startsWith('BIcon'))
+    .forEach(meta => {
+      processComponentMeta(meta, groupRef, groupMeta.description, docUrl, component => {
+        // Add list of icons to BIcon icon prop
+        if (component.name === 'BIcon') {
+          const iconProp = component.props.find(it => it.name === 'icon')
+          iconProp['attribute-value'] = {
+            kind: 'plain',
+            type: 'enum'
+          }
+          iconProp.values = {
+            name: 'Bootstrap icon',
+            pattern: {
+              items: '/html/vue-bootstrap-icons-kebabized'
+            }
           }
         }
-      }
+      })
     })
-  })
 
   // Add special Vue component, which enables completion for all icons based on IconBlank
   processComponentMeta(

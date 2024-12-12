@@ -81,12 +81,8 @@ export const BImg = /*#__PURE__*/ extend({
     let width = toInteger(props.width) || null
     let height = toInteger(props.height) || null
     let align = null
-    let srcset = concat(props.srcset)
-      .filter(identity)
-      .join(',')
-    let sizes = concat(props.sizes)
-      .filter(identity)
-      .join(',')
+    let srcset = concat(props.srcset).filter(identity).join(',')
+    let sizes = concat(props.sizes).filter(identity).join(',')
 
     if (props.blank) {
       if (!height && width) {

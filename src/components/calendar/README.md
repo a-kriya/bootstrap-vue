@@ -83,11 +83,7 @@ For disabling specific dates or setting minimum and maximum date limits, refer t
       </b-form-radio-group>
     </b-form-group>
 
-    <b-calendar
-      id="ex-disabled-readonly"
-      :disabled="disabled"
-      :readonly="readonly"
-    ></b-calendar>
+    <b-calendar id="ex-disabled-readonly" :disabled="disabled" :readonly="readonly"></b-calendar>
   </div>
 </template>
 
@@ -357,20 +353,10 @@ slot can be used to add buttons such as `Select Today` or `Reset`, etc.
 <template>
   <b-calendar v-model="value" value-as-date locale="en">
     <div class="d-flex" dir="ltr">
-      <b-button
-        size="sm"
-        variant="outline-danger"
-        v-if="value"
-        @click="clearDate"
-      >
+      <b-button size="sm" variant="outline-danger" v-if="value" @click="clearDate">
         Clear date
       </b-button>
-      <b-button
-        size="sm"
-        variant="outline-primary"
-        class="ml-auto"
-        @click="setToday"
-      >
+      <b-button size="sm" variant="outline-primary" class="ml-auto" @click="setToday">
         Set Today
       </b-button>
     </div>
@@ -583,7 +569,7 @@ the same locale as requested, depending on the supported locales of `Intl`).
       <p>Value: <b>'{{ value }}'</b></p>
       <p class="mb-0">Context:</p>
       <pre class="small">{{ context }}</pre>
-   </b-col>
+    </b-col>
   </b-row>
 </template>
 

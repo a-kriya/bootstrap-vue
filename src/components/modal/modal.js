@@ -312,10 +312,7 @@ export const BModal = /*#__PURE__*/ extend({
     },
     computeIgnoreEnforceFocusSelector() {
       // Normalize to an single selector with selectors separated by `,`
-      return concat(this.ignoreEnforceFocusSelector)
-        .filter(identity)
-        .join(',')
-        .trim()
+      return concat(this.ignoreEnforceFocusSelector).filter(identity).join(',').trim()
     },
     computedAttrs() {
       // If the parent has a scoped style attribute, and the modal
@@ -733,10 +730,10 @@ export const BModal = /*#__PURE__*/ extend({
               autoFocus === BUTTON_OK && ok
                 ? ok.$el || ok
                 : autoFocus === BUTTON_CANCEL && cancel
-                  ? cancel.$el || cancel
-                  : autoFocus === BUTTON_CLOSE && close
-                    ? close.$el || close
-                    : content
+                ? cancel.$el || cancel
+                : autoFocus === BUTTON_CLOSE && close
+                ? close.$el || close
+                : content
             // Focus the element
             attemptFocus(el)
             if (el === content) {

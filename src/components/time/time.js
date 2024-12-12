@@ -333,10 +333,10 @@ export const BTime = /*#__PURE__*/ extend({
         hh === 0 && hourCycle === 'h12'
           ? 12
           : hh === 0 && hourCycle === 'h24'
-            ? /* istanbul ignore next */ 24
-            : hh === 12 && hourCycle === 'h11'
-              ? /* istanbul ignore next */ 0
-              : hh
+          ? /* istanbul ignore next */ 24
+          : hh === 12 && hourCycle === 'h11'
+          ? /* istanbul ignore next */ 0
+          : hh
       return this.numberFormatter(hh)
     },
     formatMinutes(mm) {

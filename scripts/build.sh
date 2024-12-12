@@ -112,14 +112,14 @@ echo ''
 
 echo 'Minify CSS...'
 # Complete BootstrapVue CSS
-cleancss --level 1 \
+cleancss \
     --format breaksWith=lf \
     --source-map \
     --source-map-inline-sources \
     --output dist/bootstrap-vue.min.css \
     dist/bootstrap-vue.css
 # Icons only CSS
-cleancss --level 1 \
+cleancss \
     --format breaksWith=lf \
     --source-map \
     --source-map-inline-sources \

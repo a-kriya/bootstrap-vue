@@ -1,9 +1,5 @@
 <template>
-  <form
-    role="search"
-    class="bd-search d-flex align-items-center"
-    @submit.stop.prevent
-  >
+  <form role="search" class="bd-search d-flex align-items-center" @submit.stop.prevent>
     <b-form-input
       id="bd-search-input"
       autocomplete="off"
@@ -74,7 +70,7 @@ export default {
         indexName: 'bootstrap-vue',
         inputSelector: '#bd-search-input',
         transformData(hits) {
-          return hits.map(function(hit) {
+          return hits.map(function (hit) {
             // Transform URL to a relative URL
             hit.url = relativeUrl(hit.url)
 

@@ -7,9 +7,7 @@
   >
     <b-row align-v="start">
       <b-col md="5" lg="6">
-        <div id="bv-icons-table-title" class="h3 text-muted mb-3 mb-md-0">
-          Icon explorer
-        </div>
+        <div id="bv-icons-table-title" class="h3 text-muted mb-3 mb-md-0">Icon explorer</div>
       </b-col>
       <b-col md="7" lg="6">
         <b-form @submit.prevent>
@@ -100,10 +98,7 @@ export default {
   },
   computed: {
     filteredIcons() {
-      const terms = this.iconFilter
-        .trim()
-        .toLowerCase()
-        .split(/\s+/)
+      const terms = this.iconFilter.trim().toLowerCase().split(/\s+/)
       if (terms.length === 0) {
         return icons.slice()
       }

@@ -183,10 +183,7 @@ describe('table > row select', () => {
     expect($rows.wrappers.every(r => r.find('[tabindex="0"]').exists())).toBe(true)
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)
@@ -205,10 +202,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-range')
 
     // Click third row to select it
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(2).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(2)
     expect(wrapper.emitted('row-selected')[1][0]).toEqual([testItems[2]])
@@ -226,10 +220,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-range')
 
     // Click third row again to clear selection
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(2).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(3)
     expect(wrapper.emitted('row-selected')[2][0]).toEqual([])
@@ -272,10 +263,7 @@ describe('table > row select', () => {
     expect(wrapper.emitted('row-selected')).toBeUndefined()
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)
     expect(wrapper.emitted('row-selected')[0][0]).toEqual([testItems[0]])
@@ -293,10 +281,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-range')
 
     // Click third row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(2).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(2)
     expect(wrapper.emitted('row-selected')[1][0]).toEqual([testItems[0], testItems[2]])
@@ -314,10 +299,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-range')
 
     // Click third row again
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(2).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(3)
     expect(wrapper.emitted('row-selected')[2][0]).toEqual([testItems[0]])
@@ -335,10 +317,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-range')
 
     // Click first row again
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(4)
     expect(wrapper.emitted('row-selected')[3][0]).toEqual([])
@@ -385,10 +364,7 @@ describe('table > row select', () => {
     expect($rows.wrappers.every(r => r.find('[aria-selected="false"]').exists())).toBe(true)
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)
@@ -407,10 +383,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Shift-Click third row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click', { shiftKey: true })
+    await wrapper.findAll('tbody > tr').at(2).trigger('click', { shiftKey: true })
 
     expect(wrapper.emitted('row-selected').length).toBe(2)
     expect(wrapper.emitted('row-selected')[1][0]).toEqual([
@@ -432,10 +405,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Click third row again
-    await wrapper
-      .findAll('tbody > tr')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(2).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(3)
     expect(wrapper.emitted('row-selected')[2][0]).toEqual([testItems[2]])
@@ -453,10 +423,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Click fourth row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(3)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(3).trigger('click')
 
     expect(wrapper.emitted('row-selected').length).toBe(4)
     expect(wrapper.emitted('row-selected')[3][0]).toEqual([testItems[3]])
@@ -474,10 +441,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Click fourth row again
-    await wrapper
-      .findAll('tbody > tr')
-      .at(3)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(3).trigger('click')
 
     // No change to selected rows
     expect(wrapper.emitted('row-selected').length).toBe(4)
@@ -495,10 +459,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Ctrl-Click second row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(1)
-      .trigger('click', { ctrlKey: true })
+    await wrapper.findAll('tbody > tr').at(1).trigger('click', { ctrlKey: true })
 
     expect(wrapper.emitted('row-selected').length).toBe(5)
     expect(wrapper.emitted('row-selected')[4][0]).toEqual([testItems[1], testItems[3]])
@@ -516,10 +477,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Ctrl-Click second row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(1)
-      .trigger('click', { ctrlKey: true })
+    await wrapper.findAll('tbody > tr').at(1).trigger('click', { ctrlKey: true })
 
     expect(wrapper.emitted('row-selected').length).toBe(6)
     expect(wrapper.emitted('row-selected')[5][0]).toEqual([testItems[3]])
@@ -537,10 +495,7 @@ describe('table > row select', () => {
     expect(wrapper.classes()).not.toContain('b-table-select-multi')
 
     // Ctrl-Click fourth row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(3)
-      .trigger('click', { ctrlKey: true })
+    await wrapper.findAll('tbody > tr').at(3).trigger('click', { ctrlKey: true })
 
     expect(wrapper.emitted('row-selected').length).toBe(7)
     expect(wrapper.emitted('row-selected')[6][0]).toEqual([])
@@ -620,10 +575,7 @@ describe('table > row select', () => {
     expect($rows.at(3).attributes('aria-selected')).toBe('false')
 
     // Click row header
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(0).trigger('click')
 
     expect(wrapper.emitted('sort-changed')).toBeDefined()
     expect(wrapper.emitted('sort-changed').length).toBe(1)
@@ -657,10 +609,7 @@ describe('table > row select', () => {
     expect($rows.wrappers.every(w => w.element.matches('[aria-selected="false"]'))).toBe(true)
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)
@@ -709,10 +658,7 @@ describe('table > row select', () => {
     expect($rows.wrappers.every(w => w.attributes('aria-selected') === 'false')).toBe(true)
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)
@@ -802,10 +748,7 @@ describe('table > row select', () => {
     expect(wrapper.emitted('row-selected')).toBeUndefined()
 
     // Click first row
-    await wrapper
-      .findAll('tbody > tr')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tbody > tr').at(0).trigger('click')
 
     expect(wrapper.emitted('row-selected')).toBeDefined()
     expect(wrapper.emitted('row-selected').length).toBe(1)

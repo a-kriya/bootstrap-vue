@@ -104,7 +104,7 @@ single file `.vue` components.
 The BootstrapVue distribution now includes `ES` modules for all components and directives. These are
 located in the `bootstrap-vue/es/components/` and `bootstrap-vue/es/directives/` directories, when
 using the NPM bundle. When building from the BootstrapVue repo source the directories will be
-created when you run `yarn build`.
+created when you run `npm run build`.
 
 ### Importing individual components and directives
 

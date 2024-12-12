@@ -39,7 +39,8 @@ const validTriggers = {
 // Directive modifier test regular expressions. Pre-compile for performance
 const htmlRE = /^html$/i
 const noFadeRE = /^nofade$/i
-const placementRE = /^(auto|top(left|right)?|bottom(left|right)?|left(top|bottom)?|right(top|bottom)?)$/i
+const placementRE =
+  /^(auto|top(left|right)?|bottom(left|right)?|left(top|bottom)?|right(top|bottom)?)$/i
 const boundaryRE = /^(window|viewport|scrollParent)$/i
 const delayRE = /^d\d+$/i
 const delayShowRE = /^ds\d+$/i

@@ -34,9 +34,7 @@ The overlay visibility is controlled via the `show` prop. By default the overlay
       <b-card title="Card with overlay" :aria-hidden="show ? 'true' : null">
         <b-card-text>Laborum consequat non elit enim exercitation cillum.</b-card-text>
         <b-card-text>Click the button to toggle the overlay:</b-card-text>
-        <b-button :disabled="show" variant="primary" @click="show = true">
-          Show overlay
-        </b-button>
+        <b-button :disabled="show" variant="primary" @click="show = true"> Show overlay </b-button>
       </b-card>
     </b-overlay>
     <b-button class="mt-3" @click="show = !show">Toggle overlay</b-button>
@@ -141,16 +139,9 @@ Control the opacity of the backdrop via the `opacity` prop (opacity values can r
           'success',
           'danger',
           'warning',
-          'info',
+          'info'
         ],
-        blurs: [
-          { text: 'None', value: '' },
-          '1px',
-          '2px',
-          '5px',
-          '0.5em',
-          '1rem'
-        ]
+        blurs: [{ text: 'None', value: '' }, '1px', '2px', '5px', '0.5em', '1rem']
       }
     }
   }
@@ -195,9 +186,9 @@ can control the appearance of the spinner via the following props:
     >
       <b-card title="Card with spinner style" aria-hidden="true">
         <b-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </b-card-text>
         <b-button disabled variant="primary">Button</b-button>
       </b-card>
@@ -235,13 +226,25 @@ Possible values are:
       <b-col md="6">
         <p>With rounding</p>
         <b-overlay :show="show" class="d-inline-block" rounded="circle">
-          <b-img thumbnail rounded="circle" fluid src="https://picsum.photos/200/200/?image=54" alt="Image 1"></b-img>
+          <b-img
+            thumbnail
+            rounded="circle"
+            fluid
+            src="https://picsum.photos/200/200/?image=54"
+            alt="Image 1"
+          ></b-img>
         </b-overlay>
       </b-col>
       <b-col md="6">
         <p>Without rounding</p>
         <b-overlay :show="show" class="d-inline-block">
-          <b-img thumbnail rounded="circle" fluid src="https://picsum.photos/200/200/?image=54" alt="Image 1"></b-img>
+          <b-img
+            thumbnail
+            rounded="circle"
+            fluid
+            src="https://picsum.photos/200/200/?image=54"
+            alt="Image 1"
+          ></b-img>
         </b-overlay>
       </b-col>
     </b-row>
@@ -357,8 +360,8 @@ overlay slot content at the top right.
       </template>
       <b-card title="Card with no-center overlay" aria-hidden="true">
         <b-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua.
         </b-card-text>
         <b-button disabled variant="primary">Button</b-button>
       </b-card>
@@ -395,15 +398,12 @@ relative positioning (either via the utility class `'position-relative'`, or CSS
       <b-card title="Card with parent overlay">
         <b-card-text>Laborum consequat non elit enim exercitation cillum.</b-card-text>
         <b-card-text>Click the button to toggle the overlay:</b-card-text>
-        <b-button :disabled="show" variant="primary" @click="show = true">
-          Show overlay
-        </b-button>
+        <b-button :disabled="show" variant="primary" @click="show = true"> Show overlay </b-button>
       </b-card>
       <p class="text-light font-weight-bold mb-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
-      <b-overlay :show="show" no-wrap>
-      </b-overlay>
+      <b-overlay :show="show" no-wrap> </b-overlay>
     </div>
     <b-button class="mt-3" @click="show = !show">Toggle overlay</b-button>
   </div>
@@ -442,9 +442,9 @@ descendant of `<b-card>`:
           ></b-img>
         </template>
         <p class="mb-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </b-media>
       <b-overlay :show="show" no-wrap></b-overlay>
@@ -542,12 +542,7 @@ Easily create a loading button:
       class="d-inline-block"
       @hidden="onHidden"
     >
-      <b-button
-        ref="button"
-        :disabled="busy"
-        variant="primary"
-        @click="onClick"
-      >
+      <b-button ref="button" :disabled="busy" variant="primary" @click="onClick">
         Do something
       </b-button>
     </b-overlay>
@@ -617,7 +612,7 @@ In this example, we obscure the input and button:
       <b-input-group size="lg" :aria-hidden="busy ? 'true' : null">
         <b-form-input v-model="value" :disabled="busy"></b-form-input>
         <b-input-group-append>
-          <b-button ref="button" :disabled="busy" variant="primary"  @click="onClick">
+          <b-button ref="button" :disabled="busy" variant="primary" @click="onClick">
             Do something
           </b-button>
         </b-input-group-append>
@@ -708,7 +703,7 @@ This example also demonstrates additional accessibility markup.
       </b-form-group>
 
       <div class="d-flex justify-content-center">
-         <b-button ref="submit" type="submit" :disabled="busy">Submit</b-button>
+        <b-button ref="submit" type="submit" :disabled="busy">Submit</b-button>
       </div>
 
       <b-overlay :show="busy" no-wrap @shown="onShown" @hidden="onHidden">
@@ -736,9 +731,7 @@ This example also demonstrates additional accessibility markup.
           >
             <p><strong id="form-confirm-label">Are you sure?</strong></p>
             <div class="d-flex">
-              <b-button variant="outline-danger" class="mr-3" @click="onCancel">
-                Cancel
-              </b-button>
+              <b-button variant="outline-danger" class="mr-3" @click="onCancel"> Cancel </b-button>
               <b-button variant="outline-success" @click="onOK">OK</b-button>
             </div>
           </div>

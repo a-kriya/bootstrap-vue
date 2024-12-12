@@ -14,8 +14,8 @@ export const sanitizeRow = (row, ignoreFields, includeFields, fieldsObj = {}) =>
     const formatter = isFunction(filterByFormatted)
       ? /* istanbul ignore next */ filterByFormatted
       : filterByFormatted
-        ? /* istanbul ignore next */ field.formatter
-        : null
+      ? /* istanbul ignore next */ field.formatter
+      : null
 
     if (isFunction(formatter)) {
       result[key] = formatter(row[key], key, row)

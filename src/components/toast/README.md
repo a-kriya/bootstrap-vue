@@ -216,10 +216,18 @@ SCSS):
     <b-button @click="toast('b-toaster-top-left')" class="mb-2">b-toaster-top-left</b-button>
     <b-button @click="toast('b-toaster-top-center')" class="mb-2">b-toaster-top-center</b-button>
     <b-button @click="toast('b-toaster-top-full')" class="mb-2">b-toaster-top-full</b-button>
-    <b-button @click="toast('b-toaster-bottom-right', true)" class="mb-2">b-toaster-bottom-right</b-button>
-    <b-button @click="toast('b-toaster-bottom-left', true)" class="mb-2">b-toaster-bottom-left</b-button>
-    <b-button @click="toast('b-toaster-bottom-center', true)" class="mb-2">b-toaster-bottom-center</b-button>
-    <b-button @click="toast('b-toaster-bottom-full', true)" class="mb-2">b-toaster-bottom-full</b-button>
+    <b-button @click="toast('b-toaster-bottom-right', true)" class="mb-2"
+      >b-toaster-bottom-right</b-button
+    >
+    <b-button @click="toast('b-toaster-bottom-left', true)" class="mb-2"
+      >b-toaster-bottom-left</b-button
+    >
+    <b-button @click="toast('b-toaster-bottom-center', true)" class="mb-2"
+      >b-toaster-bottom-center</b-button
+    >
+    <b-button @click="toast('b-toaster-bottom-full', true)" class="mb-2"
+      >b-toaster-bottom-full</b-button
+    >
   </div>
 </template>
 
@@ -318,7 +326,7 @@ the `this.$bvToast.hide(id)` method to hide the specific toast:
         })
       }
     }
- }
+  }
 </script>
 
 <!-- toasts-advanced.vue -->
@@ -392,8 +400,7 @@ component.
           <small class="text-muted mr-2">42 seconds ago</small>
         </div>
       </template>
-      This is the content of the toast.
-      It is short and to the point.
+      This is the content of the toast. It is short and to the point.
     </b-toast>
   </div>
 </template>
@@ -498,17 +505,13 @@ for generating more complex toast content:
         // Increment the toast count
         this.count++
         // Create the message
-        const vNodesMsg = h(
-          'p',
-          { class: ['text-center', 'mb-0'] },
-          [
-            h('b-spinner', { props: { type: 'grow', small: true } }),
-            ' Flashy ',
-            h('strong', 'toast'),
-            ` message #${this.count} `,
-            h('b-spinner', { props: { type: 'grow', small: true } })
-          ]
-        )
+        const vNodesMsg = h('p', { class: ['text-center', 'mb-0'] }, [
+          h('b-spinner', { props: { type: 'grow', small: true } }),
+          ' Flashy ',
+          h('strong', 'toast'),
+          ` message #${this.count} `,
+          h('b-spinner', { props: { type: 'grow', small: true } })
+        ])
         // Create the title
         const vNodesTitle = h(
           'div',
@@ -526,7 +529,7 @@ for generating more complex toast content:
         })
       }
     }
- }
+  }
 </script>
 
 <!-- toasts-advanced.vue -->
@@ -571,14 +574,14 @@ custom styling on a [`<b-alert>`](/docs/components/alert) component:
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      showBottom: false,
-      showTop: false
+  export default {
+    data() {
+      return {
+        showBottom: false,
+        showTop: false
+      }
     }
   }
-}
 </script>
 
 <!-- fixed-position-alerts.vue -->

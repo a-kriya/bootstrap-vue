@@ -125,7 +125,7 @@ properly size. Here are some examples to demonstrate:
   <!-- Just an image -->
   <b-navbar variant="faded" type="light">
     <b-navbar-brand href="#">
-      <img src="https://placekitten.com/g/30/30" alt="Kitten">
+      <img src="https://placekitten.com/g/30/30" alt="Kitten" />
     </b-navbar-brand>
   </b-navbar>
 </div>
@@ -138,7 +138,7 @@ properly size. Here are some examples to demonstrate:
   <!-- Image and text -->
   <b-navbar variant="faded" type="light">
     <b-navbar-brand href="#">
-      <img src="https://placekitten.com/g/30/30" class="d-inline-block align-top" alt="Kitten">
+      <img src="https://placekitten.com/g/30/30" class="d-inline-block align-top" alt="Kitten" />
       BootstrapVue
     </b-navbar-brand>
   </b-navbar>

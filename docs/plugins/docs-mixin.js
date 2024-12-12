@@ -38,8 +38,8 @@ export default {
         this.meta && this.meta.description
           ? this.meta.description
           : sectionMeta && sectionMeta.description
-            ? sectionMeta.description
-            : bvDescription
+          ? sectionMeta.description
+          : bvDescription
       const meta = [
         {
           hid: 'og:title',

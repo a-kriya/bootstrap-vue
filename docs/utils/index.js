@@ -188,7 +188,7 @@ export const scrollTo = ($scroller, to, duration, callback) => {
   const change = to - start
   const increment = 20
   let currentTime = 0
-  const animateScroll = function() {
+  const animateScroll = function () {
     currentTime += increment
     $scroller.scrollTop = Math.round(easeInOutQuad(currentTime, start, change, duration))
     if (currentTime < duration) {

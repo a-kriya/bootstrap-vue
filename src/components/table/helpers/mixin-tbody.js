@@ -194,8 +194,8 @@ export const tbodyMixin = extend({
           cache[key] = this.hasNormalizedSlot(slotName)
             ? slotName
             : this.hasNormalizedSlot(lowercaseSlotName)
-              ? /* istanbul ignore next */ lowercaseSlotName
-              : defaultSlotName
+            ? /* istanbul ignore next */ lowercaseSlotName
+            : defaultSlotName
         })
         // Created as a non-reactive property so to not trigger component updates
         // Must be a fresh object each render

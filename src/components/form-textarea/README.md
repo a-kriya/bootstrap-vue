@@ -44,11 +44,7 @@ To control width, place the input inside standard Bootstrap grid column.
       <label for="textarea-small">Small:</label>
     </b-col>
     <b-col sm="10">
-      <b-form-textarea
-        id="textarea-small"
-        size="sm"
-        placeholder="Small textarea"
-      ></b-form-textarea>
+      <b-form-textarea id="textarea-small" size="sm" placeholder="Small textarea"></b-form-textarea>
     </b-col>
   </b-row>
 
@@ -57,10 +53,7 @@ To control width, place the input inside standard Bootstrap grid column.
       <label for="textarea-default">Default:</label>
     </b-col>
     <b-col sm="10">
-      <b-form-textarea
-        id="textarea-default"
-        placeholder="Default textarea"
-      ></b-form-textarea>
+      <b-form-textarea id="textarea-default" placeholder="Default textarea"></b-form-textarea>
     </b-col>
   </b-row>
 
@@ -69,11 +62,7 @@ To control width, place the input inside standard Bootstrap grid column.
       <label for="textarea-large">Large:</label>
     </b-col>
     <b-col sm="10">
-      <b-form-textarea
-        id="textarea-large"
-        size="lg"
-        placeholder="Large textarea"
-      ></b-form-textarea>
+      <b-form-textarea id="textarea-large" size="lg" placeholder="Large textarea"></b-form-textarea>
     </b-col>
   </b-row>
 </b-container>
@@ -89,11 +78,7 @@ value). Setting it to null or a value below 2 will result in the default of `2` 
 
 ```html
 <div>
-  <b-form-textarea
-    id="textarea-rows"
-    placeholder="Tall textarea"
-    rows="8"
-  ></b-form-textarea>
+  <b-form-textarea id="textarea-rows" placeholder="Tall textarea" rows="8"></b-form-textarea>
 </div>
 
 <!-- b-form-textarea-rows.vue -->

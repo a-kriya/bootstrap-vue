@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [20]
 
     steps:
       - name: Clone repository
@@ -29,25 +29,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules
-        uses: actions/cache@v3.2.2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-
-            ${{ matrix.os }}-node-v${{ matrix.node }}-
-            ${{ matrix.os }}-
-
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
 
       - name: Lint
-        run: yarn run test:lint
+        run: npm run lint
 
   test-unit:
     runs-on: ${{ matrix.os }}
@@ -55,7 +41,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12, 14, 16]
+        node: [20]
 
     steps:
       - name: Clone repository
@@ -66,25 +52,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules
-        uses: actions/cache@v3.2.2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.os }}-node-v${{ matrix.node }}-yarn-
-            ${{ matrix.os }}-node-v${{ matrix.node }}-
-            ${{ matrix.os }}-
-
       - name: Install dependencies
-        run: yarn install --check-files --frozen-lockfile --non-interactive
+        run: npm ci
 
       - name: Test unit
-        run: yarn run test:unit --coverage --maxWorkers=2
+        run: npm test
 
       - name: Merge coverage
         run:

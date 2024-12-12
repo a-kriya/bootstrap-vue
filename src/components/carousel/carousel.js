@@ -271,10 +271,10 @@ export const BCarousel = /*#__PURE__*/ extend({
             ? numSlides - 1
             : 0
           : slide < 0
-            ? noWrap
-              ? 0
-              : numSlides - 1
-            : slide
+          ? noWrap
+            ? 0
+            : numSlides - 1
+          : slide
       // Ensure the v-model is synched up if no-wrap is enabled
       // and user tried to slide pass either ends
       if (noWrap && this.index !== slide && this.index !== this[MODEL_PROP_NAME]) {

@@ -111,7 +111,9 @@ The default position is `top`. Positioning is relative to the trigger element.
         <b-button v-b-tooltip.hover.topleft="'Tooltip!'" variant="primary">Top left</b-button>
       </b-col>
       <b-col md="3" class="py-3">
-        <b-button v-b-tooltip.hover.bottomright="'Tooltip!'" variant="primary">Bottom right</b-button>
+        <b-button v-b-tooltip.hover.bottomright="'Tooltip!'" variant="primary"
+          >Bottom right</b-button
+        >
       </b-col>
       <b-col md="3" class="py-3">
         <b-button v-b-tooltip.hover.bottomleft="'Tooltip!'" variant="primary">Bottom left</b-button>
@@ -126,7 +128,9 @@ The default position is `top`. Positioning is relative to the trigger element.
         <b-button v-b-tooltip.hover.righttop="'Tooltip!'" variant="primary">Right top</b-button>
       </b-col>
       <b-col md="3" class="py-3">
-        <b-button v-b-tooltip.hover.rightbottom="'Tooltip!'" variant="primary">Right bottom</b-button>
+        <b-button v-b-tooltip.hover.rightbottom="'Tooltip!'" variant="primary"
+          >Right bottom</b-button
+        >
       </b-col>
     </b-row>
   </b-container>
@@ -205,12 +209,7 @@ use an element that renders the `<a>` tag, not the `<button>` tag, and you also 
 The following will generate an `<a>` that looks like a button:
 
 ```html
-<b-button
-  href="#"
-  tabindex="0"
-  v-b-tooltip.focus
-  title="Tooltip title"
->
+<b-button href="#" tabindex="0" v-b-tooltip.focus title="Tooltip title">
   Link button with tooltip directive
 </b-button>
 ```
@@ -260,7 +259,9 @@ whenever the content changes.
   <b-container>
     <b-row class="text-center">
       <b-col md="3" class="py-3">
-        <b-button v-b-tooltip.hover :title="'Tip from title attribute ' + date" variant="success">Title</b-button>
+        <b-button v-b-tooltip.hover :title="'Tip from title attribute ' + date" variant="success"
+          >Title</b-button
+        >
       </b-col>
       <b-col md="3" class="py-3">
         <b-button v-b-tooltip.hover="'String Tip'" variant="success">String</b-button>
@@ -317,7 +318,9 @@ directive modifiers or config options:
         <b-button v-b-tooltip.hover.v-danger title="Danger variant">Danger Modifier</b-button>
       </b-col>
       <b-col>
-        <b-button v-b-tooltip.hover="{ variant: 'info' }" title="Info variant">Info Config</b-button>
+        <b-button v-b-tooltip.hover="{ variant: 'info' }" title="Info variant"
+          >Info Config</b-button
+        >
       </b-col>
     </b-row>
   </b-container>

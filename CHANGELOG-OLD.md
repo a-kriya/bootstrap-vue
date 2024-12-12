@@ -915,7 +915,7 @@ Released: 2019-03-18
 - **docs:** get recommended `Vue.js` and `Bootstrap` version from `package.json`
   ([#2840](https://github.com/bootstrap-vue/bootstrap-vue/issues/2840))
   ([3a6702e](https://github.com/bootstrap-vue/bootstrap-vue/commit/3a6702e))
-- **pagination-nav:** auto-detect current page based on $route/URL. Add support array of links
+- **pagination-nav:** auto-detect current page based on \$route/URL. Add support array of links
   ([#2836](https://github.com/bootstrap-vue/bootstrap-vue/issues/2836))
   ([65e12f8](https://github.com/bootstrap-vue/bootstrap-vue/commit/65e12f8))
 - **table:** new option to disable footer sorting

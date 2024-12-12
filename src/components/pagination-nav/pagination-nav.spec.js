@@ -444,10 +444,7 @@ describe('pagination-nav', () => {
     expect(paginationNav.emitted('page-click')).toBeUndefined()
 
     // Click on current (1st) page link (does nothing)
-    await lis
-      .at(2)
-      .find('a')
-      .trigger('click')
+    await lis.at(2).find('a').trigger('click')
     await waitRAF()
     expect(paginationNav.vm.computedCurrentPage).toBe(1)
     expect(paginationNav.emitted('input')).toBeUndefined()
@@ -455,10 +452,7 @@ describe('pagination-nav', () => {
     expect(paginationNav.emitted('page-click')).toBeUndefined()
 
     // Click on 2nd page link
-    await lis
-      .at(3)
-      .find('a')
-      .trigger('click')
+    await lis.at(3).find('a').trigger('click')
     await waitRAF()
     expect(paginationNav.vm.computedCurrentPage).toBe(2)
     expect(paginationNav.emitted('input')).toBeDefined()
@@ -469,10 +463,7 @@ describe('pagination-nav', () => {
     expect(paginationNav.emitted('page-click').length).toBe(1)
 
     // Click goto last page link
-    await lis
-      .at(8)
-      .find('a')
-      .trigger('click')
+    await lis.at(8).find('a').trigger('click')
     await waitRAF()
     expect(paginationNav.vm.computedCurrentPage).toBe(5)
     expect(paginationNav.emitted('input')[1][0]).toBe(5)
@@ -480,10 +471,7 @@ describe('pagination-nav', () => {
     expect(paginationNav.emitted('page-click').length).toBe(2)
 
     // Click prev page link
-    await lis
-      .at(1)
-      .find('a')
-      .trigger('click')
+    await lis.at(1).find('a').trigger('click')
     await waitRAF()
     expect(paginationNav.vm.computedCurrentPage).toBe(4)
     expect(paginationNav.emitted('input')[2][0]).toBe(4)
@@ -491,10 +479,7 @@ describe('pagination-nav', () => {
     expect(paginationNav.emitted('page-click').length).toBe(3)
 
     // Click on 3rd page link (prevented)
-    await lis
-      .at(4)
-      .find('a')
-      .trigger('click')
+    await lis.at(4).find('a').trigger('click')
     await waitRAF()
     expect(paginationNav.vm.computedCurrentPage).toBe(4)
     expect(paginationNav.emitted('input').length).toBe(3)
@@ -568,7 +553,10 @@ describe('pagination-nav', () => {
       // Create router instance
       const router = createRouter({
         history: createMemoryHistory(),
-        routes: [{ path: '/', component: FooRoute }, { path: '/:page', component: FooRoute }]
+        routes: [
+          { path: '/', component: FooRoute },
+          { path: '/:page', component: FooRoute }
+        ]
       })
       const wrapper = mount(App, { global: { plugins: [router] } })
 
@@ -632,7 +620,10 @@ describe('pagination-nav', () => {
       // Create router instance
       const router = createRouter({
         history: createMemoryHistory(),
-        routes: [{ path: '/', component: FooRoute }, { path: '/:page', component: FooRoute }]
+        routes: [
+          { path: '/', component: FooRoute },
+          { path: '/:page', component: FooRoute }
+        ]
       })
       const wrapper = mount(App, { global: { plugins: [router] } })
 

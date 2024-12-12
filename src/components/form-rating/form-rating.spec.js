@@ -125,36 +125,11 @@ describe('form-rating', () => {
     expect(wrapper.vm.localValue).toBe(1)
     const $stars = wrapper.findAll('.b-rating-star')
     expect($stars.length).toBe(5)
-    expect(
-      $stars
-        .at(0)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(1)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(2)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(3)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(4)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
+    expect($stars.at(0).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(1).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(2).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(3).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(4).find('.b-rating-star-empty').exists()).toBe(true)
 
     await wrapper.setProps({
       value: 3.5
@@ -163,36 +138,11 @@ describe('form-rating', () => {
     expect(wrapper.emitted('change')).toBeUndefined()
 
     expect(wrapper.vm.localValue).toBe(3.5)
-    expect(
-      $stars
-        .at(0)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(1)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(2)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(3)
-        .find('.b-rating-star-half')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(4)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
+    expect($stars.at(0).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(1).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(2).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(3).find('.b-rating-star-half').exists()).toBe(true)
+    expect($stars.at(4).find('.b-rating-star-empty').exists()).toBe(true)
 
     await wrapper.setProps({
       value: 1
@@ -201,36 +151,11 @@ describe('form-rating', () => {
     expect(wrapper.emitted('change')).toBeUndefined()
 
     expect(wrapper.vm.localValue).toBe(1)
-    expect(
-      $stars
-        .at(0)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(1)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(2)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(3)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(4)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
+    expect($stars.at(0).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(1).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(2).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(3).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(4).find('.b-rating-star-empty').exists()).toBe(true)
 
     // Click 5th star
     await $stars.at(4).trigger('click')
@@ -238,72 +163,22 @@ describe('form-rating', () => {
     expect(wrapper.emitted('change').length).toBe(1)
     expect(wrapper.emitted('change')[0][0]).toBe(5)
     expect(wrapper.vm.localValue).toBe(5)
-    expect(
-      $stars
-        .at(0)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(1)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(2)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(3)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(4)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
+    expect($stars.at(0).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(1).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(2).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(3).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(4).find('.b-rating-star-full').exists()).toBe(true)
 
     // Click 2nd star
     await $stars.at(1).trigger('click')
     expect(wrapper.emitted('change').length).toBe(2)
     expect(wrapper.emitted('change')[1][0]).toBe(2)
     expect(wrapper.vm.localValue).toBe(2)
-    expect(
-      $stars
-        .at(0)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(1)
-        .find('.b-rating-star-full')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(2)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(3)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
-    expect(
-      $stars
-        .at(4)
-        .find('.b-rating-star-empty')
-        .exists()
-    ).toBe(true)
+    expect($stars.at(0).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(1).find('.b-rating-star-full').exists()).toBe(true)
+    expect($stars.at(2).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(3).find('.b-rating-star-empty').exists()).toBe(true)
+    expect($stars.at(4).find('.b-rating-star-empty').exists()).toBe(true)
 
     wrapper.destroy()
   })

@@ -80,7 +80,9 @@ Or manually provide your options and option groups:
       <b-form-select-option value="b" disabled>Option B (disabled)</b-form-select-option>
       <b-form-select-option-group label="Grouped options">
         <b-form-select-option :value="{ C: '3PO' }">Option with object value</b-form-select-option>
-        <b-form-select-option :value="{ R: '2D2' }">Another option with object value</b-form-select-option>
+        <b-form-select-option :value="{ R: '2D2' }"
+          >Another option with object value</b-form-select-option
+        >
       </b-form-select-option-group>
     </b-form-select>
 
@@ -112,7 +114,9 @@ options specified by the `options` prop, use the named slot `first`.
     <b-form-select v-model="selected" :options="options" class="mb-3">
       <!-- This slot appears above the options from 'options' prop -->
       <template #first>
-        <b-form-select-option :value="null" disabled>-- Please select an option --</b-form-select-option>
+        <b-form-select-option :value="null" disabled
+          >-- Please select an option --</b-form-select-option
+        >
       </template>
 
       <!-- These options will appear after the ones from 'options' prop -->

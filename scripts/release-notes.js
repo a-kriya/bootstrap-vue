@@ -54,42 +54,41 @@ const getGitDiff = async (from, to) => {
 const parseCommits = commits => {
   const referencesRegex = /#[0-9]+/g
 
-  return commits.filter(c => c.message.includes(':')).map(commit => {
-    let [type, ...message] = commit.message.split(':')
-    message = message.join(':')
+  return commits
+    .filter(c => c.message.includes(':'))
+    .map(commit => {
+      let [type, ...message] = commit.message.split(':')
+      message = message.join(':')
 
-    // Extract references from message
-    message = message.replace(/\((closes|fixes) #\d[^)]+\)/g, '')
-    const references = []
-    let referenceMatch
-    while ((referenceMatch = referencesRegex.exec(message))) {
-      references.push(referenceMatch[0])
-    }
+      // Extract references from message
+      message = message.replace(/\((closes|fixes) #\d[^)]+\)/g, '')
+      const references = []
+      let referenceMatch
+      while ((referenceMatch = referencesRegex.exec(message))) {
+        references.push(referenceMatch[0])
+      }
 
-    // Remove references and normalize
-    message = message
-      .replace(referencesRegex, '')
-      .replace(/\(\)/g, '')
-      .trim()
+      // Remove references and normalize
+      message = message.replace(referencesRegex, '').replace(/\(\)/g, '').trim()
 
-    // Extract scope from type
-    let scope = type.match(/\((.*)\)/)
-    if (scope) {
-      scope = scope[1]
-    }
-    if (!scope) {
-      scope = 'general'
-    }
-    type = type.split('(')[0]
+      // Extract scope from type
+      let scope = type.match(/\((.*)\)/)
+      if (scope) {
+        scope = scope[1]
+      }
+      if (!scope) {
+        scope = 'general'
+      }
+      type = type.split('(')[0]
 
-    return {
-      ...commit,
-      message,
-      type,
-      scope,
-      references
-    }
-  })
+      return {
+        ...commit,
+        message,
+        type,
+        scope,
+        references
+      }
+    })
 }
 
 const generateMarkDown = commits => {

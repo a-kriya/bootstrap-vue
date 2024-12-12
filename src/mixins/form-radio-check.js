@@ -108,8 +108,8 @@ export const formRadioCheckMixin = extend({
       return this.isBtnMode || this.isRadio || this.isPlain
         ? false
         : this.isGroup
-          ? this.bvGroup.switches
-          : this.switch
+        ? this.bvGroup.switches
+        : this.switch
     },
     isInline() {
       return this.isGroup ? this.bvGroup.inline : this.inline
@@ -243,16 +243,8 @@ export const formRadioCheckMixin = extend({
     }
   },
   render(h) {
-    const {
-      isRadio,
-      isBtnMode,
-      isPlain,
-      isCustom,
-      isInline,
-      isSwitch,
-      computedSize,
-      bvAttrs
-    } = this
+    const { isRadio, isBtnMode, isPlain, isCustom, isInline, isSwitch, computedSize, bvAttrs } =
+      this
     const $content = this.normalizeSlot()
 
     const $input = h('input', {

@@ -50,10 +50,7 @@ allowing for tabbing between spinbuttons. The `v-model` will not be updated in t
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Select time picker interactive state"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Select time picker interactive state" v-slot="{ ariaDescribedby }">
       <b-form-radio-group
         v-model="state"
         :aria-describedby="ariaDescribedby"
@@ -175,7 +172,11 @@ a placeholder is not provided, the value of the `label-no-time-selected` prop is
 <template>
   <div>
     <label for="timepicker-placeholder">Time picker with placeholder</label>
-    <b-form-timepicker id="timepicker-placeholder" placeholder="Choose a time" locale="en"></b-form-timepicker>
+    <b-form-timepicker
+      id="timepicker-placeholder"
+      placeholder="Choose a time"
+      locale="en"
+    ></b-form-timepicker>
   </div>
 </template>
 
@@ -314,7 +315,7 @@ supports `Intl` and the locales you will be using. Refer to the
       <p>Value: <b>'{{ value }}'</b></p>
       <p class="mb-0">Context:</p>
       <pre class="small">{{ context }}</pre>
-   </b-col>
+    </b-col>
   </b-row>
 </template>
 

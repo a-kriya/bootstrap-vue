@@ -439,30 +439,10 @@ describe('pagination', () => {
     expect(wrapper.element.tagName).toBe('UL')
     expect(wrapper.findAll('li').length).toBe(5)
     expect(wrapper.findAll('button').length).toBe(4)
-    expect(
-      wrapper
-        .findAll('button')
-        .at(0)
-        .attributes('aria-label')
-    ).toBe('Go to page 1')
-    expect(
-      wrapper
-        .findAll('button')
-        .at(1)
-        .attributes('aria-label')
-    ).toBe('Go to page 2')
-    expect(
-      wrapper
-        .findAll('button')
-        .at(2)
-        .attributes('aria-label')
-    ).toBe('Go to page 3')
-    expect(
-      wrapper
-        .findAll('button')
-        .at(3)
-        .attributes('aria-label')
-    ).toBe('Go to next page')
+    expect(wrapper.findAll('button').at(0).attributes('aria-label')).toBe('Go to page 1')
+    expect(wrapper.findAll('button').at(1).attributes('aria-label')).toBe('Go to page 2')
+    expect(wrapper.findAll('button').at(2).attributes('aria-label')).toBe('Go to page 3')
+    expect(wrapper.findAll('button').at(3).attributes('aria-label')).toBe('Go to next page')
 
     wrapper.destroy()
   })
@@ -485,24 +465,9 @@ describe('pagination', () => {
     expect(
       wrapper.findAll('.page-link').wrappers.every(w => w.element.matches('span.page-link'))
     ).toBe(true)
-    expect(
-      wrapper
-        .findAll('.page-link')
-        .at(2)
-        .attributes('aria-disabled')
-    ).toBe('true')
-    expect(
-      wrapper
-        .findAll('.page-link')
-        .at(3)
-        .attributes('aria-disabled')
-    ).toBe('true')
-    expect(
-      wrapper
-        .findAll('.page-link')
-        .at(4)
-        .attributes('aria-disabled')
-    ).toBe('true')
+    expect(wrapper.findAll('.page-link').at(2).attributes('aria-disabled')).toBe('true')
+    expect(wrapper.findAll('.page-link').at(3).attributes('aria-disabled')).toBe('true')
+    expect(wrapper.findAll('.page-link').at(4).attributes('aria-disabled')).toBe('true')
 
     wrapper.destroy()
   })
@@ -699,20 +664,14 @@ describe('pagination', () => {
     expect(pagination.emitted('page-click')).not.toBeDefined()
 
     // Click on current (1st) page button (does nothing)
-    await lis
-      .at(2)
-      .find('button')
-      .trigger('click')
+    await lis.at(2).find('button').trigger('click')
     expect(pagination.vm.computedCurrentPage).toBe(1)
     expect(pagination.emitted('input')).not.toBeDefined()
     expect(pagination.emitted('change')).not.toBeDefined()
     expect(pagination.emitted('page-click')).not.toBeDefined()
 
     // Click on 2nd button
-    await lis
-      .at(3)
-      .find('button')
-      .trigger('click')
+    await lis.at(3).find('button').trigger('click')
     expect(pagination.vm.computedCurrentPage).toBe(2)
     expect(pagination.emitted('input')).toBeDefined()
     expect(pagination.emitted('change')).toBeDefined()
@@ -722,30 +681,21 @@ describe('pagination', () => {
     expect(pagination.emitted('page-click').length).toBe(1)
 
     // Click goto last button
-    await lis
-      .at(8)
-      .find('button')
-      .trigger('keydown.space') // Generates a click event
+    await lis.at(8).find('button').trigger('keydown.space') // Generates a click event
     expect(pagination.vm.computedCurrentPage).toBe(5)
     expect(pagination.emitted('input')[1][0]).toBe(5)
     expect(pagination.emitted('change')[1][0]).toBe(5)
     expect(pagination.emitted('page-click').length).toBe(2)
 
     // Click prev button
-    await lis
-      .at(1)
-      .find('button')
-      .trigger('click')
+    await lis.at(1).find('button').trigger('click')
     expect(pagination.vm.computedCurrentPage).toBe(4)
     expect(pagination.emitted('input')[2][0]).toBe(4)
     expect(pagination.emitted('change')[2][0]).toBe(4)
     expect(pagination.emitted('page-click').length).toBe(3)
 
     // Click on 3rd button (prevented)
-    await lis
-      .at(4)
-      .find('button')
-      .trigger('click')
+    await lis.at(4).find('button').trigger('click')
     expect(pagination.vm.computedCurrentPage).toBe(4)
     expect(pagination.emitted('input').length).toBe(3)
     expect(pagination.emitted('change').length).toBe(3)

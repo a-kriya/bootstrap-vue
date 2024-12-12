@@ -62,12 +62,7 @@ describe('overlay', () => {
 
     expect($children.at(1).classes()).toContain('position-absolute')
     expect($children.at(1).classes()).not.toContain('bg-light')
-    expect(
-      $children
-        .at(1)
-        .find('.spinner-border')
-        .exists()
-    ).toBe(true)
+    expect($children.at(1).find('.spinner-border').exists()).toBe(true)
 
     wrapper.destroy()
   })
@@ -245,12 +240,7 @@ describe('overlay', () => {
 
     expect($children.at(1).classes()).toContain('position-absolute')
     expect($children.at(1).classes()).not.toContain('bg-light')
-    expect(
-      $children
-        .at(1)
-        .find('.spinner-border')
-        .exists()
-    ).toBe(true)
+    expect($children.at(1).find('.spinner-border').exists()).toBe(true)
 
     wrapper.destroy()
   })

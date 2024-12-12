@@ -76,10 +76,10 @@ export default {
           ? id + 'comment'
           : id + child.tag
         : isPrimitive(child.key)
-          ? String(child.key).indexOf(id) === 0
-            ? child.key
-            : id + child.key
-          : child.key
+        ? String(child.key).indexOf(id) === 0
+          ? child.key
+          : id + child.key
+        : child.key
 
     const data = child.data || (child.data = {})
     const oldRawChild = this._vnode

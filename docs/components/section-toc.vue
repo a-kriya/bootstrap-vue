@@ -66,8 +66,8 @@ export default {
       return title === 'Components'
         ? 'Component groups'
         : title === 'Misc'
-          ? 'Miscellaneous'
-          : title || ''
+        ? 'Miscellaneous'
+        : title || ''
     },
     pages() {
       return this.group.pages || []

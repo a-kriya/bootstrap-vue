@@ -45,7 +45,7 @@
             height="480"
             src="https://picsum.photos/1024/480/?image=55"
             alt="image slot"
-          >
+          />
         </template>
       </b-carousel-slide>
 
@@ -59,7 +59,7 @@
     </b-carousel>
 
     <p class="mt-4">
-      Slide #: {{ slide }}<br>
+      Slide #: {{ slide }}<br />
       Sliding: {{ sliding }}
     </p>
   </div>
@@ -281,7 +281,7 @@ methods:
 
 ```html
 <template>
-  <b-carousel ref="myCarousel" .... >
+  <b-carousel ref="myCarousel" ....>
     <!-- slides go here -->
   </b-carousel>
 </template>

@@ -22,8 +22,12 @@
       >
         {{ group.title }}
         <b-badge v-if="group.new" tag="small" variant="success" class="text-uppercase">New</b-badge>
-        <b-badge v-if="group.breaking" tag="small" variant="danger" class="text-uppercase">Breaking change</b-badge>
-        <b-badge v-if="group.beta" tag="small" variant="warning" class="text-uppercase">Beta</b-badge>
+        <b-badge v-if="group.breaking" tag="small" variant="danger" class="text-uppercase"
+          >Breaking change</b-badge
+        >
+        <b-badge v-if="group.beta" tag="small" variant="warning" class="text-uppercase"
+          >Beta</b-badge
+        >
       </b-link>
 
       <b-nav class="bd-sidenav">
@@ -42,49 +46,29 @@
             active-class=""
           >
             {{ page.title }}
-            <b-badge v-if="page.new" tag="small" variant="success" class="text-uppercase">New</b-badge>
-            <b-badge v-if="page.enhanced" tag="small" variant="info" class="text-uppercase">Enhanced</b-badge>
-            <b-badge v-if="page.breaking" tag="small" variant="danger" class="text-uppercase">Breaking change</b-badge>
-            <b-badge v-if="page.beta" tag="small" variant="warning" class="text-uppercase">Beta</b-badge>
+            <b-badge v-if="page.new" tag="small" variant="success" class="text-uppercase"
+              >New</b-badge
+            >
+            <b-badge v-if="page.enhanced" tag="small" variant="info" class="text-uppercase"
+              >Enhanced</b-badge
+            >
+            <b-badge v-if="page.breaking" tag="small" variant="danger" class="text-uppercase"
+              >Breaking change</b-badge
+            >
+            <b-badge v-if="page.beta" tag="small" variant="warning" class="text-uppercase"
+              >Beta</b-badge
+            >
           </b-link>
         </b-link>
       </b-nav>
     </b-link>
 
-    <b-link
-      to="/themes"
-      router-tag="div"
-      active-class="active"
-      no-prefetch
-      exact
-    >
-      <b-link
-        to="/themes"
-        active-class=""
-        exact
-        no-prefetch
-        class="bd-toc-link"
-      >
-        Themes
-      </b-link>
+    <b-link to="/themes" router-tag="div" active-class="active" no-prefetch exact>
+      <b-link to="/themes" active-class="" exact no-prefetch class="bd-toc-link"> Themes </b-link>
     </b-link>
 
-    <b-link
-      to="/play"
-      router-tag="div"
-      active-class="active"
-      exact
-      no-prefetch
-    >
-      <b-link
-        to="/play"
-        active-class=""
-        exact
-        no-prefetch
-        class="bd-toc-link"
-      >
-        Playground
-      </b-link>
+    <b-link to="/play" router-tag="div" active-class="active" exact no-prefetch>
+      <b-link to="/play" active-class="" exact no-prefetch class="bd-toc-link"> Playground </b-link>
     </b-link>
   </nav>
 </template>
@@ -99,10 +83,7 @@ export default {
   },
   methods: {
     buildUrl(basePath, parts = []) {
-      parts = parts
-        .filter(Boolean)
-        .join('/')
-        .replace(/\/$/, '')
+      parts = parts.filter(Boolean).join('/').replace(/\/$/, '')
       const path = [basePath, parts].filter(Boolean).join('/')
       return path.replace(/(https?:\/\/)|(\/)+/g, '$1$2')
     }

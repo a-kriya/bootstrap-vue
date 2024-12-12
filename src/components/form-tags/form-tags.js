@@ -199,10 +199,7 @@ export const BFormTags = /*#__PURE__*/ extend({
     },
     computedSeparator() {
       // Merge the array into a string
-      return concat(this.separator)
-        .filter(isString)
-        .filter(identity)
-        .join('')
+      return concat(this.separator).filter(isString).filter(identity).join('')
     },
     computedSeparatorRegExp() {
       // We use a computed prop here to precompile the RegExp
@@ -223,10 +220,7 @@ export const BFormTags = /*#__PURE__*/ extend({
     },
     computeIgnoreInputFocusSelector() {
       // Normalize to an single selector with selectors separated by `,`
-      return concat(this.ignoreInputFocusSelector)
-        .filter(identity)
-        .join(',')
-        .trim()
+      return concat(this.ignoreInputFocusSelector).filter(identity).join(',').trim()
     },
     disableAddButton() {
       // If 'Add' button should be disabled

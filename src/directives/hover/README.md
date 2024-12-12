@@ -30,7 +30,7 @@ The directive has no modifiers.
 
 ```html
 <template>
-  <div v-b-hover="hoverHandler"> ... </div>
+  <div v-b-hover="hoverHandler">...</div>
 </template>
 
 <script>

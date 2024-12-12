@@ -117,18 +117,10 @@ example, setting prop `fluid` to `'md'` will render a container that is 100% wid
 `'md'` breakpoint is reached, at which point it will become a standard non-fluid container.
 
 ```html
-<b-container fluid="sm">
-  100% wide until small breakpoint
-</b-container>
-<b-container fluid="md">
-  100% wide until medium breakpoint
-</b-container>
-<b-container fluid="lg">
-  100% wide until large breakpoint
-</b-container>
-<b-container fluid="xl">
-  100% wide until extra large breakpoint
-</b-container>
+<b-container fluid="sm"> 100% wide until small breakpoint </b-container>
+<b-container fluid="md"> 100% wide until medium breakpoint </b-container>
+<b-container fluid="lg"> 100% wide until large breakpoint </b-container>
+<b-container fluid="xl"> 100% wide until extra large breakpoint </b-container>
 ```
 
 Setting the fluid prop to a breakpoint name translates to the Bootstrap class
@@ -507,7 +499,7 @@ are `'start'`, `'center'`, `'end'`, `'baseline'`, and `'stretch'`:
   </b-row>
   <b-row>
     <b-col align-self="baseline">One of two columns</b-col>
-    <b-col align-self="stretch">One of two  columns</b-col>
+    <b-col align-self="stretch">One of two columns</b-col>
   </b-row>
 </b-container>
 
@@ -612,12 +604,16 @@ the offset to `0` at a larger breakpoint:
 <b-container fluid class="bv-example-row">
   <b-row>
     <b-col sm="5" md="6">sm="5" md="6"</b-col>
-    <b-col sm="5" offset-sm="2" md="6" offset-md="0">sm="5" offset-sm="2" md="6" offset-md="0"</b-col>
+    <b-col sm="5" offset-sm="2" md="6" offset-md="0"
+      >sm="5" offset-sm="2" md="6" offset-md="0"</b-col
+    >
   </b-row>
 
   <b-row>
     <b-col sm="6" md="5" lg="6">sm="6" md="5" lg="6"</b-col>
-    <b-col sm="6" md="5" offset-md="2" lg="6" offset-lg="0">sm="6" md="5" offset-md="2" col-lg="6" offset-lg="0"</b-col>
+    <b-col sm="6" md="5" offset-md="2" lg="6" offset-lg="0"
+      >sm="6" md="5" offset-md="2" col-lg="6" offset-lg="0"</b-col
+    >
   </b-row>
 </b-container>
 

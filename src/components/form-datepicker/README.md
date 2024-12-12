@@ -68,10 +68,7 @@ For disabling specific dates or setting minimum and maximum date limits, refer t
 ```html
 <template>
   <div>
-    <b-form-group
-      label="Select date picker interactive state"
-      v-slot="{ ariaDescribedby }"
-    >
+    <b-form-group label="Select date picker interactive state" v-slot="{ ariaDescribedby }">
       <b-form-radio-group
         v-model="state"
         :aria-describedby="ariaDescribedby"
@@ -167,7 +164,11 @@ return a value as quickly as possible.
 ```html
 <template>
   <div>
-    <b-form-datepicker v-model="value" :date-disabled-fn="dateDisabled" locale="en"></b-form-datepicker>
+    <b-form-datepicker
+      v-model="value"
+      :date-disabled-fn="dateDisabled"
+      locale="en"
+    ></b-form-datepicker>
   </div>
 </template>
 
@@ -262,7 +263,11 @@ a placeholder is not provided, the value of the `label-no-date-selected` prop is
 <template>
   <div>
     <label for="datepicker-placeholder">Date picker with placeholder</label>
-    <b-form-datepicker id="datepicker-placeholder" placeholder="Choose a date" locale="en"></b-form-datepicker>
+    <b-form-datepicker
+      id="datepicker-placeholder"
+      placeholder="Choose a date"
+      locale="en"
+    ></b-form-datepicker>
   </div>
 </template>
 
@@ -549,10 +554,20 @@ Saturday.
 <template>
   <div>
     <label for="example-locales">Locale:</label>
-    <b-form-select id="example-locales" v-model="locale" :options="locales" class="mb-2"></b-form-select>
+    <b-form-select
+      id="example-locales"
+      v-model="locale"
+      :options="locales"
+      class="mb-2"
+    ></b-form-select>
 
     <label for="example-weekdays">Start weekday:</label>
-    <b-form-select id="example-weekdays" v-model="weekday" :options="weekdays" class="mb-2"></b-form-select>
+    <b-form-select
+      id="example-weekdays"
+      v-model="weekday"
+      :options="weekdays"
+      class="mb-2"
+    ></b-form-select>
 
     <div>
       <b-form-checkbox v-model="showDecadeNav" switch inline class="my-2">
@@ -574,9 +589,9 @@ Saturday.
       :show-decade-nav="showDecadeNav"
       :hide-header="hideHeader"
       class="mb-2"
-     ></b-form-datepicker>
-     <p>Value: <b>'{{ value }}'</b></p>
-   </div>
+    ></b-form-datepicker>
+    <p>Value: <b>'{{ value }}'</b></p>
+  </div>
 </template>
 
 <script>

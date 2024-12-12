@@ -102,7 +102,10 @@ Need more control over the label? Provide your own label by using the default sl
 
     <h5 class="mt-3">Custom label via property</h5>
     <b-progress :max="max">
-      <b-progress-bar :value="value" :label="`${((value / max) * 100).toFixed(2)}%`"></b-progress-bar>
+      <b-progress-bar
+        :value="value"
+        :label="`${((value / max) * 100).toFixed(2)}%`"
+      ></b-progress-bar>
     </b-progress>
 
     <h5 class="mt-3">Custom label via property (HTML support)</h5>

@@ -7,32 +7,80 @@
       </p>
     </header>
     <section class="bd-content">
-      With the release of <b>v2.23.0</b>, you can begin using <span class="bd-text-purple-bright">BootstrapVue</span> with the <a href="https://v3-migration.vuejs.org/migration-build.html" target="_blank">migration build</a> of Vue.js 3.
+      With the release of <b>v2.23.0</b>, you can begin using
+      <span class="bd-text-purple-bright">BootstrapVue</span> with the
+      <a href="https://v3-migration.vuejs.org/migration-build.html" target="_blank"
+        >migration build</a
+      >
+      of Vue.js 3.
 
       <b-alert show variant="warning" class="mt-3">
-        While <code class="text-nowrap" translate="no">@vue/compat</code> can assist with simple migrations, it is not intended for long-term use. We highly recommend migrating to <a href="https://bootstrap-vue-next.github.io/bootstrap-vue-next/" target="_blank" rel="noopener">BootstrapVueNext</a>, a complete rewrite that supports Bootstrap v5 and fully utilizes Vue.js 3's capabilities.
+        While <code class="text-nowrap" translate="no">@vue/compat</code> can assist with simple
+        migrations, it is not intended for long-term use. We highly recommend migrating to
+        <a
+          href="https://bootstrap-vue-next.github.io/bootstrap-vue-next/"
+          target="_blank"
+          rel="noopener"
+          >BootstrapVueNext</a
+        >, a complete rewrite that supports Bootstrap v5 and fully utilizes Vue.js 3's capabilities.
       </b-alert>
 
       <h2 id="limitations" class="bv-no-focus-ring mb-3">
-        <span class="bd-content-title">Important Limitations<a href="#prerequisites" aria-labelledby="limitations" class="anchorjs-link"></a></span>
+        <span class="bd-content-title"
+          >Important Limitations<a
+            href="#prerequisites"
+            aria-labelledby="limitations"
+            class="anchorjs-link"
+          ></a
+        ></span>
       </h2>
-      <p><code class="text-nowrap" translate="no">@vue-compat</code> support is currently limited to the <code class="text-nowrap" translate="no">{ MODE: 2 }</code> configuration for both the compiler and Vue.js. For more details, refer to the <a href="https://v3-migration.vuejs.org/migration-build.html#compat-configuration" target="_blank">compat configuration</a> section of the migration guide.</p>
-      <p>This means that while you can configure individual components with <code class="text-nowrap" translate="no">{ compatConfig: { MODE: 3 }}</code>, you should maintain global configuration in legacy mode to ensure all BootstrapVue functions operate correctly.</p>
+      <p>
+        <code class="text-nowrap" translate="no">@vue-compat</code> support is currently limited to
+        the <code class="text-nowrap" translate="no">{ MODE: 2 }</code> configuration for both the
+        compiler and Vue.js. For more details, refer to the
+        <a
+          href="https://v3-migration.vuejs.org/migration-build.html#compat-configuration"
+          target="_blank"
+          >compat configuration</a
+        >
+        section of the migration guide.
+      </p>
+      <p>
+        This means that while you can configure individual components with
+        <code class="text-nowrap" translate="no">{ compatConfig: { MODE: 3 }}</code>, you should
+        maintain global configuration in legacy mode to ensure all BootstrapVue functions operate
+        correctly.
+      </p>
 
-      <pre class="hljs language-html text-monospace p-2 notranslate" translate="no">{{ cmpCode }}</pre>
+      <pre class="hljs language-html text-monospace p-2 notranslate" translate="no">{{
+        cmpCode
+      }}</pre>
 
       <h2 id="start" class="bv-no-focus-ring">
-        <span class="bd-content-title">Getting Started<a href="#prerequisites" aria-labelledby="start" class="anchorjs-link"></a></span>
+        <span class="bd-content-title"
+          >Getting Started<a href="#prerequisites" aria-labelledby="start" class="anchorjs-link"></a
+        ></span>
       </h2>
 
       <ul>
-        <li>Follow the <a target="_blank" href="https://v3-migration.vuejs.org/migration-build.html#upgrade-workflow">upgrade workflow</a> to configure your application.</li>
+        <li>
+          Follow the
+          <a
+            target="_blank"
+            href="https://v3-migration.vuejs.org/migration-build.html#upgrade-workflow"
+            >upgrade workflow</a
+          >
+          to configure your application.
+        </li>
         <li>Upgrade to <b>bootstrap-vue v2.23.0</b> or higher.</li>
         <li>Ensure you are using Bootstrap <b>v4</b>.</li>
       </ul>
 
-      <p>For a reference implementation or to report issues with <code class="text-nowrap" translate="no">@vue/compat</code>, you can use this <a href="https://stackblitz.com/edit/bootstrap-vue-with-compat">sandbox</a>.</p>
-
+      <p>
+        For a reference implementation or to report issues with
+        <code class="text-nowrap" translate="no">@vue/compat</code>, you can use this
+        <a href="https://stackblitz.com/edit/bootstrap-vue-with-compat">sandbox</a>.
+      </p>
     </section>
   </b-container>
 </template>

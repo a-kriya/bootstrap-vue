@@ -64,7 +64,7 @@ The slot content will automatically be wrapped by
 <div>
   <b-input-group>
     <template #prepend>
-      <b-input-group-text >Username</b-input-group-text>
+      <b-input-group-text>Username</b-input-group-text>
     </template>
     <b-form-input></b-form-input>
 
@@ -150,14 +150,14 @@ classes applied.
 <div>
   <b-input-group class="mb-2">
     <b-input-group-prepend is-text>
-      <input type="checkbox" aria-label="Checkbox for following text input">
+      <input type="checkbox" aria-label="Checkbox for following text input" />
     </b-input-group-prepend>
     <b-form-input aria-label="Text input with checkbox"></b-form-input>
   </b-input-group>
 
   <b-input-group>
     <b-input-group-prepend is-text>
-      <input type="radio" aria-label="Radio for following text input">
+      <input type="radio" aria-label="Radio for following text input" />
     </b-input-group-prepend>
     <b-form-input aria-label="Text input with radio input"></b-form-input>
   </b-input-group>
@@ -231,7 +231,7 @@ Multiple add-ons are supported and can be mixed with checkbox and radio input ve
 <div>
   <b-input-group prepend="Item">
     <b-input-group-prepend is-text>
-      <input type="checkbox" aria-label="Checkbox for following text input">
+      <input type="checkbox" aria-label="Checkbox for following text input" />
     </b-input-group-prepend>
     <b-input-group-prepend is-text><b>$</b></b-input-group-prepend>
     <b-form-input type="number" aria-label="Text input with checkbox"></b-form-input>

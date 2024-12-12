@@ -10,7 +10,10 @@ export default {
   name: 'BVBreadcrumbs',
   computed: {
     items() {
-      const items = [{ text: 'Home', to: '/' }, { text: 'Docs', to: '/docs' }]
+      const items = [
+        { text: 'Home', to: '/' },
+        { text: 'Docs', to: '/docs' }
+      ]
 
       const section = this.$route.name.split('-')[1] || ''
       if (section) {

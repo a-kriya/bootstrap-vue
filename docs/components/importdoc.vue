@@ -1,8 +1,5 @@
 <template>
-  <section
-    v-if="components.length > 0 || directives.length > 0"
-    class="bd-content"
-  >
+  <section v-if="components.length > 0 || directives.length > 0" class="bd-content">
     <template v-if="components.length > 0">
       <article class="bd-content">
         <anchored-heading id="importing-individual-components" level="3">
@@ -10,8 +7,7 @@
         </anchored-heading>
 
         <p>
-          You can import individual components into your project via the following named
-          exports:
+          You can import individual components into your project via the following named exports:
         </p>
 
         <b-table
@@ -34,7 +30,9 @@
         </b-table>
 
         <p><strong>Example:</strong></p>
-        <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{ componentImportCode }}</pre>
+        <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{
+          componentImportCode
+        }}</pre>
       </article>
     </template>
 
@@ -45,8 +43,7 @@
         </anchored-heading>
 
         <p>
-          You can import individual directives into your project via the following named
-          exports:
+          You can import individual directives into your project via the following named exports:
         </p>
 
         <b-table
@@ -69,7 +66,9 @@
         </b-table>
 
         <p><strong>Example:</strong></p>
-        <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{ directiveImportCode }}</pre>
+        <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{
+          directiveImportCode
+        }}</pre>
       </article>
     </template>
 
@@ -79,13 +78,13 @@
       </anchored-heading>
 
       <p v-if="isComponentRoute">
-        This plugin includes all of the above listed individual
-        components<span v-if="directives.length"> and directives</span>.
-        Plugins also include any component aliases.
+        This plugin includes all of the above listed individual components<span
+          v-if="directives.length"
+        >
+          and directives</span
+        >. Plugins also include any component aliases.
       </p>
-      <p v-else>
-        This plugin includes all of the above listed individual directives.
-      </p>
+      <p v-else>This plugin includes all of the above listed individual directives.</p>
 
       <b-table
         :items="pluginImports"
@@ -115,7 +114,9 @@
       </template>
 
       <p><strong>Example:</strong></p>
-      <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{ pluginImportCode }}</pre>
+      <pre class="hljs language-js text-monospace p-2 notranslate" translate="no">{{
+        pluginImportCode
+      }}</pre>
     </article>
   </section>
 </template>
@@ -225,9 +226,7 @@ export default {
       return `<${getComponentName(component)}>`
     },
     directiveName(directive) {
-      return kebabCase(directive)
-        .replace(/^v-/, '')
-        .replace(/^vb-/, 'b-')
+      return kebabCase(directive).replace(/^v-/, '').replace(/^vb-/, 'b-')
     },
     directiveAttr(directive) {
       return kebabCase(directive).replace(/^vb-/, 'v-b-')

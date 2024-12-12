@@ -195,26 +195,26 @@ will be ignored.
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      // Simple array of strings
-      pages1: ['?page=1', '?page=2', '?page=3'],
-      // Array of objects with string links
-      pages2: [
-        { link: '?page=1', text: 'One' },
-        { link: '?page=2', text: 'Two' },
-        { link: '?page=3', text: 'Three' }
-      ],
-      // Array of objects with router `to` locations
-      pages3: [
-        { link: { query: { page: 1 } }, text: 'Page 1' },
-        { link: { query: { page: 2 } }, text: 'Page 2' },
-        { link: { query: { page: 3 } }, text: 'Page 3' }
-      ]
+  export default {
+    data() {
+      return {
+        // Simple array of strings
+        pages1: ['?page=1', '?page=2', '?page=3'],
+        // Array of objects with string links
+        pages2: [
+          { link: '?page=1', text: 'One' },
+          { link: '?page=2', text: 'Two' },
+          { link: '?page=3', text: 'Three' }
+        ],
+        // Array of objects with router `to` locations
+        pages3: [
+          { link: { query: { page: 1 } }, text: 'Page 1' },
+          { link: { query: { page: 2 } }, text: 'Page 2' },
+          { link: { query: { page: 3 } }, text: 'Page 3' }
+        ]
+      }
     }
   }
-}
 </script>
 
 <!-- pagination-nav-array.vue -->
@@ -278,11 +278,7 @@ below.
     ></b-pagination-nav>
 
     <!-- Use HTML and sub-components in slots -->
-    <b-pagination-nav
-      number-of-pages="10"
-      base-url="#"
-      class="mt-4"
-    >
+    <b-pagination-nav number-of-pages="10" base-url="#" class="mt-4">
       <template #first-text><span class="text-success">First</span></template>
       <template #prev-text><span class="text-danger">Prev</span></template>
       <template #next-text><span class="text-warning">Next</span></template>

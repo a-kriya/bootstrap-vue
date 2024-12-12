@@ -141,7 +141,14 @@ In the example below, we double the number of steps by using step="0.5".
 <template>
   <div>
     <label for="range-2">Example range with step value</label>
-    <b-form-input id="range-2" v-model="value" type="range" min="0" max="5" step="0.5"></b-form-input>
+    <b-form-input
+      id="range-2"
+      v-model="value"
+      type="range"
+      min="0"
+      max="5"
+      step="0.5"
+    ></b-form-input>
     <div class="mt-2">Value: {{ value }}</div>
   </div>
 </template>
@@ -590,8 +597,8 @@ If you just need a simple input with basic Bootstrap styling, you can simply use
 ```html
 <template>
   <div>
-    <input v-model="value" type="text" class="form-control">
-    <br>
+    <input v-model="value" type="text" class="form-control" />
+    <br />
     <p>Value: "{{ value }}"</p>
   </div>
 </template>

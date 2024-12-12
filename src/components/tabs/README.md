@@ -57,17 +57,29 @@ When `<b-tabs>` is in `card` mode, each `<b-tab>` sub-component will automatical
   <b-card no-body>
     <b-tabs card>
       <b-tab no-body title="Picture 1">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=21" alt="Image 21"></b-card-img>
+        <b-card-img
+          bottom
+          src="https://picsum.photos/600/200/?image=21"
+          alt="Image 21"
+        ></b-card-img>
         <b-card-footer>Picture 1 footer</b-card-footer>
       </b-tab>
 
       <b-tab no-body title="Picture 2">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=25" alt="Image 25"></b-card-img>
+        <b-card-img
+          bottom
+          src="https://picsum.photos/600/200/?image=25"
+          alt="Image 25"
+        ></b-card-img>
         <b-card-footer>Picture 2 footer</b-card-footer>
       </b-tab>
 
       <b-tab no-body title="Picture 3">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=26" alt="Image 26"></b-card-img>
+        <b-card-img
+          bottom
+          src="https://picsum.photos/600/200/?image=26"
+          alt="Image 26"
+        ></b-card-img>
         <b-card-footer>Picture 3 footer</b-card-footer>
       </b-tab>
 
@@ -77,8 +89,8 @@ When `<b-tabs>` is in `card` mode, each `<b-tab>` sub-component will automatical
           Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum
           consequat non elit enim exercitation cillum aliqua consequat id aliqua. Esse ex
           consectetur mollit voluptate est in duis laboris ad sit ipsum anim Lorem. Incididunt
-          veniam velit elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua
-          esse irure.
+          veniam velit elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua esse
+          irure.
         </b-card-text>
       </b-tab>
     </b-tabs>
@@ -320,9 +332,7 @@ Vue component, this possible by using `title` slot of `<b-tab>`.
     </b-tab>
 
     <b-tab>
-      <template #title>
-        <b-spinner type="border" small></b-spinner> Tab 2
-      </template>
+      <template #title> <b-spinner type="border" small></b-spinner> Tab 2 </template>
       <p class="p-3">Tab contents 2</p>
     </b-tab>
   </b-tabs>
@@ -537,7 +547,7 @@ It is recommended to use the `disabled` attribute on the `<b-tab>` component ins
         <!-- Render this if no tabs -->
         <template #empty>
           <div class="text-center text-muted">
-            There are no open tabs<br>
+            There are no open tabs<br />
             Open a new tab using the <b>+</b> button above.
           </div>
         </template>

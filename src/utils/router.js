@@ -59,9 +59,7 @@ export const stringifyQueryObj = obj => {
 
 export const parseQuery = query => {
   const parsed = {}
-  query = toString(query)
-    .trim()
-    .replace(RX_QUERY_START, '')
+  query = toString(query).trim().replace(RX_QUERY_START, '')
 
   if (!query) {
     return parsed

@@ -96,8 +96,8 @@ export const BTr = /*#__PURE__*/ extend({
       return this.headVariant === LIGHT || this.footVariant === LIGHT
         ? /* istanbul ignore next */ false
         : this.headVariant === DARK || this.footVariant === DARK
-          ? /* istanbul ignore next */ true
-          : this.isDark
+        ? /* istanbul ignore next */ true
+        : this.isDark
     },
     trClasses() {
       const { variant } = this

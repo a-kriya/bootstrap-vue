@@ -68,8 +68,8 @@ const getDataTransferItemEntry = item =>
   isFunction(item.getAsEntry)
     ? item.getAsEntry()
     : isFunction(item.webkitGetAsEntry)
-      ? item.webkitGetAsEntry()
-      : null
+    ? item.webkitGetAsEntry()
+    : null
 
 // Drop handler function to get all files
 /* istanbul ignore next: not supported in JSDOM */

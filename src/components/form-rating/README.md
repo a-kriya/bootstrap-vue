@@ -149,7 +149,7 @@ By default, `<b-form-rating>` defaults to `5` stars. You can change the number o
     data() {
       return {
         value10: null,
-        value7: null,
+        value7: null
       }
     }
   }
@@ -218,13 +218,7 @@ Optionally show the maximum rating possible by also setting the prop `show-value
 ```html
 <template>
   <div>
-    <b-form-rating
-      v-model="value"
-      readonly
-      show-value
-      show-value-max
-      precision="2"
-    ></b-form-rating>
+    <b-form-rating v-model="value" readonly show-value show-value-max precision="2"></b-form-rating>
     <p class="mt-2">Value: {{ value }}</p>
   </div>
 </template>
@@ -494,7 +488,7 @@ optional displayed value and the left-to-right or right-to-left orientation of t
         locales: [
           { text: 'English US (en-US)', value: 'en-US' },
           { text: 'French (fr)', value: 'fr' },
-          { text: 'Persian (fa)', value: 'fa'},
+          { text: 'Persian (fa)', value: 'fa' },
           { text: 'Arabic Egyptian (ar-EG)', value: 'ar-EG' }
         ]
       }

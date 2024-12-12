@@ -48,10 +48,7 @@
     <!-- BACKERS -->
     <template v-if="backers.length > 0">
       <h3 class="h4 mx-auto mt-4 text-muted">Backers</h3>
-      <BVContributorsContainer
-        type="backers"
-        :contributors="backers"
-      ></BVContributorsContainer>
+      <BVContributorsContainer type="backers" :contributors="backers"></BVContributorsContainer>
     </template>
 
     <!-- DONORS -->

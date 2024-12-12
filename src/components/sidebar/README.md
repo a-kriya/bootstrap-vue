@@ -237,10 +237,10 @@ that can be used to close the sidebar.
     <b-button v-b-toggle.sidebar-footer>Toggle Sidebar</b-button>
     <b-sidebar id="sidebar-footer" aria-label="Sidebar with custom footer" no-header shadow>
       <template #footer="{ hide }">
-       <div class="d-flex bg-dark text-light align-items-center px-3 py-2">
-        <strong class="mr-auto">Footer</strong>
-        <b-button size="sm" @click="hide">Close</b-button>
-       </div>
+        <div class="d-flex bg-dark text-light align-items-center px-3 py-2">
+          <strong class="mr-auto">Footer</strong>
+          <b-button size="sm" @click="hide">Close</b-button>
+        </div>
       </template>
       <div class="px-3 py-2">
         <p>
@@ -289,7 +289,11 @@ theme color variant of the backdrop. The default backdrop variant is `dark`.
     >
       <div class="px-3 py-2">
         <b-form-group label="Backdrop variant" label-for="backdrop-variant">
-          <b-form-select id="backdrop-variant" v-model="variant" :options="variants"></b-form-select>
+          <b-form-select
+            id="backdrop-variant"
+            v-model="variant"
+            :options="variants"
+          ></b-form-select>
         </b-form-group>
       </div>
     </b-sidebar>
@@ -311,7 +315,7 @@ theme color variant of the backdrop. The default backdrop variant is `dark`.
           'success',
           'danger',
           'warning',
-          'info',
+          'info'
         ]
       }
     }
@@ -349,7 +353,7 @@ attribute (also on the trigger element) to either the string `'true'` (if the si
 The `v-model` is internally bound to the `visible` prop, and the `change` event updates the
 `v-model`.
 
-### Closing on $route change
+### Closing on \$route change
 
 By default, `<b-sidebar>` will close itself when the `$route` changes (full path including query and
 hash). This can be particularly handy if the sidebar is placed outside of your `<router-view>` and

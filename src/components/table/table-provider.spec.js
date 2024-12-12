@@ -31,12 +31,7 @@ describe('table > provider functions', () => {
     expect(wrapper.emitted('input')).toBeDefined()
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     expect(wrapper.find('tbody').findAll('tr').length).toBe(testItems.length)
 
     wrapper.destroy()
@@ -64,12 +59,7 @@ describe('table > provider functions', () => {
     expect(wrapper.emitted('update:busy')).toBeDefined()
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     // Should have single empty row
     expect(wrapper.find('tbody').findAll('tr').length).toBe(1)
 
@@ -80,12 +70,7 @@ describe('table > provider functions', () => {
 
     await waitNT(wrapper.vm)
 
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     expect(wrapper.find('tbody').findAll('tr').length).toBe(testItems.length)
 
     wrapper.destroy()
@@ -111,12 +96,7 @@ describe('table > provider functions', () => {
     expect(wrapper.emitted('update:busy')).toBeDefined()
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     // Should have single empty row
     expect(wrapper.find('tbody').findAll('tr').length).toBe(1)
 
@@ -127,12 +107,7 @@ describe('table > provider functions', () => {
 
     await waitNT(wrapper.vm)
 
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     expect(wrapper.find('tbody').findAll('tr').length).toBe(testItems.length)
 
     wrapper.destroy()
@@ -156,12 +131,7 @@ describe('table > provider functions', () => {
     expect(wrapper.emitted('update:busy')).toBeDefined()
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     // Should have single empty row
     expect(wrapper.find('tbody').findAll('tr').length).toBe(1)
 
@@ -173,12 +143,7 @@ describe('table > provider functions', () => {
     const last = wrapper.emitted('update:busy').length - 1
     expect(wrapper.emitted('update:busy')[last][0]).toBe(false)
 
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     expect(wrapper.find('tbody').findAll('tr').length).toBe(1)
 
     wrapper.destroy()
@@ -290,12 +255,7 @@ describe('table > provider functions', () => {
     expect(wrapper.emitted('input')).toBeDefined()
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
     expect(wrapper.find('tbody').findAll('tr').length).toBe(testItems.length)
 
     await wrapper.setProps({ items: provider2 })
@@ -303,12 +263,7 @@ describe('table > provider functions', () => {
     await waitNT(wrapper.vm)
 
     expect(wrapper.find('tbody').exists()).toBe(true)
-    expect(
-      wrapper
-        .find('tbody')
-        .findAll('tr')
-        .exists()
-    ).toBe(true)
+    expect(wrapper.find('tbody').findAll('tr').exists()).toBe(true)
 
     expect(wrapper.find('tbody').findAll('tr').length).toBe(1)
 

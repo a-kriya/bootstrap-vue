@@ -31,13 +31,12 @@ module.exports = {
       'error',
       {
         html: {
-          void: 'never',
+          void: 'always',
           normal: 'never',
           component: 'never'
         }
       }
     ],
-    'vue/max-attributes-per-line': ['error', { singleline: 4 }],
     'vue/no-v-html': 'off',
     'vue/one-component-per-file': 'off',
     'vue/require-default-prop': 'off',

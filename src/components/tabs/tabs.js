@@ -130,14 +130,8 @@ const BVTabButton = /*#__PURE__*/ extend({
   },
   render(h) {
     const { id, tabIndex, setSize, posInSet, controls, handleEvent } = this
-    const {
-      title,
-      localActive,
-      disabled,
-      titleItemClass,
-      titleLinkClass,
-      titleLinkAttributes
-    } = this.tab
+    const { title, localActive, disabled, titleItemClass, titleLinkClass, titleLinkAttributes } =
+      this.tab
 
     const $link = h(
       BLink,
@@ -396,12 +390,7 @@ export const BTabs = /*#__PURE__*/ extend({
         const { currentTab } = this
         if (currentTab >= $tabs.length) {
           // Handle last tab being removed, so find the last non-disabled tab
-          tabIndex = $tabs.indexOf(
-            $tabs
-              .slice()
-              .reverse()
-              .find(notDisabled)
-          )
+          tabIndex = $tabs.indexOf($tabs.slice().reverse().find(notDisabled))
         } else if ($tabs[currentTab] && !$tabs[currentTab].disabled) {
           // Current tab is not disabled
           tabIndex = currentTab
@@ -506,10 +495,7 @@ export const BTabs = /*#__PURE__*/ extend({
     // Move to previous non-disabled tab
     previousTab(focus) {
       const currentIndex = mathMax(this.currentTab, 0)
-      const $tab = this.tabs
-        .slice(0, currentIndex)
-        .reverse()
-        .find(notDisabled)
+      const $tab = this.tabs.slice(0, currentIndex).reverse().find(notDisabled)
       if (this.activateTab($tab) && focus) {
         this.focusButton($tab)
         this.emitTabClick($tab, focus)
@@ -526,10 +512,7 @@ export const BTabs = /*#__PURE__*/ extend({
     },
     // Move to last non-disabled tab
     lastTab(focus) {
-      const $tab = this.tabs
-        .slice()
-        .reverse()
-        .find(notDisabled)
+      const $tab = this.tabs.slice().reverse().find(notDisabled)
       if (this.activateTab($tab) && focus) {
         this.focusButton($tab)
         this.emitTabClick($tab, focus)

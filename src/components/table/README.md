@@ -1183,7 +1183,7 @@ rather than native browser table child elements.
             type2a: true,
             type2b: false,
             type2c: false,
-            type3: false,
+            type3: false
           },
           {
             name: 'Johnny Appleseed',
@@ -1192,7 +1192,7 @@ rather than native browser table child elements.
             type2a: true,
             type2b: true,
             type2c: false,
-            type3: false,
+            type3: false
           },
           {
             name: 'George Washington',
@@ -1201,7 +1201,7 @@ rather than native browser table child elements.
             type2a: false,
             type2b: false,
             type2c: false,
-            type3: true,
+            type3: true
           },
           {
             name: 'Albert Einstein',
@@ -1210,7 +1210,7 @@ rather than native browser table child elements.
             type2a: false,
             type2b: false,
             type2c: true,
-            type3: false,
+            type3: false
           },
           {
             name: 'Isaac Newton',
@@ -1219,8 +1219,8 @@ rather than native browser table child elements.
             type2a: true,
             type2b: false,
             type2c: true,
-            type3: false,
-          },
+            type3: false
+          }
         ],
         fields: [
           'name',

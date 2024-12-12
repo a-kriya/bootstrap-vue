@@ -67,16 +67,12 @@ export const BImgLazy = /*#__PURE__*/ extend({
       return this.isShown ? height : this.blankHeight || height
     },
     computedSrcset() {
-      const srcset = concat(this.srcset)
-        .filter(identity)
-        .join(',')
+      const srcset = concat(this.srcset).filter(identity).join(',')
 
       return srcset && (!this.blankSrc || this.isShown) ? srcset : null
     },
     computedSizes() {
-      const sizes = concat(this.sizes)
-        .filter(identity)
-        .join(',')
+      const sizes = concat(this.sizes).filter(identity).join(',')
 
       return sizes && (!this.blankSrc || this.isShown) ? sizes : null
     }

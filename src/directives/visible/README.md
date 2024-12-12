@@ -53,20 +53,20 @@ In all use cases, the callback function is required.
 
 ```html
 <template>
-  <div v-b-visible="visibleHandler"> ... </div>
+  <div v-b-visible="visibleHandler">...</div>
 </template>
 <script>
-export default {
-  methods: {
-    visibleHandler(isVisible) {
-      if (isVisible) {
-        // Do something
-      } else {
-        // Do something else
+  export default {
+    methods: {
+      visibleHandler(isVisible) {
+        if (isVisible) {
+          // Do something
+        } else {
+          // Do something else
+        }
       }
     }
   }
-}
 </script>
 ```
 
@@ -77,20 +77,20 @@ viewport by at least 350px, then it will be considered "visible"):
 
 ```html
 <template>
-  <div v-b-visible.350="visibleHandler"> ... </div>
+  <div v-b-visible.350="visibleHandler">...</div>
 </template>
 <script>
-export default {
-  methods: {
-    visibleHandler(isVisible) {
-      if (isVisible) {
-        // Do something
-      } else {
-        // Do something else
+  export default {
+    methods: {
+      visibleHandler(isVisible) {
+        if (isVisible) {
+          // Do something
+        } else {
+          // Do something else
+        }
       }
     }
   }
-}
 </script>
 ```
 
@@ -98,23 +98,23 @@ export default {
 
 ```html
 <template>
-  <div v-b-visible.once="visibleHandler"> ... </div>
+  <div v-b-visible.once="visibleHandler">...</div>
 </template>
 <script>
-export default {
-  methods: {
-    visibleHandler(isVisible) {
-      if (isVisible) {
-        // This will only ever happen once, when the
-        // element has become visible for the first time
-      } else {
-        // This may happen zero or more times before
-        // the element becomes visible, but will never
-        // happen after the element has become visible
+  export default {
+    methods: {
+      visibleHandler(isVisible) {
+        if (isVisible) {
+          // This will only ever happen once, when the
+          // element has become visible for the first time
+        } else {
+          // This may happen zero or more times before
+          // the element becomes visible, but will never
+          // happen after the element has become visible
+        }
       }
     }
   }
-}
 </script>
 ```
 
@@ -122,24 +122,24 @@ export default {
 
 ```html
 <template>
-  <div v-b-visible.once.350="visibleHandler"> ... </div>
+  <div v-b-visible.once.350="visibleHandler">...</div>
 </template>
 <script>
-export default {
-  methods: {
-    visibleHandler(isVisible) {
-      if (isVisible) {
-        // This will only ever happen once, when the
-        // element is outside of the physical viewport
-        // by at least 350px for the first time
-      } else {
-        // This may happen zero or more times before
-        // the element becomes visible, but will never
-        // happen after the element has become visible
+  export default {
+    methods: {
+      visibleHandler(isVisible) {
+        if (isVisible) {
+          // This will only ever happen once, when the
+          // element is outside of the physical viewport
+          // by at least 350px for the first time
+        } else {
+          // This may happen zero or more times before
+          // the element becomes visible, but will never
+          // happen after the element has become visible
+        }
       }
     }
   }
-}
 </script>
 ```
 
@@ -163,9 +163,7 @@ visibility state will also change if the element is scrolled out of the viewport
       <b-badge v-b-visible="handleVisibility">Element with v-b-visible directive</b-badge>
       <p>{{ text }}</p>
     </div>
-    <p class="mt-2">
-      Visible: {{ isVisible }}
-    </p>
+    <p class="mt-2">Visible: {{ isVisible }}</p>
   </div>
 </template>
 

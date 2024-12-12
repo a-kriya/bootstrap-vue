@@ -3,7 +3,11 @@ import { waitNT } from '../../../tests/utils'
 import { defaultSortCompare } from './helpers/default-sort-compare'
 import { BTable } from './table'
 
-const testItems = [{ a: 3, b: 'b', c: 'x' }, { a: 1, b: 'c', c: 'y' }, { a: 2, b: 'a', c: 'z' }]
+const testItems = [
+  { a: 3, b: 'b', c: 'x' },
+  { a: 1, b: 'c', c: 'y' },
+  { a: 2, b: 'a', c: 'z' }
+]
 const testFields = [
   { key: 'a', label: 'A', sortable: true },
   { key: 'b', label: 'B', sortable: true },
@@ -32,10 +36,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     const columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -55,10 +56,7 @@ describe('table > sorting', () => {
 
     expect(wrapper).toBeDefined()
 
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(3)
-      .trigger('keydown.enter')
+    await wrapper.findAll('thead > tr > th').at(3).trigger('keydown.enter')
     expect(wrapper.emitted('sort-changed').length).toBe(1)
     expect(wrapper.emitted('sort-changed')[0][0].sortBy).toEqual('non-local')
   })
@@ -104,10 +102,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
@@ -119,34 +114,19 @@ describe('table > sorting', () => {
     expect($ths.at(0).attributes('aria-sort')).toBe('ascending')
     expect($ths.at(0).attributes('tabindex')).toBe('0')
     // For switching to descending
-    expect(
-      $ths
-        .at(0)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortDesc)
+    expect($ths.at(0).find('.sr-only').text()).toContain(wrapper.vm.labelSortDesc)
 
     // Not sorted by this column
     expect($ths.at(1).attributes('aria-sort')).toBe('none')
     expect($ths.at(1).attributes('tabindex')).toBe('0')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(1)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(1).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not a sortable column
     expect($ths.at(2).attributes('aria-sort')).toBeUndefined()
     expect($ths.at(2).attributes('tabindex')).toBeUndefined()
     // For clearing sorting
-    expect(
-      $ths
-        .at(2)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortClear)
+    expect($ths.at(2).find('.sr-only').text()).toContain(wrapper.vm.labelSortClear)
 
     // Change sort direction
     await wrapper.setProps({ sortDesc: true })
@@ -155,10 +135,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('2')
@@ -169,32 +146,17 @@ describe('table > sorting', () => {
     // Currently sorted as descending
     expect($ths.at(0).attributes('aria-sort')).toBe('descending')
     // For switching to ascending
-    expect(
-      $ths
-        .at(0)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(0).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not sorted by this column
     expect($ths.at(1).attributes('aria-sort')).toBe('none')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(1)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(1).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not a sortable column
     expect($ths.at(2).attributes('aria-sort')).toBeUndefined()
     // For clearing sorting
-    expect(
-      $ths
-        .at(2)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortClear)
+    expect($ths.at(2).find('.sr-only').text()).toContain(wrapper.vm.labelSortClear)
 
     // Clear sort
     await wrapper.setProps({
@@ -211,10 +173,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -225,32 +184,17 @@ describe('table > sorting', () => {
     // Currently not sorted
     expect($ths.at(0).attributes('aria-sort')).toBe('none')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(0)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(0).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not sorted by this column
     expect($ths.at(1).attributes('aria-sort')).toBe('none')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(1)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(1).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not a sortable column
     expect($ths.at(2).attributes('aria-sort')).toBeUndefined()
     // For clearing sorting
-    expect(
-      $ths
-        .at(2)
-        .find('.sr-only')
-        .exists()
-    ).toBe(false)
+    expect($ths.at(2).find('.sr-only').exists()).toBe(false)
 
     wrapper.destroy()
   })
@@ -281,10 +225,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     const columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
@@ -314,20 +255,14 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
     expect(columnA[2]).toBe('2')
 
     // Sort by first column
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed')).toBeDefined()
     expect(wrapper.emitted('sort-changed').length).toBe(1)
     expect(wrapper.emitted('sort-changed')[0][0]).toEqual(wrapper.vm.context)
@@ -335,70 +270,49 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
     expect(columnA[2]).toBe('3')
 
     // Click first column header again to reverse sort
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed').length).toBe(2)
     expect(wrapper.emitted('sort-changed')[1][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('2')
     expect(columnA[2]).toBe('1')
 
     // Click second column header to sort by it (by using keydown.enter)
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(1)
-      .trigger('keydown.enter')
+    await wrapper.findAll('thead > tr > th').at(1).trigger('keydown.enter')
     expect(wrapper.emitted('sort-changed').length).toBe(3)
     expect(wrapper.emitted('sort-changed')[2][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     const columnB = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(1)
-        .text()
+      return row.findAll('td').at(1).text()
     })
     expect(columnB[0]).toBe('a')
     expect(columnB[1]).toBe('b')
     expect(columnB[2]).toBe('c')
 
     // Click third column header to clear sort
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(2).trigger('click')
     expect(wrapper.emitted('sort-changed').length).toBe(4)
     expect(wrapper.emitted('sort-changed')[3][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -429,10 +343,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -442,10 +353,7 @@ describe('table > sorting', () => {
     expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(2)
 
     // Sort by first column
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tfoot > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed')).toBeDefined()
     expect(wrapper.emitted('sort-changed').length).toBe(1)
     expect(wrapper.emitted('sort-changed')[0][0]).toEqual(wrapper.vm.context)
@@ -453,10 +361,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
@@ -466,20 +371,14 @@ describe('table > sorting', () => {
     expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(3)
 
     // Click first column header again to reverse sort
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tfoot > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed').length).toBe(2)
     expect(wrapper.emitted('sort-changed')[1][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('2')
@@ -489,40 +388,28 @@ describe('table > sorting', () => {
     expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(3)
 
     // Click second column header to sort by it (by using keydown.enter)
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(1)
-      .trigger('keydown.enter')
+    await wrapper.findAll('tfoot > tr > th').at(1).trigger('keydown.enter')
     expect(wrapper.emitted('sort-changed').length).toBe(3)
     expect(wrapper.emitted('sort-changed')[2][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     const columnB = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(1)
-        .text()
+      return row.findAll('td').at(1).text()
     })
     expect(columnB[0]).toBe('a')
     expect(columnB[1]).toBe('b')
     expect(columnB[2]).toBe('c')
 
     // Click third column header to clear sort
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tfoot > tr > th').at(2).trigger('click')
     expect(wrapper.emitted('sort-changed').length).toBe(4)
     expect(wrapper.emitted('sort-changed')[3][0]).toEqual(wrapper.vm.context)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -557,10 +444,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -570,19 +454,13 @@ describe('table > sorting', () => {
     expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(0)
 
     // Click first column
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('tfoot > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed')).toBeUndefined()
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -592,19 +470,13 @@ describe('table > sorting', () => {
     expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(0)
 
     // Click third column header
-    await wrapper
-      .findAll('tfoot > tr > th')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('tfoot > tr > th').at(2).trigger('click')
     expect(wrapper.emitted('sort-changed')).toBeUndefined()
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -636,10 +508,7 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
@@ -650,47 +519,26 @@ describe('table > sorting', () => {
     // Currently not sorted
     expect($ths.at(0).attributes('aria-sort')).toBe('none')
     // For switching to descending
-    expect(
-      $ths
-        .at(0)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortDesc)
+    expect($ths.at(0).find('.sr-only').text()).toContain(wrapper.vm.labelSortDesc)
 
     // Not sorted by this column
     expect($ths.at(1).attributes('aria-sort')).toBe('none')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(1)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortDesc)
+    expect($ths.at(1).find('.sr-only').text()).toContain(wrapper.vm.labelSortDesc)
 
     // Not a sortable column
     expect($ths.at(2).attributes('aria-sort')).toBeUndefined()
     // For clearing sorting
-    expect(
-      $ths
-        .at(2)
-        .find('.sr-only')
-        .exists()
-    ).toBe(false)
+    expect($ths.at(2).find('.sr-only').exists()).toBe(false)
 
     // Change sort direction (should be descending first)
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(0).trigger('click')
 
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('2')
@@ -701,32 +549,17 @@ describe('table > sorting', () => {
     // Currently sorted as descending
     expect($ths.at(0).attributes('aria-sort')).toBe('descending')
     // For switching to ascending
-    expect(
-      $ths
-        .at(0)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortAsc)
+    expect($ths.at(0).find('.sr-only').text()).toContain(wrapper.vm.labelSortAsc)
 
     // Not sorted by this column
     expect($ths.at(1).attributes('aria-sort')).toBe('none')
     // For sorting by ascending
-    expect(
-      $ths
-        .at(1)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortDesc)
+    expect($ths.at(1).find('.sr-only').text()).toContain(wrapper.vm.labelSortDesc)
 
     // Not a sortable column
     expect($ths.at(2).attributes('aria-sort')).toBeUndefined()
     // For clearing sorting
-    expect(
-      $ths
-        .at(2)
-        .find('.sr-only')
-        .text()
-    ).toContain(wrapper.vm.labelSortClear)
+    expect($ths.at(2).find('.sr-only').text()).toContain(wrapper.vm.labelSortClear)
 
     wrapper.destroy()
   })
@@ -753,49 +586,34 @@ describe('table > sorting', () => {
     expect($rows.length).toBe(3)
     // Map the rows to the first column text value
     let columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('3')
     expect(columnA[1]).toBe('1')
     expect(columnA[2]).toBe('2')
 
     // Click first column to sort
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(0)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(0).trigger('click')
     expect(wrapper.emitted('sort-changed')).toBeDefined()
     expect(wrapper.emitted('sort-changed').length).toBe(1)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
     expect(columnA[2]).toBe('3')
 
     // Click third column header (should not clear sorting)
-    await wrapper
-      .findAll('thead > tr > th')
-      .at(2)
-      .trigger('click')
+    await wrapper.findAll('thead > tr > th').at(2).trigger('click')
     expect(wrapper.emitted('sort-changed').length).toBe(1)
     $rows = wrapper.findAll('tbody > tr').wrappers
     expect($rows.length).toBe(3)
     // Map the rows to the column text value
     columnA = $rows.map(row => {
-      return row
-        .findAll('td')
-        .at(0)
-        .text()
+      return row.findAll('td').at(0).text()
     })
     expect(columnA[0]).toBe('1')
     expect(columnA[1]).toBe('2')
@@ -807,7 +625,10 @@ describe('table > sorting', () => {
   it('sorting by virtual column formatter works', async () => {
     const wrapper = mount(BTable, {
       propsData: {
-        items: [{ a: 5, b: 2 }, { a: 10, b: 9 }],
+        items: [
+          { a: 5, b: 2 },
+          { a: 10, b: 9 }
+        ],
         fields: [
           'a',
           'b',
