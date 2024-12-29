@@ -59,8 +59,8 @@ const transformOptions = {
   plugins: [
     // Not used as we need to import the helpers into the transpiled code
     // 'transform-runtime',
-    'proposal-object-rest-spread',
-  ],
+    'proposal-object-rest-spread'
+  ]
 }
 
 // Our transpilation compiler method

@@ -90,11 +90,11 @@ export default {
   components: {
     BIcon,
     BIconArrowUp,
-    BIconArrowDown,
+    BIconArrowDown
   },
   props: {
     // ...
-  },
+  }
   // ...
 }
 ```

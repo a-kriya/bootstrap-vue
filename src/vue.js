@@ -22,7 +22,7 @@ const ALLOWED_FIELDS_IN_DATA = [
   'slot',
   'key',
   'ref',
-  'refInFor',
+  'refInFor'
 ]
 
 let extend = Vue.extend.bind(Vue)
@@ -40,7 +40,7 @@ if (isVue3) {
   Vue.vModelDynamic.created = function (el, binding, vnode) {
     originalVModelDynamicCreated.call(this, el, binding, vnode)
     if (!assignSymbol) {
-      assignSymbol = Object.getOwnPropertySymbols(el).find((s) => s.description === '_assign')
+      assignSymbol = Object.getOwnPropertySymbols(el).find(s => s.description === '_assign')
     }
     if (!el[assignSymbol]) {
       el[assignSymbol] = function () {}
@@ -49,7 +49,7 @@ if (isVue3) {
   Vue.vModelDynamic.beforeUpdate = function (el, binding, vnode) {
     originalVModelDynamicBeforeUpdate.call(this, el, binding, vnode)
     if (!assignSymbol) {
-      assignSymbol = Object.getOwnPropertySymbols(el).find((s) => s.description === '_assign')
+      assignSymbol = Object.getOwnPropertySymbols(el).find(s => s.description === '_assign')
     }
     if (!el[assignSymbol]) {
       el[assignSymbol] = function () {}
@@ -81,7 +81,7 @@ if (isVue3) {
           const normalizedData = {
             ...restData,
             attrs,
-            props: isTag ? {} : props,
+            props: isTag ? {} : props
           }
           if (tag === 'router-link' && !normalizedData.slots && !normalizedData.scopedSlots) {
             // terrible workaround to fix router-link rendering with compat vue-router
@@ -95,9 +95,9 @@ if (isVue3) {
           const patchedCtx = { ...ctx }
           patchedCtx.data = {
             attrs: { ...(ctx.data.attrs || {}) },
-            props: { ...(ctx.data.props || {}) },
+            props: { ...(ctx.data.props || {}) }
           }
-          Object.keys(ctx.data || {}).forEach((key) => {
+          Object.keys(ctx.data || {}).forEach(key => {
             if (ALLOWED_FIELDS_IN_DATA.includes(key)) {
               patchedCtx.data[key] = ctx.data[key]
             } else if (key in ctx.props) {
@@ -112,7 +112,7 @@ if (isVue3) {
 
           if (
             children &&
-            Object.keys(patchedCtx.children).filter((k) => !IGNORED_CHILDREN_KEYS.includes(k))
+            Object.keys(patchedCtx.children).filter(k => !IGNORED_CHILDREN_KEYS.includes(k))
               .length === 0
           ) {
             delete patchedCtx.children

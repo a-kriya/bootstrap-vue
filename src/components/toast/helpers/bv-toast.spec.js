@@ -17,16 +17,16 @@ describe('$bvToast', () => {
               id: 'test1',
               static: true,
               visible: false,
-              noAutoHide: true,
-            },
+              noAutoHide: true
+            }
           },
           'content'
         )
-      },
+      }
     }
     const wrapper = mount(App, {
       attachTo: document.body,
-      global: { plugins: [PortalVue] },
+      global: { plugins: [PortalVue] }
     })
 
     expect(wrapper.vm).toBeDefined()
@@ -73,11 +73,11 @@ describe('$bvToast', () => {
     const App = {
       render(h) {
         return h('div', 'app')
-      },
+      }
     }
     const wrapper = mount(App, {
       attachTo: document.body,
-      global: { plugins: [PortalVue] },
+      global: { plugins: [PortalVue] }
     })
 
     expect(wrapper.vm).toBeDefined()
@@ -92,7 +92,7 @@ describe('$bvToast', () => {
     bvToast.toast('message', {
       id: 'test2',
       title: 'title',
-      noAutoHide: true,
+      noAutoHide: true
     })
 
     await waitNT(wrapper.vm)

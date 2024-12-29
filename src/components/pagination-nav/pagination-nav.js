@@ -7,7 +7,7 @@ import {
   PROP_TYPE_BOOLEAN,
   PROP_TYPE_FUNCTION,
   PROP_TYPE_NUMBER_STRING,
-  PROP_TYPE_STRING,
+  PROP_TYPE_STRING
 } from '../../constants/props'
 import { BvEvent } from '../../utils/bv-event.class'
 import { attemptBlur, requestAF } from '../../utils/dom'
@@ -26,7 +26,7 @@ import { props as BLinkProps } from '../link/link'
 // --- Helper methods ---
 
 // Sanitize the provided number of pages (converting to a number)
-export const sanitizeNumberOfPages = (value) => mathMax(toInteger(value, 0), 1)
+export const sanitizeNumberOfPages = value => mathMax(toInteger(value, 0), 1)
 
 // --- Props ---
 
@@ -44,7 +44,7 @@ const props = makePropsConfigurable(
       PROP_TYPE_NUMBER_STRING,
       1,
       /* istanbul ignore next */
-      (value) => {
+      value => {
         const number = toInteger(value, 0)
         if (number < 1) {
           warn('Prop "number-of-pages" must be a number greater than "0"', NAME_PAGINATION_NAV)
@@ -56,7 +56,7 @@ const props = makePropsConfigurable(
     pageGen: makeProp(PROP_TYPE_FUNCTION),
     // Optional array of page links
     pages: makeProp(PROP_TYPE_ARRAY),
-    useRouter: makeProp(PROP_TYPE_BOOLEAN, false),
+    useRouter: makeProp(PROP_TYPE_BOOLEAN, false)
   }),
   NAME_PAGINATION_NAV
 )
@@ -78,7 +78,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
       // Returns the value prop as a number or `null` if undefined or < 1
       const value = toInteger(this.value, 0)
       return value < 1 ? null : value
-    },
+    }
   },
   watch: {
     numberOfPages() {
@@ -90,7 +90,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
       this.$nextTick(() => {
         this.setNumberOfPages()
       })
-    },
+    }
   },
   created() {
     this.setNumberOfPages()
@@ -130,7 +130,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
       const clickEvent = new BvEvent(EVENT_NAME_PAGE_CLICK, {
         cancelable: true,
         vueTarget: this,
-        target,
+        target
       })
       this.$emit(clickEvent.type, clickEvent, pageNumber)
       if (clickEvent.defaultPrevented) {
@@ -161,7 +161,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
         const link = `${this.baseUrl}${pageNumber}`
         return {
           link: this.useRouter ? { path: link } : link,
-          text: toString(pageNumber),
+          text: toString(pageNumber)
         }
       }
       const info = this.pages[pageNumber - 1]
@@ -171,7 +171,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
           // Normalize link for router use
           link: isObject(link) ? link : this.useRouter ? { path: link } : link,
           // Make sure text has a value
-          text: toString(info.text || pageNumber),
+          text: toString(info.text || pageNumber)
         }
       } else {
         return { link: toString(info), text: toString(pageNumber) }
@@ -276,6 +276,6 @@ export const BPaginationNav = /*#__PURE__*/ extend({
       // As the default for `currentPage` is `-1` when no value is specified
       // Valid page numbers are greater than `0`
       this.currentPage = guess > 0 ? guess : 0
-    },
-  },
+    }
+  }
 })

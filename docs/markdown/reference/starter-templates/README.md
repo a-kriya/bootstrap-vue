@@ -65,13 +65,13 @@ tags to load the required JavaScript and CSS in your page.
       window.app = new Vue({
         el: '#app',
         data: {
-          name: '',
+          name: ''
         },
         computed: {
           showAlert() {
             return this.name.length > 4 ? true : false
-          },
-        },
+          }
+        }
       })
     </script>
   </body>
@@ -131,8 +131,8 @@ export default {
     BCardFooter,
     BCardHeader,
     BCardImg,
-    BTable,
-  },
+    BTable
+  }
   // ...
 }
 ```

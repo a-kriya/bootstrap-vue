@@ -201,7 +201,7 @@ BootstrapVue and PortalVue require access to the global `Vue` reference (via
 const path = require('path')
 
 module.exports = {
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     config.resolve.alias.set(
       'vue$',
       // If using the runtime only build
@@ -209,7 +209,7 @@ module.exports = {
       // Or if using full build of Vue (runtime + compiler)
       // path.resolve(__dirname, 'node_modules/vue/dist/vue.esm.js')
     )
-  },
+  }
 }
 ```
 
@@ -221,11 +221,11 @@ module.exports = {
   resolve: {
     alias: {
       // If using the runtime only build
-      vue$: 'vue/dist/vue.runtime.esm.js', // 'vue/dist/vue.runtime.common.js' for webpack 1
+      vue$: 'vue/dist/vue.runtime.esm.js' // 'vue/dist/vue.runtime.common.js' for webpack 1
       // Or if using full build of Vue (runtime + compiler)
       // vue$: 'vue/dist/vue.esm.js'      // 'vue/dist/vue.common.js' for webpack 1
-    },
-  },
+    }
+  }
 }
 ```
 
@@ -348,7 +348,7 @@ Then add it to your component definition:
 Vue.component('MyComponent', {
   components: { BModal },
   // Note that Vue automatically prefixes directive names with `v-`
-  directives: { 'b-modal': VBModal },
+  directives: { 'b-modal': VBModal }
   // ...
 })
 ```
@@ -386,8 +386,8 @@ module.exports = {
   resolve: {
     alias: {
       // Alias for using source of BootstrapVue
-      'bootstrap-vue$': 'bootstrap-vue/src/index.js',
-    },
+      'bootstrap-vue$': 'bootstrap-vue/src/index.js'
+    }
   },
   module: {
     rules: [
@@ -398,12 +398,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env'],
-          },
-        },
-      },
-    ],
-  },
+            presets: ['env']
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -449,7 +449,7 @@ This will include both `bootstrap.css` and `bootstrap-vue.css` default pre-compi
 
 ```js
 module.exports = {
-  modules: ['bootstrap-vue/nuxt'],
+  modules: ['bootstrap-vue/nuxt']
 }
 ```
 
@@ -466,8 +466,8 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
-    bootstrapVueCSS: false, // Or `bvCSS: false`
-  },
+    bootstrapVueCSS: false // Or `bvCSS: false`
+  }
 }
 ```
 
@@ -484,7 +484,7 @@ $grid-breakpoints: (
   sm: 480px,
   md: 640px,
   lg: 992px,
-  xl: 1300px,
+  xl: 1300px
 );
 $enable-rounded: false;
 
@@ -526,10 +526,10 @@ module.exports = {
       'FormInputPlugin',
       'FormRadioPlugin',
       'ToastPlugin',
-      'ModalPlugin',
+      'ModalPlugin'
     ],
-    directivePlugins: ['VBPopoverPlugin', 'VBTooltipPlugin', 'VBScrollspyPlugin'],
-  },
+    directivePlugins: ['VBPopoverPlugin', 'VBTooltipPlugin', 'VBScrollspyPlugin']
+  }
 }
 ```
 
@@ -550,8 +550,8 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     components: ['BContainer', 'BRow', 'BCol', 'BFormInput', 'BButton', 'BTable', 'BModal'],
-    directives: ['VBModal', 'VBPopover', 'VBTooltip', 'VBScrollspy'],
-  },
+    directives: ['VBModal', 'VBPopover', 'VBTooltip', 'VBScrollspy']
+  }
 }
 ```
 
@@ -591,8 +591,8 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)
-    icons: true,
-  },
+    icons: true
+  }
 }
 ```
 
@@ -603,8 +603,8 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     // Add the desired icon components to the `components` array
-    components: ['BIcon', 'BIconAlertFill', 'BIconCalendar', 'BIconGears'],
-  },
+    components: ['BIcon', 'BIconAlertFill', 'BIconCalendar', 'BIconGears']
+  }
 }
 ```
 
@@ -615,8 +615,8 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     // Add the icon plugin to the `componentsPlugins` array
-    componentPlugins: ['IconsPlugin'],
-  },
+    componentPlugins: ['IconsPlugin']
+  }
 }
 ```
 
@@ -632,8 +632,8 @@ module.exports = {
   bootstrapVue: {
     config: {
       // Custom config options here
-    },
-  },
+    }
+  }
 }
 ```
 
