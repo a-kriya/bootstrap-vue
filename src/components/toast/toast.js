@@ -185,20 +185,20 @@ export const BToast = /*#__PURE__*/ extend({
       }
     })
     // Listen for global $root show events
-    this.listenOnRoot(getRootActionEventName(NAME_TOAST, EVENT_NAME_SHOW), id => {
+    this.listenOnRoot(getRootActionEventName(NAME_TOAST, EVENT_NAME_SHOW), (id) => {
       if (id === this.safeId()) {
         this.show()
       }
     })
     // Listen for global $root hide events
-    this.listenOnRoot(getRootActionEventName(NAME_TOAST, EVENT_NAME_HIDE), id => {
+    this.listenOnRoot(getRootActionEventName(NAME_TOAST, EVENT_NAME_HIDE), (id) => {
       if (!id || id === this.safeId()) {
         this.hide()
       }
     })
     // Make sure we hide when toaster is destroyed
     /* istanbul ignore next: difficult to test */
-    this.listenOnRoot(getRootEventName(NAME_TOASTER, EVENT_NAME_DESTROYED), toaster => {
+    this.listenOnRoot(getRootEventName(NAME_TOASTER, EVENT_NAME_DESTROYED), (toaster) => {
       /* istanbul ignore next */
       if (toaster === this.computedToaster) {
         this.hide()

@@ -26,7 +26,7 @@ import { props as BLinkProps } from '../link/link'
 // --- Helper methods ---
 
 // Sanitize the provided number of pages (converting to a number)
-export const sanitizeNumberOfPages = value => mathMax(toInteger(value, 0), 1)
+export const sanitizeNumberOfPages = (value) => mathMax(toInteger(value, 0), 1)
 
 // --- Props ---
 
@@ -44,7 +44,7 @@ const props = makePropsConfigurable(
       PROP_TYPE_NUMBER_STRING,
       1,
       /* istanbul ignore next */
-      value => {
+      (value) => {
         const number = toInteger(value, 0)
         if (number < 1) {
           warn('Prop "number-of-pages" must be a number greater than "0"', NAME_PAGINATION_NAV)
@@ -233,7 +233,7 @@ export const BPaginationNav = /*#__PURE__*/ extend({
       // Given a to (or href string), convert to normalized route location structure
       // Works only when router available!
       try {
-        const route = this.$router.resolve(to, this.$route).route
+        const route = this.$router.resolve(to, this.$route)
         return { path: route.path, hash: route.hash, query: route.query }
       } catch (e) {
         /* istanbul ignore next */

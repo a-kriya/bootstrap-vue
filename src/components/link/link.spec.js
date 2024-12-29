@@ -1,9 +1,6 @@
-import VueRouter from 'vue-router'
-import { createLocalVue, mount } from '@vue/test-utils'
+import { createMemoryHistory, createRouter } from 'vue-router'
+import { mount } from '@vue/test-utils'
 import { BLink } from './link'
-import { Vue } from '../../vue'
-
-Vue.use(VueRouter)
 
 describe('b-link', () => {
   it('has expected default structure', async () => {
@@ -207,7 +204,7 @@ describe('b-link', () => {
       let event = null
       const wrapper = mount(BLink, {
         listeners: {
-          click: e => {
+          click: (e) => {
             event = e
             called++
           }
@@ -249,7 +246,7 @@ describe('b-link', () => {
           disabled: true
         },
         listeners: {
-          click: e => {
+          click: (e) => {
             event = e
             called++
           }
@@ -355,10 +352,8 @@ describe('b-link', () => {
 
   describe('router-link support', () => {
     it('works', async () => {
-      const localVue = createLocalVue()
-
-      const router = new VueRouter({
-        mode: 'abstract',
+      const router = createRouter({
+        history: createMemoryHistory(),
         routes: [
           { path: '/', component: { name: 'R', template: '<div class="r">ROOT</div>' } },
           { path: '/a', component: { name: 'A', template: '<div class="a">A</div>' } },
@@ -382,10 +377,7 @@ describe('b-link', () => {
         }
       }
 
-      localVue.component('GLink', GLink)
-
       const App = {
-        router,
         components: { BLink },
         render(h) {
           return h('main', [
@@ -403,7 +395,7 @@ describe('b-link', () => {
       }
 
       const wrapper = mount(App, {
-        localVue,
+        global: { components: { GLink }, plugins: [router] },
         attachTo: document.body
       })
 
@@ -413,20 +405,15 @@ describe('b-link', () => {
       expect(wrapper.findAll('a').length).toBe(4)
 
       const $links = wrapper.findAllComponents('a')
-      $links.wrappers.forEach($link => {
+      $links.wrappers.forEach(($link) => {
         expect($link.vm).toBeDefined()
         expect($links.at(0).vm.$options.name).toBe('BLink')
       })
       expect(
-        $links.wrappers.map($link => $link.findComponent({ name: 'RouterLink' }).exists())
+        $links.wrappers.map(($link) => $link.findComponent({ name: 'RouterLink' }).exists())
       ).toStrictEqual([true, false, true, false])
 
-      expect(
-        $links
-          .at(3)
-          .findComponent(GLink)
-          .exists()
-      ).toBe(true)
+      expect($links.at(3).findComponent(GLink).exists()).toBe(true)
 
       wrapper.destroy()
     })

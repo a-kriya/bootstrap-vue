@@ -1,4 +1,4 @@
-import { PortalTarget } from 'portal-vue'
+import PortalVue, { PortalTarget } from 'portal-vue'
 import { mount } from '@vue/test-utils'
 import { isVue3 } from '../../vue'
 import { waitNT, waitRAF } from '../../../tests/utils'
@@ -8,6 +8,7 @@ describe('b-toaster', () => {
   it('has expected structure', async () => {
     const wrapper = mount(BToaster, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         name: 'foo'
       }
@@ -43,6 +44,7 @@ describe('b-toaster', () => {
   it('accepts aria props', async () => {
     const wrapper = mount(BToaster, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         name: 'bar',
         ariaLive: 'assertive',

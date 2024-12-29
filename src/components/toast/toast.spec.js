@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import PortalVue from 'portal-vue'
 import { waitNT, waitRAF } from '../../../tests/utils'
 import { BToast } from './toast'
 
@@ -15,6 +16,7 @@ describe('b-toast', () => {
   it('has expected structure', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: true,
@@ -32,13 +34,14 @@ describe('b-toast', () => {
     await waitNT(wrapper.vm)
     await waitRAF()
 
-    expect(wrapper.element.tagName).toBe('DIV')
-    expect(wrapper.classes()).toContain('b-toast')
-    expect(wrapper.classes()).toContain('b-toast-prepend')
-    expect(wrapper.classes().length).toBe(2)
-    expect(wrapper.attributes('role')).toEqual('alert')
-    expect(wrapper.attributes('aria-live')).toEqual('assertive')
-    expect(wrapper.attributes('aria-atomic')).toEqual('true')
+    const $wrapper = wrapper.find('.b-toast')
+    expect($wrapper.element.tagName).toBe('DIV')
+    expect($wrapper.classes()).toContain('b-toast')
+    expect($wrapper.classes()).toContain('b-toast-prepend')
+    expect($wrapper.classes().length).toBe(2)
+    expect($wrapper.attributes('role')).toEqual('alert')
+    expect($wrapper.attributes('aria-live')).toEqual('assertive')
+    expect($wrapper.attributes('aria-atomic')).toEqual('true')
 
     expect(wrapper.find('.toast').exists()).toBe(true)
     const $toast = wrapper.find('.toast')
@@ -70,6 +73,7 @@ describe('b-toast', () => {
   it('has correct header tag when "header-tag" prop is set', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: true,
@@ -98,6 +102,7 @@ describe('b-toast', () => {
   it('visible prop works', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: true,
@@ -165,6 +170,7 @@ describe('b-toast', () => {
   it('alert with link closes on click works', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: true,
@@ -220,6 +226,7 @@ describe('b-toast', () => {
     jest.useFakeTimers()
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: false,
@@ -264,6 +271,7 @@ describe('b-toast', () => {
   it('hover pause works', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: false,
@@ -291,11 +299,11 @@ describe('b-toast', () => {
     await waitNT(wrapper.vm)
     await waitRAF()
 
-    await wrapper.trigger('mouseenter')
+    await wrapper.find('.b-toast').trigger('mouseenter')
     await waitRAF()
     expect(wrapper.vm.$_dismissTimer).toEqual(null)
 
-    await wrapper.trigger('mouseleave')
+    await wrapper.find('.b-toast').trigger('mouseleave')
     await waitRAF()
     expect(wrapper.vm.$_dismissTimer).not.toEqual(null)
 
@@ -305,6 +313,7 @@ describe('b-toast', () => {
   it('hover pause has no effect when no-hover-pause is set', async () => {
     const wrapper = mount(BToast, {
       attachTo: document.body,
+      global: { plugins: [PortalVue] },
       propsData: {
         static: true,
         noAutoHide: false,
@@ -333,11 +342,11 @@ describe('b-toast', () => {
     await waitNT(wrapper.vm)
     await waitRAF()
 
-    await wrapper.trigger('mouseenter')
+    await wrapper.find('.b-toast').trigger('mouseenter')
     await waitRAF()
     expect(wrapper.vm.timer).not.toEqual(null)
 
-    await wrapper.trigger('mouseleave')
+    await wrapper.find('.b-toast').trigger('mouseleave')
     await waitRAF()
     expect(wrapper.vm.timer).not.toEqual(null)
 

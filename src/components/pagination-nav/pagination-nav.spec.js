@@ -1,10 +1,7 @@
-import VueRouter from 'vue-router'
+import { createMemoryHistory, createRouter } from 'vue-router'
 import { mount } from '@vue/test-utils'
 import { waitNT, waitRAF } from '../../../tests/utils'
-import { Vue } from '../../vue'
 import { BPaginationNav } from './pagination-nav'
-
-Vue.use(VueRouter)
 
 // The majority of tests for the core of pagination mixin are performed
 // in pagination.spec.js. Here we just test the differences that
@@ -569,15 +566,16 @@ describe('pagination-nav', () => {
         }
       }
       // Create router instance
-      const router = new VueRouter({
+      const router = createRouter({
+        history: createMemoryHistory(),
         routes: [{ path: '/', component: FooRoute }, { path: '/:page', component: FooRoute }]
       })
-      const wrapper = mount(App, { router })
+      const wrapper = mount(App, { global: { plugins: [router] } })
 
       expect(wrapper).toBeDefined()
 
       // Wait for the router to initialize
-      await new Promise(resolve => router.onReady(resolve))
+      await router.isReady()
 
       // Wait for the guessCurrentPage to complete
       await waitNT(wrapper.vm)
@@ -632,15 +630,16 @@ describe('pagination-nav', () => {
         }
       }
       // Create router instance
-      const router = new VueRouter({
+      const router = createRouter({
+        history: createMemoryHistory(),
         routes: [{ path: '/', component: FooRoute }, { path: '/:page', component: FooRoute }]
       })
-      const wrapper = mount(App, { router })
+      const wrapper = mount(App, { global: { plugins: [router] } })
 
       expect(wrapper).toBeDefined()
 
       // Wait for the router to initialize
-      await new Promise(resolve => router.onReady(resolve))
+      await router.isReady()
 
       // Wait for the guessCurrentPage to complete
       await waitNT(wrapper.vm)

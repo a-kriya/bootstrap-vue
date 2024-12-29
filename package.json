@@ -150,8 +150,8 @@
     "standard-version": "^9.3.0",
     "terser": "^5.15.0",
     "vue": "^3.5.13",
-    "vue-router": "^3.5.1",
-    "vue-test-utils-compat": "0.0.6"
+    "vue-router": "^4.5.0",
+    "vue-test-utils-compat": "0.0.15"
   },
   "keywords": [
     "Bootstrap",

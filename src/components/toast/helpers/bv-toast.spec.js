@@ -1,4 +1,5 @@
 import { createWrapper, mount } from '@vue/test-utils'
+import PortalVue from 'portal-vue'
 import { Vue } from '../../../vue'
 import { waitNT, waitRAF } from '../../../../tests/utils'
 import { ToastPlugin } from '../index'
@@ -24,7 +25,8 @@ describe('$bvToast', () => {
       }
     }
     const wrapper = mount(App, {
-      attachTo: document.body
+      attachTo: document.body,
+      global: { plugins: [PortalVue] }
     })
 
     expect(wrapper.vm).toBeDefined()
@@ -74,7 +76,8 @@ describe('$bvToast', () => {
       }
     }
     const wrapper = mount(App, {
-      attachTo: document.body
+      attachTo: document.body,
+      global: { plugins: [PortalVue] }
     })
 
     expect(wrapper.vm).toBeDefined()

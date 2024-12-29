@@ -1,10 +1,7 @@
-import VueRouter from 'vue-router'
+import { createMemoryHistory, createRouter } from 'vue-router'
 import { mount } from '@vue/test-utils'
 import { waitRAF } from '../../../tests/utils'
-import { Vue } from '../../vue'
 import { BDropdownItem } from './dropdown-item'
-
-Vue.use(VueRouter)
 
 describe('dropdown-item', () => {
   it('renders with tag "a" and href="#" by default', async () => {
@@ -97,8 +94,8 @@ describe('dropdown-item', () => {
 
   describe('router-link support', () => {
     it('works', async () => {
-      const router = new VueRouter({
-        mode: 'abstract',
+      const router = createRouter({
+        history: createMemoryHistory(),
         routes: [
           { path: '/', component: { name: 'R', template: '<div class="r">ROOT</div>' } },
           { path: '/a', component: { name: 'A', template: '<div class="a">A</div>' } },
@@ -107,7 +104,6 @@ describe('dropdown-item', () => {
       })
 
       const App = {
-        router,
         render(h) {
           return h('ul', [
             // <router-link>
@@ -122,7 +118,8 @@ describe('dropdown-item', () => {
       }
 
       const wrapper = mount(App, {
-        attachTo: document.body
+        attachTo: document.body,
+        global: { plugins: [router] }
       })
 
       expect(wrapper.vm).toBeDefined()
@@ -133,12 +130,12 @@ describe('dropdown-item', () => {
 
       const $links = wrapper.findAllComponents('a')
 
-      $links.wrappers.forEach($link => {
+      $links.wrappers.forEach(($link) => {
         expect($link.vm).toBeDefined()
         expect($links.at(0).vm.$options.name).toBe('BLink')
       })
       expect(
-        $links.wrappers.map($link => $link.findComponent({ name: 'RouterLink' }).exists())
+        $links.wrappers.map(($link) => $link.findComponent({ name: 'RouterLink' }).exists())
       ).toStrictEqual([true, false, true])
 
       wrapper.destroy()
