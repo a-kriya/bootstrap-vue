@@ -34,7 +34,7 @@
   "scripts": {
     "build": "scripts/build.sh",
     "lint": "eslint --ext .js,.md,.vue ./",
-    "prepare": "husky && npm run build",
+    "prepare": "husky && patch-package && npm run build",
     "pretty": "prettier --write '**/*.{js,json,md,scss,ts,vue}'",
     "release": "npm run pretty && npm run test && npm run build && npm run release-notes && standard-version",
     "release-notes": "jiti ./scripts/release-notes",
@@ -90,6 +90,7 @@
     "lint-staged": "^11.2.6",
     "loader-utils": "^2.0.4",
     "lodash": "^4.17.21",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^8.3.1",
     "prettier": "^2.8.8",

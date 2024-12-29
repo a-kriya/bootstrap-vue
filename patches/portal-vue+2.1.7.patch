@@ -1,0 +1,13 @@
+diff --git a/node_modules/portal-vue/dist/portal-vue.umd.js b/node_modules/portal-vue/dist/portal-vue.umd.js
+index c8ea5c8..7955bad 100644
+--- a/node_modules/portal-vue/dist/portal-vue.umd.js
++++ b/node_modules/portal-vue/dist/portal-vue.umd.js
+@@ -11,7 +11,7 @@
+  */
+ 
+ (function (global, factory) {
+-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
++  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@vue/compat')) :
+   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
+   (factory((global.PortalVue = {}),global.Vue));
+ }(this, (function (exports,Vue) { 'use strict';
