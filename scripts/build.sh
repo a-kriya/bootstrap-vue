@@ -8,12 +8,12 @@ echo "Building BootstrapVue ${BV_VERSION}"
 echo ''
 
 echo 'Generating icon source files...'
-yarn jiti ./scripts/create-icons || exit 1
+npx jiti ./scripts/create-icons || exit 1
 echo 'done.'
 echo ''
 
 echo 'Checking plugin metadata...'
-yarn jiti ./scripts/check-plugin-meta || exit 1
+npx jiti ./scripts/check-plugin-meta || exit 1
 echo 'Done.'
 echo ''
 
@@ -144,7 +144,7 @@ echo 'Done.'
 echo ''
 
 echo 'Building IDE auto-complete helper files...'
-yarn jiti ./scripts/create-web-types || exit 1
+npx jiti ./scripts/create-web-types || exit 1
 echo 'Done.'
 echo ''
 

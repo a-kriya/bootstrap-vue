@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from '@vue/compat'
 import { mergeData } from 'vue-functional-data-merge'
 
 // --- Constants ---
@@ -22,7 +22,7 @@ const ALLOWED_FIELDS_IN_DATA = [
   'slot',
   'key',
   'ref',
-  'refInFor'
+  'refInFor',
 ]
 
 let extend = Vue.extend.bind(Vue)
@@ -33,25 +33,35 @@ if (isVue3) {
   const originalVModelDynamicCreated = Vue.vModelDynamic.created
   const originalVModelDynamicBeforeUpdate = Vue.vModelDynamic.beforeUpdate
 
-  // See https://github.com/vuejs/vue-next/pull/4121 for details
-  Vue.vModelDynamic.created = function(el, binding, vnode) {
+  let assignSymbol
+
+  // https://github.com/vuejs/vue-next/pull/4121
+  // https://github.com/bootstrap-vue/bootstrap-vue/issues/7181
+  Vue.vModelDynamic.created = function (el, binding, vnode) {
     originalVModelDynamicCreated.call(this, el, binding, vnode)
-    if (!el._assign) {
-      el._assign = () => {}
+    if (!assignSymbol) {
+      assignSymbol = Object.getOwnPropertySymbols(el).find((s) => s.description === '_assign')
+    }
+    if (!el[assignSymbol]) {
+      el[assignSymbol] = function () {}
     }
   }
-  Vue.vModelDynamic.beforeUpdate = function(el, binding, vnode) {
+  Vue.vModelDynamic.beforeUpdate = function (el, binding, vnode) {
     originalVModelDynamicBeforeUpdate.call(this, el, binding, vnode)
-    if (!el._assign) {
-      el._assign = () => {}
+    if (!assignSymbol) {
+      assignSymbol = Object.getOwnPropertySymbols(el).find((s) => s.description === '_assign')
+    }
+    if (!el[assignSymbol]) {
+      el[assignSymbol] = function () {}
     }
   }
+
   extend = function patchedBootstrapVueExtend(definition) {
     if (typeof definition === 'object' && definition.render && !definition.__alreadyPatched) {
       const originalRender = definition.render
       definition.__alreadyPatched = true
-      definition.render = function(h) {
-        const patchedH = function(tag, dataObjOrChildren, rawSlots) {
+      definition.render = function (h) {
+        const patchedH = function (tag, dataObjOrChildren, rawSlots) {
           const slots =
             rawSlots === undefined
               ? []
@@ -71,7 +81,7 @@ if (isVue3) {
           const normalizedData = {
             ...restData,
             attrs,
-            props: isTag ? {} : props
+            props: isTag ? {} : props,
           }
           if (tag === 'router-link' && !normalizedData.slots && !normalizedData.scopedSlots) {
             // terrible workaround to fix router-link rendering with compat vue-router
@@ -85,9 +95,9 @@ if (isVue3) {
           const patchedCtx = { ...ctx }
           patchedCtx.data = {
             attrs: { ...(ctx.data.attrs || {}) },
-            props: { ...(ctx.data.props || {}) }
+            props: { ...(ctx.data.props || {}) },
           }
-          Object.keys(ctx.data || {}).forEach(key => {
+          Object.keys(ctx.data || {}).forEach((key) => {
             if (ALLOWED_FIELDS_IN_DATA.includes(key)) {
               patchedCtx.data[key] = ctx.data[key]
             } else if (key in ctx.props) {
@@ -102,7 +112,7 @@ if (isVue3) {
 
           if (
             children &&
-            Object.keys(patchedCtx.children).filter(k => !IGNORED_CHILDREN_KEYS.includes(k))
+            Object.keys(patchedCtx.children).filter((k) => !IGNORED_CHILDREN_KEYS.includes(k))
               .length === 0
           ) {
             delete patchedCtx.children
