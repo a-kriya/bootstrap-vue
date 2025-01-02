@@ -1,5 +1,5 @@
 // --- Modals ---
-import Vue, { VNode } from 'vue'
+import Vue, { VNode } from '@vue/compat'
 import { BvPlugin, BvComponent, BvEvent } from '../../'
 
 // Modal plugin

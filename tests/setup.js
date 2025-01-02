@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import Vue from 'vue'
+import Vue from '@vue/compat'
 import * as VTU from '@vue/test-utils'
 import { installCompat as installVTUCompat, fullCompatConfig } from 'vue-test-utils-compat'
 

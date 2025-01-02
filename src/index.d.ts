@@ -1,4 +1,4 @@
-import Vue, { Component, PluginFunction, PluginObject } from 'vue'
+import Vue, { Component, PluginFunction, PluginObject } from '@vue/compat'
 
 // Plugin Config Options
 export type BvConfigComponentOptionValue =

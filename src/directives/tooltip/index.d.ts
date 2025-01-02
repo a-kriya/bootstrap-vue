@@ -1,7 +1,7 @@
 //
 // VBTooltip
 //
-import Vue, { DirectiveOptions } from 'vue'
+import Vue, { DirectiveOptions } from '@vue/compat'
 import { BvPlugin } from '../../'
 
 // Plugin

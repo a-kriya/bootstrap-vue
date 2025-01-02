@@ -4,8 +4,9 @@ import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import { camelCase } from 'lodash'
-import { name, dependencies } from '../package.json'
+import { dependencies } from '../package.json'
 
+const name = 'bootstrap-vue'
 const bannerComment = require('./banner')
 
 const bannerIconsComment = bannerComment.replace('* BootstrapVue', '* BootstrapVueIcons')
@@ -14,7 +15,7 @@ const base = path.resolve(__dirname, '..')
 const src = path.resolve(base, 'src')
 const dist = path.resolve(base, 'dist')
 
-const externals = ['vue', ...Object.keys(dependencies)]
+const externals = ['vue', '@vue/compat', ...Object.keys(dependencies)]
 
 // Libs in `external` will not be bundled to dist, since they
 // are expected to be provided later.
@@ -26,7 +27,11 @@ const externalExcludes = ['popper.js', 'portal-vue', 'vue-functional-data-merge'
 const baseConfig = {
   input: path.resolve(src, 'index.js'),
   external: externals,
-  plugins: [resolve({ external: ['vue'] }), commonjs(), babel({ exclude: 'node_modules/**' })]
+  plugins: [
+    resolve({ external: ['vue', '@vue/compat'] }),
+    commonjs(),
+    babel({ exclude: 'node_modules/**' })
+  ]
 }
 
 // Ensure dist directory exists

@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from '@vue/compat';
 
 <% if (!options.treeShake) { %>
 <%   if (options.icons) { %>

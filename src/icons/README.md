@@ -50,7 +50,7 @@ i.e icon `'alert-circle-fill'` is exported as `BIconAlertCircleFill`, icon `'x'`
 **Importing all icons:**
 
 ```js
-import { Vue } from 'vue'
+import { Vue } from '@vue/compat'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
@@ -60,7 +60,7 @@ Vue.use(BootstrapVueIcons)
 Or
 
 ```js
-import { Vue } from 'vue'
+import { Vue } from '@vue/compat'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
@@ -72,7 +72,7 @@ Vue.use(IconsPlugin)
 Making them globally available:
 
 ```js
-import { Vue } from 'vue'
+import { Vue } from '@vue/compat'
 import { BootstrapVue, BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
