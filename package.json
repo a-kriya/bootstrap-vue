@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-vue",
-  "version": "2.23.1",
+  "version": "3.0.0-alpha.0",
   "description": "With more than 85 components, over 45 available plugins, several directives, and 1000+ icons, BootstrapVue provides one of the most comprehensive implementations of the Bootstrap v4 component and grid system available for Vue.js v2.6, complete with extensive and automated WAI-ARIA accessibility markup.",
   "main": "./dist/bootstrap-vue.common.js",
   "web": "./dist/bootstrap-vue.js",
@@ -36,7 +36,7 @@
     "lint": "eslint --ext .js,.md,.vue ./",
     "prepare": "husky && patch-package && npm run build",
     "pretty": "prettier --write '**/*.{js,json,md,scss,ts,vue}'",
-    "release": "npm run pretty && npm run test && npm run build && npm run release-notes && standard-version",
+    "release": "npm run pretty && npm run test && npm run build && npm run release-notes && standard-version --prerelease alpha",
     "release-notes": "jiti ./scripts/release-notes",
     "test": "npm run test:unit",
     "test:unit": "jest",

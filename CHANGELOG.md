@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+## [3.0.0-alpha.0](https://github.com/bootstrap-vue/bootstrap-vue/compare/v2.23.1...v3.0.0-alpha.0) (2025-01-02)
+
+### ⚠ BREAKING CHANGES
+
+- switch to vue-router v4
+- switch to vue 3 migration build and from yarn to npm
+
+### Features
+
+- switch to vue 3 migration build and from yarn to npm
+  ([874292b](https://github.com/bootstrap-vue/bootstrap-vue/commit/874292b275bb7a6a53cd8e6b1e1b316e812127a7))
+- switch to vue-router v4
+  ([11b660b](https://github.com/bootstrap-vue/bootstrap-vue/commit/11b660b32e84d5c67c748e8fc7f0170a6cc68d95))
+
+### Bug Fixes
+
+- **b-button:** add aria-disabled attribute when explicitly set
+  ([#7190](https://github.com/bootstrap-vue/bootstrap-vue/issues/7190))
+  ([503c74f](https://github.com/bootstrap-vue/bootstrap-vue/commit/503c74fed8c2bfe08b1f344045ebb19aad331848))
+- use patched portal-vue@2.x.x instead of v3
+  ([78dc69d](https://github.com/bootstrap-vue/bootstrap-vue/commit/78dc69d61920ecbdac1dd4df38bd565666998cec))
+
 ## [2.23.1](https://github.com/bootstrap-vue/bootstrap-vue/compare/v2.23.0...v2.23.1) (2022-10-26)
 
 ### Bug Fixes
