@@ -6,16 +6,25 @@
 <br>
 
 <p align="center">
+  A fork of BootstrapVue focusing on maintaining compatibility with the latest migration build of Vue 3.
+</p>
+
+<p align="center">
   With more than 85 components, over 45 available plugins, several directives, and 1000+ icons,
-  BootstrapVue provides one of the most comprehensive implementations of the Bootstrap v4.5
-  component and grid system available for Vue.js v2.6, complete with extensive and automated
+  BootstrapVue provides one of the most comprehensive implementations of the Bootstrap v4.6
+  component and grid system available for Vue 3, complete with extensive and automated
   WAI-ARIA accessibility markup.
 </p>
+
+```properties
+npm i @kriya/bootstrap-vue
+```
+
 <br>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@kriya/bootstrap-vue">
-    <img src="https://flat.badgen.net/npm/v/@kriya/bootstrap-vue/alpha" alt="Current version">
+    <img src="https://flat.badgen.net/npm/v/@kriya/bootstrap-vue" alt="Current version">
   </a>
   <a href="https://getbootstrap.com/docs/4.6/">
     <img src="https://flat.badgen.net/badge/bootstrap/4.6.x/563d7c" alt="Bootstrap version">
@@ -31,10 +40,5 @@
 <h2 align="center">Links</h2>
 
 - 📘 [Documentation](https://bootstrap-vue.org)
-- 🔨 [Release Notes](https://bootstrap-vue.org/docs/reference/changelog)
+- 🔨 [Release Notes](./CHANGELOG.md)
 - 💬 [Discord Chat](https://discord.gg/j2Mtcny)
-- 🐦 [Twitter](https://twitter.com/BootstrapVue)
-
-<h2 align="center">License</h2>
-
-Released under the MIT [License](./LICENSE). Copyright (c) BootstrapVue.

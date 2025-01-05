@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
-## [3.0.0-alpha.0](https://github.com/bootstrap-vue/bootstrap-vue/compare/v2.23.1...v3.0.0-alpha.0) (2025-01-02)
+## [3.0.0-alpha.1](https://github.com/bootstrap-vue/bootstrap-vue/compare/v2.23.1...v3.0.0-alpha.1) (2025-01-02)
 
 ### ⚠ BREAKING CHANGES
 
