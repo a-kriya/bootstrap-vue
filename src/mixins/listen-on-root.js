@@ -21,7 +21,7 @@ export const listenOnRootMixin = extend({
     // where value is an array of callbacks
     this[PROP] = {}
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Unregister all registered listeners
     keys(this[PROP] || {}).forEach(event => {
       this[PROP][event].forEach(callback => {
@@ -54,7 +54,7 @@ export const listenOnRootMixin = extend({
      * does not clear the callback
      *
      * When registering a `$root` listener, it also registers the listener
-     * to be removed in the component's `beforeDestroy()` hook
+     * to be removed in the component's `beforeUnmount()` hook
      *
      * @param {string} event
      * @param {function} callback
@@ -74,7 +74,7 @@ export const listenOnRootMixin = extend({
      * does not clear the callback
      *
      * When registering a `$root` listener, it also registers the listener
-     * to be removed in the component's `beforeDestroy()` hook
+     * to be removed in the component's `beforeUnmount()` hook
      *
      * @param {string} event
      * @param {function} callback

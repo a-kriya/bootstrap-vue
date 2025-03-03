@@ -116,7 +116,7 @@ export const formTextMixin = extend({
     // Create private non-reactive props
     this.$_inputDebounceTimer = null
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearDebounce()
   },
   methods: {

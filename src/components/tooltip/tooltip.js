@@ -171,7 +171,7 @@ export const BTooltip = /*#__PURE__*/ extend({
     // Done in a `$nextTick()` to ensure slot(s) have updated
     this.$nextTick(this.updateContent)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Shutdown our local event listeners
     this.$off(EVENT_NAME_OPEN, this.doOpen)
     this.$off(EVENT_NAME_CLOSE, this.doClose)

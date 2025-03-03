@@ -51,7 +51,7 @@ export const clickOutMixin = extend({
       )
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     eventOff(
       this.clickOutElement,
       this.clickOutEventName,

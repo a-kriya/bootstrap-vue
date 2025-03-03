@@ -47,7 +47,7 @@ const BVTransporterTarget = /*#__PURE__*/ extend({
       updatedNodes: vm.nodes
     }
   },
-  destroyed() {
+  unmounted() {
     removeNode(this.$el)
   },
   render(h) {
@@ -108,7 +108,7 @@ const BVTransporterVue2 = /*#__PURE__*/ extend({
     // Since all slots in Vue 2.6.x are always functions
     this.updateTarget()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.unmountTarget()
     this.$_defaultFn = null
   },

@@ -129,7 +129,7 @@ export const BAlert = /*#__PURE__*/ extend({
     this.countDown = parseCountDown(show)
     this.localShow = parseShow(show)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearCountDownInterval()
   },
   methods: {

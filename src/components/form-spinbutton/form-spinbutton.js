@@ -259,7 +259,7 @@ export const BFormSpinbutton = /*#__PURE__*/ extend({
     this.$_autoRepeatTimer = null
     this.$_keyIsDown = false
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearRepeat()
   },
   /* istanbul ignore next */

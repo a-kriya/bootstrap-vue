@@ -557,7 +557,7 @@ Easily create a loading button:
         timeout: null
       }
     },
-    beforeDestroy() {
+    beforeUnmount() {
       this.clearTimeout()
     },
     methods: {
@@ -630,7 +630,7 @@ In this example, we obscure the input and button:
         timeout: null
       }
     },
-    beforeDestroy() {
+    beforeUnmount() {
       this.clearTimeout()
     },
     methods: {
@@ -751,7 +751,7 @@ This example also demonstrates additional accessibility markup.
         interval: null
       }
     },
-    beforeDestroy() {
+    beforeUnmount() {
       this.clearInterval()
     },
     methods: {

@@ -550,7 +550,7 @@ export const BCalendar = extend({
   deactivated() {
     this.setLive(false)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.setLive(false)
   },
   methods: {

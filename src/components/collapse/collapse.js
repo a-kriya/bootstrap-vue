@@ -139,7 +139,7 @@ export const BCollapse = /*#__PURE__*/ extend({
     }
     this.emitSync()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Trigger state emit if needed
     this.show = false
     if (this.isNav && IS_BROWSER) {

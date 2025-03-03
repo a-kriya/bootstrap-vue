@@ -73,7 +73,7 @@ const plugin = Vue => {
     name: NAME_MSG_BOX,
     extends: BModal,
     mixins: [useParentMixin],
-    destroyed() {
+    unmounted() {
       // Make sure we not in document any more
       if (this.$el && this.$el.parentNode) {
         this.$el.parentNode.removeChild(this.$el)

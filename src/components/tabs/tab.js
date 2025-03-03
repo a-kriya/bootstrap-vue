@@ -130,7 +130,7 @@ export const BTab = /*#__PURE__*/ extend({
       updateButton(this)
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Inform `<b-tabs>` of our departure
     this.unregisterTab()
   },

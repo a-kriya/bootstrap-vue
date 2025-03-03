@@ -330,7 +330,7 @@ export const BFormFile = /*#__PURE__*/ extend({
       this.$_form = $form
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     const $form = this.$_form
     if ($form) {
       eventOff($form, 'reset', this.reset, EVENT_OPTIONS_PASSIVE)

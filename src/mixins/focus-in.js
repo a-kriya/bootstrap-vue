@@ -31,7 +31,7 @@ export const focusInMixin = extend({
       eventOn(this.focusInElement, 'focusin', this._focusInHandler, EVENT_OPTIONS_NO_CAPTURE)
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     eventOff(this.focusInElement, 'focusin', this._focusInHandler, EVENT_OPTIONS_NO_CAPTURE)
   },
   methods: {

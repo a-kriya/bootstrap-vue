@@ -304,7 +304,7 @@ export const BTime = /*#__PURE__*/ extend({
   deactivated() {
     this.setLive(false)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.setLive(false)
   },
   methods: {

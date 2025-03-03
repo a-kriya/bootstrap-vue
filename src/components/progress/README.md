@@ -240,7 +240,7 @@ Use background variants to change the appearance of individual progress bars. Th
         this.bars.forEach(bar => (bar.value = 25 + Math.random() * 75))
       }, 2000)
     },
-    beforeDestroy() {
+    beforeUnmount() {
       clearInterval(this.timer)
       this.timer = null
     }

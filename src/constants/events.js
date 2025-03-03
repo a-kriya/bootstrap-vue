@@ -56,8 +56,8 @@ export const EVENT_NAME_TOGGLE = 'toggle'
 export const EVENT_NAME_UNPAUSED = 'unpaused'
 export const EVENT_NAME_UPDATE = 'update'
 
-export const HOOK_EVENT_NAME_BEFORE_DESTROY = isVue3 ? 'vnodeBeforeUnmount' : 'hook:beforeDestroy'
-export const HOOK_EVENT_NAME_DESTROYED = isVue3 ? 'vNodeUnmounted' : 'hook:destroyed'
+export const HOOK_EVENT_NAME_BEFORE_DESTROY = isVue3 ? 'vue:beforeUnmount' : 'hook:beforeDestroy'
+export const HOOK_EVENT_NAME_DESTROYED = isVue3 ? 'vue:unmounted' : 'hook:destroyed'
 
 export const MODEL_EVENT_NAME_PREFIX = 'update:'
 

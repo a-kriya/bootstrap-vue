@@ -21,7 +21,7 @@ describe('v-b-toggle directive', () => {
       created() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: '<button v-b-toggle.test>button</button>'
@@ -67,7 +67,7 @@ describe('v-b-toggle directive', () => {
       mounted() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: `<button v-b-toggle="'test'">button</button>`
@@ -111,7 +111,7 @@ describe('v-b-toggle directive', () => {
       mounted() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: `<button v-b-toggle:test>button</button>`
@@ -155,7 +155,7 @@ describe('v-b-toggle directive', () => {
       created() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: '<a href="#test" v-b-toggle>link</a>'
@@ -207,7 +207,7 @@ describe('v-b-toggle directive', () => {
       mounted() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: `<button v-b-toggle="target">button</button>`
@@ -286,7 +286,7 @@ describe('v-b-toggle directive', () => {
       mounted() {
         this.$root.$on(EVENT_TOGGLE, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_TOGGLE, spy)
       },
       template: '<span v-b-toggle.test>{{ text }}</span>'

@@ -43,7 +43,7 @@ export const props = sortKeys({
 export const tbodyMixin = extend({
   mixins: [tbodyRowMixin],
   props,
-  beforeDestroy() {
+  beforeUnmount() {
     this.$_bodyFieldSlotNameCache = null
   },
   methods: {

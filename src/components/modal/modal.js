@@ -373,7 +373,7 @@ export const BModal = /*#__PURE__*/ extend({
       this.$nextTick(this.show)
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Ensure everything is back to normal
     modalManager.unregisterModal(this)
     this.setObserver(false)

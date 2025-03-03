@@ -207,7 +207,7 @@ export const BCarousel = /*#__PURE__*/ extend({
     // Observe child changes so we can update slide list
     this.setObserver(true)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearInterval()
     this.clearAnimationTimeout()
     this.clearTouchTimeout()

@@ -188,7 +188,7 @@ export const dropdownMixin = extend({
   mounted() {
     registerElementToInstance(this.$el, this)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.visible = false
     this.whileOpenListen(false)
     this.destroyPopper()

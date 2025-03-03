@@ -292,7 +292,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
     // the tooltip/popover if it is showing
     this.forceHide()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Remove all handler/listeners
     this.unListen()
     this.setWhileOpenListeners(false)

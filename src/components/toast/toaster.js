@@ -87,14 +87,14 @@ export const BToaster = /*#__PURE__*/ extend({
       this.doRender = true
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // Let toasts made with `this.$bvToast.toast()` know that this toaster
     // is being destroyed and should should also destroy/hide themselves
     if (this.doRender) {
       this.emitOnRoot(getRootEventName(NAME_TOASTER, EVENT_NAME_DESTROYED), this.name)
     }
   },
-  destroyed() {
+  unmounted() {
     // Remove from DOM if needed
     const { $el } = this
     /* istanbul ignore next: difficult to test */

@@ -131,7 +131,7 @@ export const BFormInput = /*#__PURE__*/ extend({
     /* istanbul ignore next */
     this.setWheelStopper(this.noWheel)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     /* istanbul ignore next */
     this.setWheelStopper(false)
   },

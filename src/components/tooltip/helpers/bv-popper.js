@@ -164,10 +164,10 @@ export const BVPopper = /*#__PURE__*/ extend({
     // TODO: Should this be a watcher on `this.popperConfig` instead?
     this.updatePopper()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.destroyPopper()
   },
-  destroyed() {
+  unmounted() {
     // Make sure template is removed from DOM
     const el = this.$el
     el && el.parentNode && el.parentNode.removeChild(el)

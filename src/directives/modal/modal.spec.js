@@ -13,7 +13,7 @@ describe('v-b-modal directive', () => {
       mounted() {
         this.$root.$on(EVENT_SHOW, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_SHOW, spy)
       },
       template: '<button v-b-modal.test>button</button>'
@@ -48,7 +48,7 @@ describe('v-b-modal directive', () => {
       mounted() {
         this.$root.$on(EVENT_SHOW, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_SHOW, spy)
       },
       template: '<a href="#" v-b-modal.test>{{ text }}</a>'
@@ -86,7 +86,7 @@ describe('v-b-modal directive', () => {
       mounted() {
         this.$root.$on(EVENT_SHOW, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_SHOW, spy)
       },
       template: '<span v-b-modal.test>{{ text }}</span>'
@@ -130,7 +130,7 @@ describe('v-b-modal directive', () => {
       mounted() {
         this.$root.$on(EVENT_SHOW, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_SHOW, spy)
       },
       template: '<span v-b-modal.test>{{ text }}</span>'
@@ -167,7 +167,7 @@ describe('v-b-modal directive', () => {
       mounted() {
         this.$root.$on(EVENT_SHOW, spy)
       },
-      beforeDestroy() {
+      beforeUnmount() {
         this.$root.$off(EVENT_SHOW, spy)
       },
       template: '<span tabindex="0" v-b-modal.test>{{ text }}</span>'

@@ -69,7 +69,7 @@ const plugin = Vue => {
     name: NAME_TOAST_POP,
     extends: BToast,
     mixins: [useParentMixin],
-    destroyed() {
+    unmounted() {
       // Make sure we not in document any more
       const { $el } = this
       if ($el && $el.parentNode) {

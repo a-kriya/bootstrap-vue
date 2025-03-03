@@ -205,7 +205,7 @@ export const BToast = /*#__PURE__*/ extend({
       }
     })
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearDismissTimer()
   },
   methods: {

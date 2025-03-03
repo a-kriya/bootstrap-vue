@@ -293,7 +293,7 @@ export const BSidebar = /*#__PURE__*/ extend({
   activated() {
     this.emitSync()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.localShow = false
     this.$_returnFocusEl = null
   },

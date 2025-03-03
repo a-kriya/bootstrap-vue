@@ -166,7 +166,7 @@ export const filteringMixin = extend({
       this.isFiltered = Boolean(this.localFilter)
     })
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.clearFilterTimer()
   },
   methods: {

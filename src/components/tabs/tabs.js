@@ -311,7 +311,7 @@ export const BTabs = /*#__PURE__*/ extend({
   mounted() {
     this.setObserver(true)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.setObserver(false)
     // Ensure no references to child instances exist
     this.tabs = []

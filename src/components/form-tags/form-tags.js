@@ -283,7 +283,7 @@ export const BFormTags = /*#__PURE__*/ extend({
       eventOn($form, 'reset', this.reset, EVENT_OPTIONS_PASSIVE)
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     const $form = closest('form', this.$el)
     if ($form) {
       eventOff($form, 'reset', this.reset, EVENT_OPTIONS_PASSIVE)
