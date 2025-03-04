@@ -1,6 +1,6 @@
 {
   "name": "@kriya/bootstrap-vue",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.3",
   "description": "With more than 85 components, over 45 available plugins, several directives, and 1000+ icons, BootstrapVue provides one of the most comprehensive implementations of the Bootstrap v4 component and grid system available for Vue.js v2.6, complete with extensive and automated WAI-ARIA accessibility markup.",
   "main": "./dist/bootstrap-vue.common.js",
   "web": "./dist/bootstrap-vue.js",
@@ -10,7 +10,7 @@
   "sass": "./src/index.scss",
   "style": "./dist/bootstrap-vue.css",
   "license": "MIT",
-  "repository": "a-kriya/bootstrap-vue",
+  "repository": "github:a-kriya/bootstrap-vue",
   "homepage": "https://bootstrap-vue.org",
   "types": "./src/index.d.ts",
   "web-types": "./dist/web-types.json",
